@@ -1,0 +1,38 @@
+/* -------------------------------------------
+    Icon Box
+---------------------------------------------- */
+
+.icon-box {
+    .icon-box-title {
+        margin: 0 0 .7rem;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        letter-spacing: -.025em;
+        line-height: 1.6;
+    }
+    p {
+        margin: 0;
+        font-size: 1.4rem;
+        line-height: 1.72;
+        letter-spacing: 0;
+        color: #666;
+    }
+    i::before {
+        margin: 0;  
+    }
+
+    .icon-box-content {
+        text-align: center;
+    }
+}
+
+.icon-box-icon {
+    display: inline-block;
+    margin-bottom: 2.4rem;
+    font: {
+        size: 3.5rem;
+        weight: 600;
+    }
+    line-height: 0;
+    color: #222;
+}

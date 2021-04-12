@@ -1,0 +1,158 @@
+/* 
+Demo 7 
+*/
+@include set(
+    (
+        base: (
+            _container-width: 1580px,
+            _container-fluid-width: 100%,
+            title: (
+                font-size: 2.4rem,
+                border: (
+                    height: 1px
+                )
+            )
+        ),
+        header: (
+            middle: (
+                padding-top: 2.6rem,
+                padding-bottom: 2.6rem
+            )
+        ),
+        product: (
+            body: (
+                padding-top: .9rem
+            ),
+            category: (
+                margin-bottom: .6rem
+            ),
+            name: (
+                margin-bottom: .8rem,
+                font-family: $font-family,
+                font-size: 1.6rem,
+                line-height: 1.2,
+                color: #444
+            ),
+            price: (
+                margin-bottom: 1.2rem,
+                font-family: $font-family,
+                font-size: 1.6rem,
+                line-height: 1,
+                color: $primary-color
+            ),
+            rating: (
+                margin-bottom: 2rem
+            ),
+            variation: (
+                width: 2rem,
+                height: 2rem,
+                // border: false,
+                color: #999,
+                transition: 'border .3s, box-shadow .3s, outline .3s',
+                _active-border: 1px solid $border-color,
+                _active-outline: false,
+                _active-box-shadow: inset 0 0 0 2px #fff,
+                _color-border: 0 solid $border-color
+            )
+        ),
+        post: (
+            title: (
+                margin-bottom: .8rem,
+                font-size: 1.6rem,
+                letter-spacing: -.025em,
+                color: #444
+            ),
+            content: (
+                margin-bottom: .8rem,
+                font-family: $font-family,
+                font-size: 1.6rem,
+                line-height: 1.6875,
+                letter-spacing: -0.01em,
+                color: #999
+            ),
+            body: (
+                padding: 1.6rem 0 2.5rem
+            )
+        ),
+        product-single: (
+            name: (
+                font-size: 2.4rem,
+                font-weight: 400
+            ),
+            price: (
+                color: $primary-color,
+                font-size: 2.4rem,
+                font-weight: false,
+                letter-spacing: -.01em
+            ),
+            old-price: (
+                font-size: false,
+                font-weight: false,
+                text-decoration: none,
+            ),
+            product-meta: (
+                color: #444,
+                font-size: false,
+            ),
+            label: (
+                color: false
+            ),
+            variation: (
+                width: 3rem,
+                height: 3rem
+            ),
+            rating: (
+                color: false,
+                _review-color: false,
+            )
+        ),
+        form: (
+            input-group: (
+                color: #999,
+                border-color: $border-color
+            )
+        ),
+        footer: (
+            background: #1a1f20,
+
+            middle: (
+                padding: 4rem 0 .7rem,
+                widget: (
+                    title: (
+                        margin-bottom: 0,
+                        font-size: 1.6rem,
+                    ),
+                    body: (
+                        padding: .7rem 0 0
+                    )
+                )
+            ),
+            bottom: (
+                padding-top: 3.55rem,
+                padding-bottom: 3.55rem
+            ),
+            social-link: (
+                border: 1px solid #999,
+                line-height: 2.8rem
+            ),
+            newsletter: (
+                title: (
+                    margin-bottom: .4rem
+                ),
+                desc: (
+                    margin-bottom: 1.5rem
+                ),
+                form: (
+                    max-width: 60rem
+                ),
+                btn: (
+                    width: 10.7rem
+                ),
+                input: (
+                    color: #999,
+                    background: #f4f4f4
+                )
+            )
+        )
+    )
+);

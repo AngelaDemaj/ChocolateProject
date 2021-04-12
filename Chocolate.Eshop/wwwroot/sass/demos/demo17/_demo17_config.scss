@@ -1,0 +1,79 @@
+/* 
+Demo 17 Variables
+*/
+@include set(
+    (
+        base: (
+            title: (
+                color: #444
+            )
+        ),
+        header: (
+            top: (
+                background: #37c,
+            ),
+            middle: (
+                color: #444,
+                font-weight: 700,
+            ),
+            bottom: (
+                color: #444,
+                border-top: 1px solid #e1e1e1,
+                border-bottom: 1px solid #e1e1e1,
+                font-weight: 700,
+            ),
+        ),
+        menu: (
+            ancestor: (
+                padding: 2rem 0,
+            ),
+        ),
+        product: (
+            body: (
+                padding-bottom: .8rem,
+            ),
+            price: (
+                color: $primary-color,
+            ),
+        ),
+        footer: (
+            font-family: $font-family,
+            middle: (
+                padding: 4.7rem 0 0,
+                font-family: $font-family,
+                border-color: #282828,
+                widget: (
+                    margin-bottom: 2.9rem,
+                    title: (
+                        margin-bottom: .6rem,
+                        font-weight: 600,
+                    ),
+                    body: (
+                        padding: 0,
+                        color: #666,
+                    ),
+                    list-item: (
+                        margin-bottom: 1.1rem
+                    )
+                ),
+            ),
+            bottom: (
+                padding: 3.5rem 0
+            ),
+            copyright: (
+                font-family: $font-family,
+                letter-spacing: .005em,
+                color: #777,
+            ),
+            newsletter: (
+                title: (
+                    margin-bottom: .9rem
+                ),
+                desc: (
+                    line-height: 1.54,
+                    color: #666
+                )
+            )
+        ),
+    )
+)

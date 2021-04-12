@@ -1,0 +1,138 @@
+﻿@model Chocolate.DataAccess.ViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+@section Styles{
+
+}
+<div class="page-header" style="height:auto; background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+    <hr />
+</div>
+<main class="main mt-6">
+
+    <div class="page-content mb-10">
+        <div class="container-fluid">
+            <div class="row gutter-lg">
+                <aside class="col-lg-3 col-xxl-2 right-sidebar sidebar-fixed sticky-sidebar-wrapper">
+                    <div class="sidebar-overlay">
+                        <a class="sidebar-close" href="#"><i class="d-icon-times"></i></a>
+                    </div>
+                    <a href="#" class="sidebar-toggle"><i class="fas fa-chevron-left"></i></a>
+                    <div class="sidebar-content">
+                        <div class="sticky-sidebar">
+                            <div class="service-list mb-4">
+                                <div class="icon-box icon-box-side icon-box3">
+                                    <span class="icon-box-icon">
+                                        <i class="d-icon-secure"></i>
+                                    </span>
+                                    <div class="icon-box-content">
+                                        <h4 class="icon-box-title">Secured Payment</h4>
+                                        <p>We ensure secure payment!</p>
+                                    </div>
+                                </div>
+                                <div class="icon-box icon-box-side icon-box1">
+                                    <span class="icon-box-icon">
+                                        <i class="d-icon-truck"></i>
+                                    </span>
+                                    <div class="icon-box-content">
+                                        <h4 class="icon-box-title">Free Shipping</h4>
+                                        <p>On all US orders above $99</p>
+                                    </div>
+                                </div>
+                                <div class="icon-box icon-box-side icon-box2">
+                                    <span class="icon-box-icon">
+                                        <i class="d-icon-money"></i>
+                                    </span>
+                                    <div class="icon-box-content">
+                                        <h4 class="icon-box-title">Money Back guarantee</h4>
+                                        <p>Any back within 30 days</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <div class="col-lg-9 col-xxl-10">
+                    <div class="product product-single row">
+                        <div class="col-md-6">
+                            <div class="product-gallery product-gallery-sticky">
+                                <div class=owl-carousel owl-theme owl-nav-inner row cols-1">
+                                    <figure class="product-image">
+                                        <img src="@Model.ImageString"
+                                             alt=@Model.Name width="400" height="500">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-details">
+
+                                <h1 class="product-name">@Model.Name</h1>
+
+                                <div class="product-price">@Model.Price.ToString("0.00") &euro;</div>
+
+                                <hr class="product-divider">
+
+                                <div class="product-form product-qty">
+                                    <label>QTY:</label>
+                                    <div class="product-form-group">
+                                        <div class="input-group">
+                                            <button class="quantity-minus d-icon-minus"></button>
+                                            <input id="quantity" class="quantity form-control" type="number" min="1"
+                                                   max="1000000">
+                                            <button class="quantity-plus d-icon-plus"></button>
+                                        </div>
+                                        <a asp-controller="Cart" asp-action="AddProductToCart" id="@Model.Id" class="btn-product btn-cart">
+                                            <i class="d-icon-bag"></i>Add
+                                            To
+                                            Cart
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="tab tab-nav-simple product-tabs">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active">Description</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active in" id="product-tab-description">
+                                            <p>@Model.Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="product-divider mb-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section Scripts{
+
+    <script>
+        $(".btn-cart").click(function () {
+            var productId = $(this).attr("id");
+            var quantity = $("#quantity").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/api/carts",
+                data: JSON.stringify({ 'productId': productId, 'quantity': quantity }),
+                dataType: "json",
+                contentType: "application/json"
+            }).done(function () {
+                toastr.success("Product added successfully");
+            }).fail(function (e) {
+                toastr.success("Product added successfully");
+            });
+
+        });
+    </script>
+}

@@ -1,0 +1,99 @@
+/* 
+Demo 27 Variables
+*/
+@include set(
+	(
+		base: (
+			title: (
+				margin-bottom: 1.9rem,
+				letter-spacing: 0,
+				border: (
+					width: 1px,
+					color: #e1e1e1
+				),
+				_grey-section-bg: #f7f8fc
+			),
+		),
+		header: (
+			_link-active-color: #fff,
+			top: (
+				background: $primary-color,
+				color: rgba(255,255,255,.8),
+				border-bottom: 1px solid rgba(255,255,255,.15),
+			),
+			middle: (
+				padding-top: 2.5rem,
+				padding-bottom: 2.5rem,
+				font-weight: 600,
+				color: #fff,
+				background: $primary-color
+			),
+			bottom: (
+				padding-top: 2.1rem,
+				padding-bottom: 2.1rem,
+				font-size: 1.3rem,
+				color: #777,
+			),
+			search: (
+				round: (
+					width: 59.4rem
+				)
+			),
+			cart: (
+				label: (
+					color: #fff,
+					price: (
+						color: inherit
+					),
+				),
+				count: (
+					color: #fff,
+					hover: (
+						color: $primary-color
+					)
+				),
+				icon: (
+					color: inherit,
+					hover: (
+						border-color: #fff,
+						background: #fff
+					)
+				)
+			)
+		),
+		post: (
+			body: (
+				padding: 1.9rem 0 1.5rem
+			),
+			info: (
+				margin-bottom: .7rem
+			),
+			title: (
+				margin-bottom: 1.5rem,
+				font-family: $second-font-family,
+				font-size: 1.4rem,
+				letter-spacing: 0
+			),
+			btn: (
+				_icon-gap: .6rem
+			)
+		),
+		product: (
+			price: (
+				color: $primary-color
+			),
+			name: (
+				color: #444
+			)
+		),
+		footer: (
+			letter-spacing: -.015em,
+			middle: (
+				padding: 4rem 0 0
+			),
+			copyright: (
+				color: #777
+			)
+		)
+	)
+)

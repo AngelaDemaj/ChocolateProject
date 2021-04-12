@@ -1,0 +1,496 @@
+/* -------------------------------------------
+    Shop Page
+        - Shop Banner
+
+        - Toolbox
+            (support toolbox, toolbox-left, toolbox-right)
+            (support label, select-box)
+        - Toolbox Item
+            (support full)
+        - Layout Button
+        - Select Menu
+            (support as sidebar's widget < 992px)
+            (support toggle)
+        - Select Items
+        - Toolbox Pagination
+        - Toolbox Horizontal
+        - Toolbox Navigation
+            (support as sidebar-fixed)
+            (please place sidebar before toolbox: to know sidebar's close status)
+---------------------------------------------- */
+
+// Shop Banner
+.shop-banner-default {
+    background-position-x: 40%;
+    padding: 7.8rem 1.5rem 7.8rem 9.1%;
+    .banner-subtitle { font-size: 2em; }
+    .banner-title { margin-bottom: 1.8rem; font-size: 4em; letter-spacing: .05em; }
+    p { font-size: 1.6rem; }
+}
+.shop-boxed-banner {
+    background-position-x: 40%;
+    padding: 7.8rem 1.5rem 7.8rem 6.7%;
+    .banner-subtitle { font-size: 2em; }
+    .banner-title { font-size: 4em; }
+    p { font-size: 1.6rem; line-height: 1.375; }
+}
+
+// Toolbox, Filter Clean Widget, Filter Price Widget
+.filter-actions,
+.toolbox,
+.toolbox-left,
+.toolbox-right,
+.toolbox-item,
+.toolbox-item-full {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+.filter-actions,
+.toolbox {
+    justify-content: space-between;
+}
+.toolbox {
+    font-size: 1.3rem; 
+    line-height: 1.5;   
+    padding: 3rem 0 1rem;
+    transition: padding .4s;
+    background-color: #fff;
+
+    &, &-left, &-right {
+        > *:not(:last-child) {
+            margin-right: 2rem;
+        }
+    }
+
+    label {
+        margin-right: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    select {
+        cursor: pointer;
+        padding-top: .85rem;
+        padding-bottom: .85rem;
+    }
+    .select-box .form-control {
+        color: #222;
+    }
+    .select-box::before {
+        font-size: 1rem;
+        right: 1rem;
+    }
+    
+    // ToolBox Sort
+    .toolbox-sort {
+        .form-control {
+            max-width: 15.2rem;
+            padding-left: 1.4rem;
+        }
+        &::before {
+            right: 1.4rem;
+        }
+    }
+    
+    .left-sidebar-toggle {
+        padding: .8em 1.04em;
+    }
+}
+.toolbox-item {
+    flex-wrap: nowrap;
+    margin-bottom: 1rem;
+}
+.toolbox-item-full {
+    flex-basis: 100%;
+}
+
+// Layout Button
+.btn-layout {
+    color: #dadada;
+    font-size: 19px;
+    margin: 0 0 1px 2px;
+    padding: 0 2px;
+
+    &:last-child {
+        padding-right: 0;
+    }
+
+    &:hover,
+    &.active {
+        color: #333;
+    }
+
+    & + & {
+        margin-left: 5px;
+    }
+}
+
+// Select Menu
+.select-menu {
+    color: #222;
+
+    &::before {
+        right: 1.25em;
+        font-size: 1.2rem;
+        margin-top: 1px;
+    }
+
+    ul, ul::before {
+        content: '';
+        position: absolute;
+        border: 1px solid $border-color-light;
+        width: 11px;
+    }
+
+    ul {
+        top: 100%;
+        z-index: 100;
+        width: 18rem;
+        margin-top: 1rem;
+        padding: 1rem 1.4rem 1rem;
+        background: #fff;
+        opacity: 0;
+        visibility: hidden;
+
+        a {
+            padding-left: 30px;
+        }
+
+        &::before {
+            top: -6px;
+            left: 22px;
+            height: 11px;
+            border-width: 1px 0 0 1px;
+            background: #fff;
+            transform: rotate(45deg);
+        }
+    }
+
+    &.opened > ul {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.select-menu select,
+.select-menu-toggle {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: .65em 3.05em .58em 1.07em;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.select-menu-toggle {
+    border-radius: 2px;
+}
+
+.select-menu {
+    select {
+        max-width: 17.2rem;
+        padding-right: 2.63em;
+    }
+}
+
+// Select Items
+.select-item {
+    padding: 5px .7rem 5px 1.2rem;
+    color: #222;
+    background: #eee;
+    letter-spacing: -.01em;
+
+    i {
+        padding: 6px;
+        margin-left: 5px;
+        font-size: 9px;
+        vertical-align: middle;
+    }
+}
+
+.select-items {
+    display: none;
+
+    .toolbox + & {
+        font-size: 1.2rem;
+        margin: 2px 0 1.8rem;
+    }
+
+    > * {
+        display: inline-block;
+        margin: 0 .8rem .5rem 0;
+    }
+
+    .filter-clean {
+        margin-left: 1.2rem;
+    }
+}
+
+// Toolbox Pagination
+.toolbox-pagination {
+    border-top: 1px solid #f4f4f4;
+    padding: 3rem 0 2rem;
+}
+
+// Toolbox Horizontal
+.toolbox-horizontal {
+    .show-info {
+        color: #999;
+        font-size: inherit;
+    }
+}
+
+// Navigation Style
+.toolbox-wrap {
+    display: flex;
+    flex-direction: column-reverse;
+    line-height: 1.3;
+
+    // Toolbox
+    .toolbox > * {
+        line-height: 37px;
+    }
+    .left-sidebar-toggle {
+        padding: 0 1em;
+        margin-right: 2rem;
+        font-weight: 600;
+        line-height: 33px;
+    }
+    .show-info {
+        color: #999;
+        span {
+            margin: 0 .5rem;
+        }
+    }
+    .toolbox-layout {
+        display: flex;
+    }
+
+    // select {
+    //     max-width: 16rem;
+    //     padding-left: 3px;
+    //     padding-right: 2.4em;
+    //     text-transform: uppercase;
+    //     font-weight: 600;
+    // }
+
+    option {
+        text-transform: none;
+    }
+    .toolbox-layout {
+        display: flex;
+    }
+
+    // Sidebar Content
+    .widget-title {
+        padding-bottom: 1.3rem;
+        border-top: 0;
+    }
+    .sidebar-fixed .sidebar-content {
+        padding-bottom: 0;
+    }
+}
+.sticky-toolbox.fixed {
+    position: fixed;
+    background-color: #fff;
+    padding: 1rem 2rem 0;
+}
+
+.sticky-toolbox.sticky-content {
+    transition: none;
+}
+
+@include mq(xs, max) {   
+    .sticky-toolbox.fixed {
+        padding: 1rem 1.5rem 0;
+    }
+}
+
+@include mq(sm, max) {
+    .toolbox-item {
+        label, > span, &.show-info {
+            display: none;
+        }
+    }
+
+    .toolbox-item.select-box {
+        margin-right: 0;   
+    }
+
+    .toolbox-item.select-box ~ .toolbox-item.right-sidebar-toggle {
+        margin-left: 0.5rem;   
+    }
+    
+    .toolbox-item.toolbox-layout {
+        display: none;
+    }
+
+    .toolbox  {
+        .toolbox-left, .left-sidebar-toggle {
+            margin-right: 0.5rem;
+        }
+
+        .toolbox-sort .form-control {
+            max-width: 13rem;
+        }
+    }
+
+    .toolbox-horizontal {
+        justify-content: flex-start;
+        flex-direction: row;
+
+        .toolbox-left {
+            margin-right: auto;
+        }
+
+        .toolbox-right {
+            margin-left: auto;
+        }
+
+        .toolbox-item.toolbox-show {
+            margin-right: 0;   
+        }
+    }
+    .toolbox-pagination {
+        flex-direction: column;
+
+        > .show-info {
+            margin-right: 0;
+        }
+
+        > *:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+@include mq(sm) {
+    .toolbox-horizontal {
+        .toolbox-left {
+            margin-right: auto;
+        }
+    }
+    // issue
+    .mr-sm-auto {
+        margin-right: auto!important;
+    }
+}
+
+@include mq(lg, max) {
+    // Shop Sidebar : Mobile
+    .toolbox {
+        .sidebar-fixed {
+            margin-right: 0;
+        }
+        .sidebar-content {
+            display: block;
+        }
+    }
+
+    // Shop Sidebar's Select Menu : Mobile
+    .sidebar-content {
+        .select-menu {
+            display: block;
+            margin: 0;
+            font-size: 1.4rem;
+
+            ul {
+                position: static;
+                width: 100%;
+                padding: 0;
+                border: 0;
+                color: #666;
+                margin: 0 0 1.1rem;
+                opacity: 1;
+                visibility: visible;
+
+                a {
+                    padding-left: 26px;
+                }
+
+                a::before {
+                    width: 18px;
+                    height: 18px;
+                    margin-top: 0;
+                }
+            }
+
+            &::before,
+            ul::before,
+            > a::before {
+                content: none;
+            }
+        }
+        .select-menu-toggle {
+            display: block;
+            border-width: 3px 0 0;
+            padding: 2rem 2px 1.6rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+
+    // Navigation Style
+    .toolbox-wrap {
+        .widget-title {
+            border-top: 3px solid $border-color-light;
+        }
+    }
+}
+
+@include mq(lg) {
+    .toolbox .sidebar-content {
+        max-width: none;
+    }
+
+    .toolbox-horizontal {
+        .sidebar-fixed {
+            .sidebar-content {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    // Navigation Style
+    .toolbox-wrap {
+        .sidebar-content {
+            border: solid #ebebeb;
+            border-width: 3px 0;
+            margin-bottom: 2rem;
+            transition: border-color .3s;
+        }
+
+        .filter-actions:first-child {
+            padding: 0;
+        }
+
+        .sidebar-toggle-btn {
+            display: none;
+        }
+
+        > .closed {
+            margin: 0;
+
+            .sidebar-content {
+                display: none;
+
+                // issue for toggle animation
+                border-color: transparent;
+                background: transparent;
+            }
+        }
+        .filter-clean {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: -40px;
+        }
+    }
+}
+@include mq(xl) {
+    .select-menu:not(:last-child) {
+        margin-right: 2rem;
+    }
+    .toolbox .shop-sidebar { margin-right: 2rem }
+}

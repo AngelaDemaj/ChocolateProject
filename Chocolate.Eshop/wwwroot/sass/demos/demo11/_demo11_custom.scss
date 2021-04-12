@@ -1,0 +1,284 @@
+/*
+Demo 11
+*/
+// Base
+.title {
+    span {
+        padding: 1.35rem 0;
+        line-height: 1;
+    }
+}
+// Header
+.header-middle {
+    .header-center {
+        flex: 1;
+        justify-content: center;
+        .logo {
+            display: none;
+            margin: 0;
+        }
+    }
+}
+.header-search:not(.mobile-search) {
+    width: 100%;
+    margin: 0 3rem;
+    color: #666;
+    .input-wrapper {
+        margin: 0 auto;
+    }
+    input.form-control {
+        color: #ababab;
+    }
+}
+// Category Menu
+.category-menu {
+    .menu-title {
+        line-height: 2.15;
+    }
+}
+// Intro Section
+.intro-slider {
+    img {
+        min-height: 46rem;
+        object-fit: cover;
+    }
+    .banner-content {
+        padding: 0 3rem;
+    }
+    .owl-dots {
+        bottom: 2.5rem;
+    }
+    .owl-dot {
+        &:not(.active) {
+            span {
+                background-color: #a9aaab;
+                border-color: #a9aaab;
+            }
+        }
+    }
+}
+.intro-slide1 {
+    img { object-position: 20%; }
+    .banner-subtitle {
+        margin-bottom: 1.1rem;
+        font-size: 2em;
+    }
+    .banner-title {
+        font-size: 4em;
+        span  { font-size: .75em; }
+        line-height: .9;
+    }
+}
+.intro-slide2 {
+    img { object-position: 60%; }
+    .banner-subtitle {
+        margin-bottom: 1.7rem;
+        font-size: 2.4em;
+    }
+    .banner-title {
+        margin-bottom: .6rem;
+        font-size: 3.6em;
+        span { font-size: 1.11em; }
+    }
+    p {
+        margin-bottom: 2.2rem;
+    }
+}
+.intro-banner1,
+.intro-banner2 {
+    img {
+        min-height: 22rem;
+        object-fit: cover;
+    }
+    .banner-content {
+        padding: 0 2rem;
+    }
+    .banner-subtitle {
+        margin-bottom: .3rem;
+        font-size: 1.4em;
+    }
+    .banner-title {
+        margin-bottom: 1.6rem;
+        font-size: 1.8em;
+        line-height: 1.22;
+    }
+}
+// Service List 
+.home .service-list {
+    .icon-box {
+        padding: 1.6rem 0 2rem;
+        background-color: #f2f3f5;
+    }
+    i {
+        font-size: 2.5rem;
+        color: $primary-color;
+    }
+    .icon-box-title {
+        letter-spacing: 0;
+        line-height: 2.5rem;
+    }
+    p {
+        line-height: 1.43;
+    }
+}
+// Product wrapper
+.product-wrapper {
+    .nav-link {
+        padding: 1.1rem 0;
+        font-size: 1.8rem;
+    }
+    .tab-pane { padding: 2rem 0; }
+    .banner {
+        &, figure, img { height: 100%; }
+        img { object-fit: cover; }
+    }
+}
+// Banner Group
+.banner-group {
+    img {
+        min-height: 20rem;
+        object-fit: cover;
+    }
+    .banner-content {
+        padding: 0 1.5rem 0 8.6%;
+        width: 100%;
+    }
+    .banner-title, .banner-subtitle { font-size: 2.4em; }
+    .banner-subtitle { margin-bottom: .3rem; }
+    .banner2 p { opacity: .5; }
+}
+// Product Banner
+.banner3,
+.banner4 {
+    .banner-content {
+        padding: 0 1.5rem 0 9.1%;
+        top: 7.9%;
+        width: 100%;
+    }
+    .banner-title, .banner-subtitle { font-size: 2.4em; }
+    .banner-subtitle { margin-bottom: .8rem; }
+    .banner-title sup {
+        margin-top: 2px;
+        vertical-align: top;
+        font-size: .5em;
+    }
+}
+.banner4 .banner-subtitle { font-size: 2em; }
+// Newsletter 
+.banner-newsletter {
+	background-color: $primary-color;
+	.banner-content { padding: 2rem 0; }
+	.icon-box { justify-content: flex-start; }
+    .icon-box p {
+		line-height: 1.43;
+		letter-spacing: .01em;
+    }
+    .icon-box-icon {
+		margin: 0 2.4rem 0 .2rem;
+        font-size: 4.5rem;
+    }
+    .icon-box-title {
+		margin-top: 4px;
+		font-size: 1.6rem;
+        line-height: 1.25;
+    }
+    .input-wrapper {
+		height: 4.8rem;
+        .form-control { padding-left: 2.2rem; }
+        .btn {
+            padding: 1em 2.31em;
+			&:not(:hover) {
+				border-color: #323232;
+				background-color: #323232;
+			}
+        }
+    }
+}
+// Footer
+.footer {
+    .widget-contact {
+        label {
+            display: block;
+            margin-bottom: .5rem;
+            color: inherit;
+        }
+        a:not(:hover) { color: #666; }
+    }
+    .widget-instagram .widget-title { margin-bottom: 1.9rem; }
+    .widget:not(.widget-about) { margin-top: .4rem; }
+}
+// Responsive
+@include mq(lg) {
+    .intro-section > .row { margin-left: 29rem; }
+}
+@include mq(lg, max) {
+    .header-middle .header-center { flex: auto; }
+    .header-bottom, .category-menu { display: none; }
+	.banner-newsletter .icon-box { justify-content: center; }
+}
+@include mq(md) {
+    .mobile-menu-toggle {
+        color: $primary-color;
+    }
+}
+@include mq(sm, max) {
+    .intro-slider .banner-content { padding: 0 1.5rem; }
+    .banner3,
+    .banner4 {
+        img {
+            max-height: 20rem;
+            object-fit: cover;
+        }
+        .banner-content {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .intro-banner1,
+    .intro-banner2 {
+        img { max-height: 22rem; }
+    }
+    .banner-newsletter {
+        .icon-box {
+            display: block;
+            text-align: center;
+        }
+        .icon-box-icon {
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+        .icon-box-content { text-align: center; }
+    }
+}
+
+// Shop page
+.shop-banner {
+    padding: 5.2rem 0 4.9rem;
+    .banner-content { right: 8.4% }
+    .banner-subtitle { margin-bottom: .9rem }
+    .banner-title { margin-bottom: .4rem }
+    .banner-price-info { margin-bottom: 1.6rem }
+    .banner-subtitle,
+    .banner-price-info {
+        font-size: 2em;
+    }
+    .banner-title { font-size: 6em; }
+    p {
+        margin-bottom: 2.3rem;
+        padding: 0 1rem;
+        line-height: 3rem;
+    }
+}
+@include mq(lg) {
+    .header-border { border-bottom: none }
+}
+@include mq(xs, max) {
+    .shop-banner {
+        background-position: 60%;
+        font-size: .8rem;
+        .banner-content { right: 1.5rem }
+    } 
+}
+.shop {
+    .product-wrap { margin-bottom: 2rem; }
+}

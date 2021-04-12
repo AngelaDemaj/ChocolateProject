@@ -1,0 +1,129 @@
+/* 
+Demo 30 Variables
+*/
+@include set(
+    (
+        base: (
+            title: (
+                margin-bottom: 3rem,
+                font-size: 2.4rem,
+                letter-spacing: -0.025em,
+                text-transform: none,
+                color: #333,
+
+                border: (
+                    color: #f4f4f4,
+                    _active-color: #333,
+                    line-height: 40px
+                )
+            ),
+        ),
+        header: (
+            middle: (
+                padding-top: 2.4rem,
+                padding-bottom: 2.4rem,
+                color: #2f3945
+            ),
+            call: (
+                label: (
+                    _gap: .5rem,
+                    font-size: 1.1rem,
+                    font-weight: false,
+                    line-height: 1.2,
+                ),
+                icon: (
+                    font-size: 2.6rem
+                )
+            ),
+            cart: (
+                toggle: (
+                    padding: 1.5rem 0,
+                ),
+                icon: (
+                    color: false,
+                    font-size: 2.6rem
+                )
+            ),
+            wishlist: (
+                icon: (
+                    font-size: 2.6rem
+                )
+            ),
+            login: (
+                icon: (
+                    font-size: 2.6rem
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                _gap: 4.2rem,
+                font-family: $font-family,
+                font-size: 1.4rem,
+                font-weight: 600,
+                color: #333,
+            )
+        ),
+        post: (
+            body: (
+                padding: 1.9rem 0 2.5rem
+            ),
+            info: (
+                margin-bottom: .7rem
+            ),
+            title: (
+                text-transform: none,
+                font-size: 1.4rem,
+                font-family: $second-font-family,
+                letter-spacing: 0,
+                color: #444
+            ),
+            btn: (
+                _icon-gap: 5px,
+            )
+        ),
+        footer: (
+            background: #f7f8fc,
+            _link-active-color: $primary-color,
+
+            top: (
+                padding: 3.1rem 0 2.6rem,
+                border-bottom: 1px solid #eaecf0,
+            ),
+            middle: (
+                border-bottom: 1px solid #eaecf0,
+
+                widget: (
+                    title: (
+                        margin-bottom: .8rem,
+                        color: #333,
+                        font-family: $font-family,
+                        font-weight: 700,
+                    ),
+                    body: (
+                        color: #777,
+                        padding-top: 0,
+                    ),
+                    label: (
+                        color: #777,
+                    ),
+                ),
+            ),
+            bottom: (
+                padding: 1.8rem 0,
+            ),
+            copyright: (
+                letter-spacing: -0.015em,
+            ),
+        ),
+        product: (
+            body: (
+                padding-top: 1.2rem,
+                padding-bottom: 1.2rem,
+            ),
+            price: (
+                color: #369
+            )
+        )
+    )
+);

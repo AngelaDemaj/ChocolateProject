@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @@include("partials/title-meta.html", {"title": "Tour"})
+
+        <!-- Tour css -->
+        <link href="assets/libs/hopscotch/hopscotch.min.css" rel="stylesheet" type="text/css" />
+
+        @@include("partials/head-css.html")
+
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            @@include('./partials/topbar.html', {"pagetitle": "Tour"})
+
+            @@include('./partials/left-sidebar.html')
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <div class="text-center mt-4 mb-5">
+                                        <div class="d-inline-block logo" id="logo-tour">
+                                            <img src="assets/images/logo-light.png" alt="" height="22" class="logo-light">
+                                            <img src="assets/images/logo-dark.png" alt="" height="22" class="logo-dark">
+                                        </div>
+
+                                        
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-5">
+                                            <h4 class="header-title mt-0 mb-4">Heading</h4>
+                                            <h1 id="heading-title-tour">This is a Heading 1</h1>
+                                            <p class="text-muted">Suspendisse vel quam malesuada, aliquet sem sit
+                                                amet, fringilla elit. Morbi tempor tincidunt tempor. vulputate sapienest consequat posuere et at velit.</p>
+        
+                                            <div class="clearfix"></div>
+        
+                                            <h2>This is a Heading 2</h2>
+                                            <p class="text-muted">In nec rhoncus eros. Vestibulum eu mattis nisl.
+                                                Quisque viverra viverra magna nec pulvinar porta augue, consectetur facilisis diam a malesuada purus.</p>
+        
+                                            <div class="clearfix"></div>
+        
+                                            <h3>This is a Heading 3</h3>
+                                            <p class="text-muted">Vestibulum auctor tincidunt semper. Phasellus ut
+                                                vulputate lacus. Suspendisse
+                                                ultricies mi eros, sit amet tempor nulla varius sed dapibus in tellus.</p>
+        
+                                            <div class="clearfix"></div>
+        
+                                            <h4>This is a Heading 4</h4>
+                                            <p class="text-muted">Nulla et mattis nunc. Curabitur scelerisque
+                                                commodo condimentum. Mauris blandit, velit a consectetur egestas ultrices arcu eros vel erat.</p>
+
+                                        </div>
+    
+                                        <div class="col-lg-5 offset-lg-1">
+                                            <h4 class="header-title mt-0 mb-4">Blockqoutes</h4>
+
+                                            <blockquote class="blockquote font-16" id="blockquote-title-tour">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                                            </blockquote>
+
+                                            <blockquote class="blockquote font-16 text-center border-0">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                                            </blockquote>
+
+                                            <blockquote class="blockquote font-16 blockquote-reverse">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="text-center mt-5">
+                                        <a href="javascript: void(0);" class="btn btn-danger waves-effect waves-light" id="thankyou-tour">Thank you !</a>
+                                    </div>
+
+                                </div> <!-- end card-box -->
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row-->
+                        
+                    </div> <!-- container-fluid -->
+
+                </div> <!-- content -->
+
+                @@include('./partials/footer.html')
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+        @@include('./partials/right-sidebar.html')
+
+        <!-- Vendor js -->
+        <script src="assets/js/vendor.min.js"></script>
+
+        <!-- Tour page js -->
+        <script src="assets/libs/hopscotch/hopscotch.min.js"></script>
+
+        <!-- Tour init js-->
+        <script src="assets/js/pages/tour.init.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.min.js"></script>
+        
+    </body>
+</html>

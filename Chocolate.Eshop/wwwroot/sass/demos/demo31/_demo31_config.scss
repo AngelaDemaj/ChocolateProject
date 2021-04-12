@@ -1,0 +1,183 @@
+/* 
+Demo 31 Variables
+*/
+@include set(
+    (
+        base: (
+            _container-width: 1510px,
+        ),
+        header: (
+            _link-active-color: #fff,
+
+            middle: (
+				padding-top: 0rem,
+				padding-bottom: 0rem,
+				font-weight: 600,
+                color: #fff,
+                background-color: $primary-color,
+                logo: (
+                    margin-right: 0,
+                )
+            ),
+            // Logo
+            logo: (
+                max-width: 250px,
+                background-color: $secondary-color,
+                padding: 2.9rem,
+            ),
+            main-nav: (
+                margin-left: 3.9rem,
+            ),
+            search: (
+                round: (
+                    width: 35rem,
+                    height: false
+                ),
+            ),
+            wishlist: (
+                icon: (
+                    font-size: 2.6rem,
+                    margin: 2px 28px 0px 0px,
+                )
+            ),
+            cart: (
+                icon: (
+                    display: block,
+                    font-size: 2.6rem,
+                    color: false,
+                ),
+                toggle: (
+                    padding: false,
+                    font-size: 2.7rem,
+                ),
+            ),
+            call: (
+                label: (
+                    color: #fff,
+                    font-size: 1.1rem,
+                    line-height: 1.5rem,
+                    font-weight: 300,
+                    letter-spacing: -.025em,
+                ),
+                icon: (
+                    margin: 0,
+                    font-size: 2.5rem
+                )
+            ),
+            login: (
+                icon: (
+                    font-size: 2.5rem,
+                    margin: 0px 10px 0px 0px,
+                )
+            ),
+            sticky: (
+                padding: 0,
+                background: $primary-color
+            ),
+            mmenu-toggle: (
+                color: #fff,
+            ),
+        ),
+        menu: (
+            // Ancestor
+            ancestor: (
+                _gap: 2.8rem,
+                text-transform: initial,
+                font-size: 1.4rem,
+                font-family: $font-family,
+                font-weight: 600,
+                _active-color: #fff,
+            ),
+        ),
+        product-single: (
+            name: (
+                font-family: $font-family,
+            ),
+        ),
+        post: (
+            padding: 2rem,
+            box-shadow: 0px 0px 20px 0px rgba(100,100,100,0.1),
+            background-color: #fff,
+            body: (
+                padding: 25px 0px 10px 3px
+            ),
+            calendar: (
+                color: #fff,
+                background: rgba(40,121,254,0.8),
+                border-color: transparent,
+            ),
+            title: (
+                text-transform: initial,
+                font-size: 1.8rem,
+                font-weight: 700,
+                letter-spacing: -0.025rem,
+            ),
+            content: (
+                line-height: 1.7,
+            ),
+        ),
+        footer: (
+            top: (
+                padding: 3rem 0,
+            ),
+            middle: (
+                border-bottom: 1px solid #282828,
+                widget: (    
+                    title: (
+                        text-transform: initial,
+                        font-size: 1.5rem,
+                        color: #fff,
+                        font-family: $font-family,
+                        letter-spacing: -0.025em,
+                        font-weight: 700,
+                    ),
+                    label: (
+                        color: #a6a6a6,
+                        font-family: $font-family,
+                        margin-bottom: 1.1rem,
+                    ),
+                    body: (
+                        font-size: 1.3rem,
+                        color: #a6a6a6,
+                        font-family: $font-family,
+                    ),
+                    list-item: (
+                        display: flex,
+                        flex-direction: column,
+                        margin-bottom: 11px,
+                        letter-spacing: -0.02em,
+                        
+                    )
+                )
+            ),
+            bottom: (
+                padding: 3.4rem 0 3.8rem 0,
+            ),
+            social-link: (
+                width: 4.6rem,
+                height: 4.6rem,
+                font-size: 1.9rem,
+                color: #FFFFFF,
+                border-color: #6381B3,
+            ),
+            newsletter: (
+                title: (
+                    font-size: 1.8rem,
+                    letter-spacing: -.02em,
+                    font-family: $font-family
+                ),
+                desc: (
+                    font-size: 1.4rem,
+                    line-height: 1.1,
+                    letter-spacing: .01em,
+                ),
+                form: (
+                    max-width: 56rem,
+                ),
+                btn: (
+                    padding: 1em 2.6em,
+                )
+            )
+        )
+    )
+);

@@ -1,0 +1,47 @@
+/* 
+Demo 18 Variables
+*/
+@include set(
+    (
+        header: (
+            letter-spacing: 0,
+            middle: (
+                padding-top: .7rem,
+                padding-bottom: .7rem
+            )
+        ),
+        product: (
+            price: (
+                color: $primary-color
+            ),
+            name: (
+                font-family: $font-family
+            ),
+            body: (
+                padding-bottom: 1rem
+            )
+        ),
+        category-menu: (
+            padding: .7rem 0,
+            background: transparent,
+            ancestor: ( 
+                _split-line: false,
+                padding: 1.15rem 0,
+                line-height: 1.4,
+                font-size: 1.4rem,
+                text-transform: none,
+                font-family: $font-family,
+                font-weight: 600,
+                color: #292929
+            ),
+            icon: (
+                margin-right: .8rem,
+                font-size: 2rem,
+                color: #666
+            ),
+            submenu: (
+                padding: 2rem
+            )
+        ),
+    )
+)

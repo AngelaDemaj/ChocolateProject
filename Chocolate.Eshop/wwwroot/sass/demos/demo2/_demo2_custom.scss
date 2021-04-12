@@ -1,0 +1,184 @@
+/* 
+Demo 2
+    - Index page
+    - Shop page
+    - Product page
+*/
+
+// Index page
+/* Header */
+.header-middle {
+    .minicart-icon {
+        border-radius: 0;
+    }
+}
+
+/* Intro Section */
+.intro-slider img { min-height: 60rem; object-fit: cover; }
+@include mq('lg', 'max') {
+    .intro-slider img { min-height: 55rem;}
+}
+
+@include mq('md', 'max') {
+    .intro-slider img { min-height: 50rem;}
+}
+
+.intro-slide1 img, intro-slide3 img { object-position: 20% center; }
+
+.intro-slide1 {
+    .banner-content { left: 11%; }
+    .banner-subtitle { font-size: 3em; letter-spacing: -.03em; }
+    .banner-title { font-size: 5em; line-height: 1.1; }
+    p { line-height: 1.4; }
+}
+
+.intro-slide2 {
+    .banner-subtitle { font-size: 3em; }
+    .banner-title { font-size: 5em; }
+    p {
+        margin-bottom: 2.1rem;
+        font-size: 1.6em;
+        color: #323232;
+        line-height: 1.5;
+    }
+}
+
+.intro-slide3 {
+    .banner-content { 
+        top: 22.3%;
+        right: 8.4%;
+    }
+    .banner-subtitle {
+        margin-bottom: 1.3rem;
+        font-size: 3em;
+        letter-spacing: .025em;
+    }
+    .banner-title {
+        font-size: 8em;
+        font-weight: 300;
+    }
+    .banner-price-info {
+        font-size: 3em;
+        letter-spacing: .05em;
+    }
+    p {
+        padding: 0 1rem;
+        font-size: 2em;
+        line-height: 1.75;
+    }
+}
+
+.intro-banner {
+    img { min-height: 18rem; object-fit: cover; }
+    .banner-subtitle { font-size: 1.4rem; }
+    .banner-title { font-size: 2em; }
+    .btn { line-height: 2.14; }
+}
+
+.intro-banner1 .banner-content { right: 10%; }
+.intro-banner2 .banner-content { right: 3.8%; }
+
+/* Banner CTA */
+.banner-cta {
+    .banner-content { padding: 10.5rem 2rem; }
+    .banner-title { font-size: 3.6em; }
+    p { font-size: 1.6rem; line-height: 2; }
+
+    .input-wrapper {
+        margin: 0 auto;
+        max-width: 60rem;
+        height: 4.8rem;
+
+        .form-control { font-style: italic; }
+    }
+}
+
+
+main.demo2-cls {
+    /* product */
+    .category .category-name {
+        font-weight: 700;
+    }
+}
+
+/* Service List */
+.service-list {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+    .icon-box { padding: 2.4rem 0 2.7rem; }
+
+    .icon-box-title {
+        margin-bottom: 2px;
+        font-family: $font-family;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $primary-color;
+        letter-spacing: -0.01em;
+    }
+
+    p {
+        line-height: 1.2;
+        font-family: $font-family;
+        color: $primary-color;
+    }
+}
+
+/* Footer */
+.footer .widget-about p { letter-spacing: -0.015em; }
+
+
+/* Responsive */
+@include mq(sm, max) {
+    .banner { font-size: .8rem; }
+}
+@include mq(xs, max) {
+    .intro-slide3 {
+        .banner-content {
+            right: auto;
+            padding-right: 1.5rem;
+        }
+    }
+}
+
+// Shop page
+.shop-banner {
+    padding: 5.2rem 0 4.9rem;
+    .banner-content { right: 8.4% }
+    .banner-subtitle { margin-bottom: .9rem }
+    .banner-title { margin-bottom: .4rem }
+    .banner-price-info { margin-bottom: 1.6rem }
+    .banner-subtitle,
+    .banner-price-info {
+        font-size: 2em;
+    }
+    .banner-title { font-size: 6em; }
+    p {
+        margin-bottom: 2.3rem;
+        padding: 0 1rem;
+        line-height: 3rem;
+    }
+}
+@include mq(xs, max) {
+    .shop-banner .banner-content { right: 1.5rem }
+    .intro-slide1 .banner-content { left: 1.5rem }
+    .intro-slide3 .banner-title { font-size: 6em }
+}
+
+// Product page
+.product-form {
+    .btn-cart {
+        background-color: $secondary-color;
+        &:hover:not(:disabled) {
+            background-color: darken( $secondary-color, 7% );
+        }
+        &:disabled {
+            background-color: lighten( $secondary-color, 10% );
+        }
+    }
+}
+
+// Mobile menu
+.mobile-menu li > a:hover {
+    color: $secondary-color;
+}

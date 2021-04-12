@@ -1,0 +1,41 @@
+// 
+// footer.scss
+//
+
+.footer {
+    bottom: 0;
+    padding: 19px 15px 20px;
+    position: absolute;
+    right: 0;
+    color: $footer-color;
+    left: $leftbar-width;
+    background-color: $footer-bg;
+    transition: all .2s ease-out;
+
+    .footer-links {
+        a {
+            color: $footer-color;
+            margin-left: 1.5rem;
+            transition: all .4s;
+            &:hover {
+                color: darken($footer-color, 4%);
+            }
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.footer-alt {
+    left: 0 !important;
+    text-align: center;
+    background-color: transparent;
+}
+
+@include media-breakpoint-down(sm) {
+    .footer {
+        left: 0 !important;
+        text-align: center;
+    }
+}

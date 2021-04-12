@@ -1,0 +1,115 @@
+﻿@model Chocolate.DataAccess.ViewModels.ShelfViewModel
+
+@{
+    ViewData["Title"] = "Shelves";
+}
+
+<h2>Shelf Details</h2>
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form>
+
+                        <div class="form-group row">
+                            <label asp-for="Name" class="col-md-2 col-form-label">Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="Name" class="form-control" readonly />
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="SectorId">Sector</label>
+                            <div class="col-md-10">
+                                <input asp-for="SectorId" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <a asp-action="Edit" class="btn btn-lighten-primary waves-effect waves-primary width-md" asp-route-id="@Model.Id">Edit</a>
+                        <!-- Button trigger to show products modal -->
+                        <button type="button" class="btn btn-bordered-primary waves-effect  width-md waves-light" data-toggle="modal" data-target="#viewProducts" data-animation="blur">
+                            View Products
+                        </button>
+                        <!-- Button trigger to view the rawMaterials modal -->
+                        <button type="button" class="btn btn-bordered-primary waves-effect  width-md waves-light" data-toggle="modal" data-target="#viewRawMaterials" data-animation="blur">
+                            View RawMaterials
+                        </button>
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Products Modal -->
+<div class="modal fade bs-example-modal-xl" id="viewProducts" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myExtraLargeModalLabel">Products</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <table id="shelf-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ProductShelves)
+                        {
+
+                            <tr>
+                                <td>@item.Product.Name</td>
+                                <td>@item.Quantity</td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-xl" id="viewRawMaterials" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myExtraLargeModalLabel">RawMaterials</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <table id="shelf-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>RawMaterial</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.RawMaterialShelves)
+                        {
+
+                            <tr>
+                                <td>@item.RawMaterial.Name</td>
+                                <td>@item.Quantity</td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

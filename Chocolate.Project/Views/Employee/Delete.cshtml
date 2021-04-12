@@ -1,0 +1,132 @@
+﻿@model Chocolate.DataAccess.ViewModels.EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h2>Are you sure you want to delete this Employee?</h2>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="FirstName">First Name</label>
+                            <div class="col-md-10">
+                                <input readonly="readonly" asp-for="FirstName" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="LastName">Last Name</label>
+                            <div class="col-md-10">
+                                <input readonly="readonly" asp-for="LastName" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="Department.Name">Department</label>
+                            <div class="col-md-10">
+                                <input readonly="readonly" asp-for="Department.Name" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="DateOfBirth" class="col-md-2 col-form-label">Date Of Birth</label>
+                            <div class="col-md-10">
+                                <input asp-for="DateOfBirth" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Phone.Number" class="col-md-2 col-form-label">Phone Number</label>
+                            <div class="col-md-8">
+                                <input type="text" readonly="readonly" id="simpleinput" asp-for="Phone.Number" class="form-control" />
+                            </div>
+                            <div class="col-md-2">
+                                <input asp-for="Phone.PhoneType" readonly="readonly" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Mail" class="col-md-2 col-form-label">Email</label>
+                            <div class="col-md-8">
+                                <input type="text" readonly="readonly" id="simpleinput" asp-for="Mail.Mail" class="form-control" />
+                            </div>
+                            <div class="col-md-2">
+                                <input asp-for="Mail.MailType" readonly="readonly" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Location" class="col-md-2 col-form-label">Street Name</label>
+                            <div class="col-md-7">
+                                <input type="text" readonly="readonly" id="simpleinput" asp-for="Location" class="form-control" />
+                            </div>
+
+                            <label asp-for="AddressNumber" class="col-md-1 col-form-label">Street Number</label>
+                            <div class="col-md-2">
+                                <input type="text" readonly="readonly" id="simpleinput" asp-for="AddressNumber" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Country" class="col-md-2 col-form-label">Country</label>
+                            <div class="col-md-2">
+                                <input type="text" readonly="readonly" id="simpleinput" asp-for="Country" class="form-control" />
+                            </div>
+
+                            <label asp-for="PostCode" class="col-md-1 col-form-label">Postal Code</label>
+                            <div class="col-md-1">
+                                <input type="text" readonly="readonly" id="simpleinput" asp-for="PostCode" class="form-control" />
+                            </div>
+
+                            <label asp-for="Comments" class="col-md-1 col-form-label">Comments</label>
+                            <div class="col-md-5">
+                                <input type="text" readonly="readonly" id="simpleinput" asp-for="Comments" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="HireDate" class="col-md-2 col-form-label">Hire Date</label>
+                            <div class="col-md-10">
+                                <input asp-for="HireDate" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="WorkExperience" class="col-md-2 col-form-label">Work Experience</label>
+                            <div class="col-md-10">
+                                <input asp-for="WorkExperience" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">UserName</label>
+                            <div class="col-md-10">
+                                <input readonly="readonly" asp-for="IdentityUser.UserName" class="form-control" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input asp-for="IsHeadOfDepartment" class="custom-control-input" disabled />
+                                <label class="custom-control-label" asp-for="IsHeadOfDepartment">Is Head Of Department?</label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Delete" class="btn btn-bordered-danger waves-effect  width-md waves-light">
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

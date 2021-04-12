@@ -1,0 +1,22 @@
+/* -------------------------------------------
+    No UiSlider
+---------------------------------------------- */
+
+.noUi-target {
+    background: $border-color-light;
+    margin: 4px 7px 2.7rem 9px;
+}
+.noUi-connects {
+    padding: 11.5px 0;
+    top: -10px;
+}
+.noUi-connect {
+    background: #999;
+    margin-top: 10px;
+    height: 3px;
+}
+.noUi-horizontal .noUi-handle {
+    width: 1.2rem;
+    height: 1.2rem;
+    background: $primary-color; // needs 1 depth
+}

@@ -1,0 +1,148 @@
+/* -------------------------------------------
+    Custom Icons
+---------------------------------------------- */
+// User Icon
+.user-icon {
+	display: block;
+	padding-bottom: 2px;
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		box-shadow: inset 0px 0px 1px #000;
+	}
+	&::before {
+		width: 9px;
+		height: 9px;
+		margin-bottom: 1px;
+		border-radius: 50%;
+		border: 1px solid;
+
+	}
+	&::after {
+		width: 15px;
+		height: 7px;
+		border-radius: 5px 5px 0 0;
+		border: 1px solid;
+	}
+}
+
+// Menu Icon
+.menu-icon {
+	display: inline-block;
+	color: #fff;
+	width: 1.7rem;
+	&::before,
+	&::after {
+		display: block;
+		content: '';
+		width: 100%;
+	}
+	&::before {
+		height: 6px;
+		border-top: 2px solid;
+		border-bottom: 2px solid;
+	}
+	&::after {
+		height: 4px;
+		border-bottom: 2px solid;
+	}
+}
+
+//  Close Icon
+.close-icon {
+	display: block;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	transform: rotateZ(45deg);
+
+	&::before,
+	&::after {
+		display: block;
+		position: absolute;
+		background-color: #ccc;
+		content: '';
+	}
+
+	&::before {
+		height: 2px;
+		width: 100%;
+		left: 0;
+		top: calc(50% - 1px);
+	}
+
+	&::after {
+		height: 100%;
+		width: 2px;
+		top: 0;
+		left: calc(50% - 1px);
+	}
+}
+
+.minicart-icon {
+	display: inline-block;
+	position: relative;
+	/* width: 30px; */
+	width: 2.5em;
+	/* height: 30px; */
+	height: 2.5em;
+	margin-top: 1px;
+	border: solid 2px;
+	border-radius: 2px;
+	text-align: center;
+	transition: background .4s, border-color .4s;
+
+	&::before {
+		content: '';
+		position: absolute;
+		/* top: -9px; */
+		top: -.75em;
+		/* left: 7px; */
+		left: .585em;
+		/* width: 12px; */
+		width: 1em;
+		/* height: 6px; */
+		height: .5em;
+		border-radius: 10px 10px 0 0;
+		border: inherit;
+		border-bottom: none;
+		transition: transform .4s;
+	}
+}
+.minicart-icon2 {
+	position: relative;
+	/* height: 22px; */
+	height: 1.83em;
+	text-align: center;
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		/* top: -3.14px;*/
+		top: -0.3em;
+		left:  50%;
+		transform: translateX(-50%) scale(.7);
+		/* width: 15.714px; */
+		width: 1.29em;
+		/* height: 12.85px; */
+		height: 1.07em;
+		border: solid 2px;
+		border-radius: 10px 10px 0 0;
+		border-bottom: none;
+	}
+	&::after {
+		content: '';
+		display: inline-block;
+		/* width: 30px; */
+		width: 2.5em;
+		/* height: 25.71px; */
+		height: 2.1425em;
+		border: solid 2px;
+		background-color: transparent;
+		border-radius: 0 0 3px 3px;
+		transform: scale(.7);
+	}
+}

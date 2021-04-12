@@ -1,0 +1,127 @@
+/* -------------------------------------------
+    Icon Box
+---------------------------------------------- */
+
+.icon-box {
+    .icon-box-title {
+        margin: 0 0 .7rem;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        letter-spacing: -.025em;
+        line-height: 1.6;
+    }
+    p {
+        margin: 0;
+        font-size: 1.4rem;
+        line-height: 1.72;
+        letter-spacing: 0;
+        color: #666;
+    }
+    i::before {
+        margin: 0;  
+    }
+
+    .icon-box-content {
+        text-align: center;
+    }
+}
+
+.icon-box-icon {
+    display: inline-block;
+    margin-bottom: 2.4rem;
+    font: {
+        size: 3.5rem;
+        weight: 600;
+    }
+    line-height: 0;
+    color: #222;
+
+    svg {
+        height: 3.4rem;
+        width: 4.8rem;
+    }
+}
+
+.icon-box-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon-box-content {
+        text-align: left;
+    }
+    .icon-box-icon {    
+        margin-right: 1.5rem;
+        margin-bottom: 0;
+    }
+    .icon-box-title {
+        margin: 0;
+    }
+}
+
+.icon-border {
+    .icon-box-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 5.1rem;  
+        height: 5.1rem;
+        border-radius: 50%;
+        border: 1px solid #9e9e9e;
+        font-size: 2.4rem;
+    }
+    svg {
+        height: 2.4rem;
+    }
+}
+
+
+.icon-inversed {
+    .icon-box-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 5.1rem;  
+        height: 5.1rem;
+        border-radius: 50%;
+        background-color: $primary-color;
+        color: #fff;
+        font-size: 2.4rem;
+    }
+    svg {
+        height: 2.4rem;
+        fill: white;
+    }
+}
+
+.icon-solid {
+    .icon-box-icon {
+        font-size: 4.8rem;
+        color: $primary-color;
+    }
+    svg {
+        height: 6rem;
+        fill: $primary-color;
+    }
+
+    &.icon-box-side {
+        align-items: flex-start;
+    }
+}
+
+.icon-box-tiny {
+    .icon-box-icon {
+
+        margin: 0 1rem 0 0; 
+        font-size: 2.4rem;
+    }
+    svg {
+         height: 2.8rem;
+         width: 2.8rem;
+    }
+    .icon-box-title {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

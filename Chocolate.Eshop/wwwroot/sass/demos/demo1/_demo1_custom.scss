@@ -1,0 +1,289 @@
+/* Demo 1 */
+
+/* Global Styles */
+.label-star {
+    padding: 0 5px;
+    line-height: 1.5;
+    border-radius: 3px;
+
+    &::before,
+    &::after {
+        animation: 4s linear 0s infinite rotateStar;
+        content: '\f005';
+        display: inline-block;
+        margin: 0 6px 5px;
+        vertical-align: middle;
+        font: {
+            family: 'Font Awesome 5 Free';
+            size: .467em;
+            weight: 400;
+        }
+    }
+
+    &::before {
+        animation-direction: reverse;
+    }
+}
+
+.grey-section .title {
+    &::before, &::after { background-color: #e6e6e8; }
+}
+
+/* Intro Slider */
+.intro-slider {
+    .intro-slide2 img {
+        height: 63rem;
+        object-fit: cover;
+    }
+
+    figure { height: 63rem; }
+
+    .btn { font-size: 1.4em; }
+}
+
+.intro-slide1 {
+    img { object-position: 35%; }
+    
+    &.banner-fixed>.container {
+        z-index: 15;
+    }
+    
+    .banner-content { left: 1rem;  }
+    .banner-subtitle { font-size: 3em; }
+    .label-star { margin-left: .6rem; }
+    .banner-title { margin-left: -2px; font-size: 7em; margin-bottom: 0; }
+    h3 { font-size: 3em; letter-spacing: .01em; }
+    p { font-size: 1.6rem; line-height: 1.4; }
+
+    .slide-effect {
+        position: relative;
+        height: 630px;
+
+        @include mq('981px', 'max') {
+            height: 100%;
+            min-height: 55rem;
+        }
+    }
+
+    .intro-slide1-img {
+        position: absolute;
+        left: 47%;
+        top: -40px;
+        max-width: 544px;
+        min-width: 400px;
+        z-index: 12;
+    }
+
+    .float-svg-container {
+        position: absolute;
+        transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    }
+
+    .float-svg-1 {
+        left: 37%;
+        bottom: -35%;
+        z-index: 10;
+        fill: #1C77B0;
+        stroke: #1C77B0;
+        transition: opacity .3s ease;
+    }
+
+    .float-svg-2 {
+        width: 291px;
+        left: 46%;
+        bottom: 0px;
+        z-index: 11;
+        transition: opacity .3s ease;
+
+        svg {
+            overflow: visible;
+            transform: rotate(105deg);
+            opacity: .6;
+            fill: #4BC7E1;
+            stroke: #4BC7E1;
+        }
+    }
+}
+
+.intro-slide2 {
+    img { object-position: 80%; }
+    .banner-content { max-width: 38rem; right: 5.3%; }
+    .banner-subtitle { font-size: 2.4em; }
+    .banner-subtitle strong { font-size: 1.67em; line-height: .98; }
+    .banner-title { font-size: 10em; margin-right: -2px; }
+    p { font-size: 1.8em; line-height: 1.33; }
+}
+@include mq(sm, 'max') {
+    .intro-slide1 {
+        .intro-slide1-img { left: 12%; }
+        .float-svg-1 { left: 3%; }
+        .float-svg-2 { left: 10%; }
+    }
+
+    .intro-slide2 {
+        img { object-position: 60%; }
+    }
+}
+
+.intro-slide3 {
+    .banner-subtitle { font-size: 2.6em; }
+    .banner-title { font-size: 6em; }
+
+    p {
+        opacity: .8;
+        font-size: 1.8em;
+        line-height: 1.4;
+    }
+
+    &.video-banner {
+        video {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+/* Icon Boxes */
+.service-list {
+    .icon-box { padding: 2.8rem 0; }
+
+    .icon-box-title {
+        margin-bottom: .3rem;
+        font-family: $second-font-family; 
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .icon-box-icon { font-size: 3.7rem; }
+
+    p { line-height: 1; }
+    .icon-box1 i { font-size: 4.8rem; }
+}
+
+/* Category Banners */
+// Default-1
+.category-default.category-default-1 {
+    color: $dark-color;
+    
+    .category-name {
+        margin-bottom: 0;
+    }
+
+    &:hover {
+        .category-content { background-color: rgba( #fff, 1 ); }
+        .category-name {
+            margin-bottom: 0;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+    .category-content {
+        // cursor: pointer;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        height: 18.5%;
+        border-radius: 3px;
+        background-color: rgba(255,255,255,0.8);
+    }
+}
+
+/* Banner Group */
+.banner-group {
+    .banner-title { font-size: 2.2em; line-height: 1; letter-spacing: 0.016em; }
+    .banner-subtitle { font-size: 1.4em; }
+
+    hr {
+        width: 3.5rem;
+        height: .4rem;
+        margin: 1.8rem 0;
+        border: none;
+    }
+}
+
+.banner-1 .banner-content { left: 7.8%; }
+.banner-3 .banner-content { right: 12.7%; }
+
+.banner-2 {
+    figure { border: 1.5em solid $primary-color; }
+    img { width: 100%; max-height: 25rem; }
+    .banner-title { font-size: 3em; white-space: nowrap; }
+    .banner-subtitle { font-size: 2em; }
+    .btn { padding: .76em 1.36em; }
+}
+
+/* Parallax */
+.parallax  {
+    padding: 11rem 0 8.7rem;
+
+    .banner-subtitle { font-size: 3em; line-height: 1.467; letter-spacing: -.015em;}
+    .banner-title { font-size: 5em; letter-spacing: .015em;}
+
+    p {
+        font-size: 1.8em;
+        letter-spacing: .025em;
+        line-height: 1;
+    }
+
+    .parallax-background {
+        transform: translate3d(0px, -91.4732px, 0px);
+    }
+}
+
+.post-details {
+    .post-title {
+        letter-spacing: 0;
+    }
+}
+/* Product Widgets */
+.product-list-sm .product-name { margin-bottom: 2px; color: #222; line-height: 1.43; }
+.product-list-sm .product-price { margin-bottom: 4px; }
+.widget-products .widget-title { font-size: 1.5rem; }
+
+/* Brand Carousel */
+.brand-carousel { padding: 2rem 0; }
+
+section .owl-theme .owl-nav.disabled+.owl-dots { 
+    margin-top: 0;
+}
+/* Responsive */
+@include mq(1366px, max) {
+    .intro-slider figure {
+        height: 45rem;
+    }
+}
+@include mq(sm, max) {
+    .banner { font-size: .8rem; }
+
+    .brand-carousel {
+        padding: 0;
+    }
+}
+@include mq(xs, max) {
+    .intro-slide1 {
+        .banner-title { font-size: 5.5em; }
+        .banner-content {
+            width: 100%;
+            left: auto;
+        }
+    } 
+}
+
+/* Animation */
+@keyframes rotateStar { 
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@include mq('lg', 'max') {
+    .video-banner {
+        video {
+            height: 100%;
+            min-height: 55rem;
+        }
+    }
+}

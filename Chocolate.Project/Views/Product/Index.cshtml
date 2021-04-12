@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}
+
+@section Styles{
+    <link href="~/css/site.min.css" rel="stylesheet" />
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New+</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <h2 class="sub-header">
+                A list of all the Products
+            </h2>
+            <table id="product-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Barcode</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Weight</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/site.min.js"></script>
+    <script>
+        jQuery(function () {
+            $('#product-datatable').DataTable({
+                "serverSide": true,
+                dom: 'Bfrtlip',
+                buttons: [{
+                    extend: "pdf",
+                    className: "btn btn-sm  btn-primary",
+                    orientation: "portrait",
+                    pageSize: "A4"
+                }],
+                "ajax": {
+                    url: "/api/products/query",
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: function (data) {
+                        return JSON.stringify(data);
+                    }
+                },
+                order: [[0, 'desc']],
+                "columns": [
+                    { "data": "barcode" },
+                    { "data": "name" },
+                    { "data": "description" },
+                    { "data": "price" },
+                    { "data": "weight" },
+                    { "data": "category" },
+                    {
+                        "data": "id",
+                        "render": function (a, b, data, d) {
+                            return `<a class="btn btn-outline-primary btn-xs mr-1" href="/product/edit/${data.id}"><i class="fas fa-edit mr-1"></i>Edit</a> ` +
+                                `<a class="btn btn-outline-info btn-xs mr-1" href="/product/details/${data.id}"><i class="fas fa-eye mr-1"></i>Details</a> ` +
+                                `<a class="btn btn-outline-danger btn-xs" href="/product/delete/${data.id}"><i class="fas fa-trash mr-1"></i>Delete</a>`;
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+        })
+    </script>
+}

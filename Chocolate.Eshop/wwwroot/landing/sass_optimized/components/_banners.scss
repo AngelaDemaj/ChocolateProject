@@ -1,0 +1,77 @@
+/* -------------------------------------------
+    Banner
+        - Default
+        - Video Banner
+        - Hover Effect - Button Hide
+---------------------------------------------- */
+
+@include set-default(
+    (
+        banner: (
+            btn-play: (
+                border: 1px solid,
+                line-height: 49px,
+                width: 51px,
+                height: 51px,
+                font-size: 22px,
+            )
+        )
+    )
+);
+
+// Default
+.banner {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 1rem;
+    figure img {
+		display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .banner-content {
+        position: relative;
+    }
+}
+.banner-subtitle {
+    letter-spacing: -.025em;
+    line-height: 1;
+}
+.banner-title {
+    line-height: 1;
+}
+.banner-fixed {
+    > .container,
+    > .container-fluid,
+    > .banner-content {
+        position: absolute;
+        z-index: 1;
+    }
+
+    > .container,
+    > .container-fluid {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+// Video Banner
+.video-banner {
+    position: relative;
+    .btn-play {
+        display: inline-block;
+        border-radius: 50%;
+        transition: background-color .3s, border-color .3s;
+
+        @include print_css(banner, btn-play);
+        &:hover {
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+}

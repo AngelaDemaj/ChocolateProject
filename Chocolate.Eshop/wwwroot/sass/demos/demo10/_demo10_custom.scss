@@ -1,0 +1,406 @@
+/*
+Demo 10
+*/
+// Base
+.banner p {
+    font-family: $font-family;
+    font-size: 1.8em;
+    letter-spacing: -.01em;
+}
+.banner-title,
+.header-top,
+.category-name { letter-spacing: .05em; }
+.ls-s { letter-spacing: .001em !important; }
+.ls-m { letter-spacing: .025em !important; }
+.ls-l { letter-spacing: .05em !important; }
+// Header
+.header {
+    &:not(.header-transparent) {
+        .header-top, .header-middle {
+            background: #282828;
+        }
+    }
+}
+    
+.header-top {
+    .welcome-msg { letter-spacing: 0; }
+    .divider {
+        margin-right: 0;
+        height: 38px;
+        background-color: rgba(255, 255, 255, .1);
+    }
+    .header-right>* { margin-left: 1.5rem; }
+    .dropdown > a { padding: 1.35rem 0; }
+}
+.header-middle {
+    .mobile-menu-toggle { color: #fff; }
+    .header-right > *:not(:last-child) { margin-right: 2.3rem; }
+    .cart-name::after { margin-left: .9rem; }
+    .search-toggle {
+        i {
+            margin: 0 .5rem .2rem 0;
+            font-size: 1.8rem;
+        }
+    }
+    .hs-toggle,
+    .login {
+        > a {
+            display: flex;
+            padding: 1.1rem 0;
+            position: relative;
+        }
+    }
+    .d-icon-user { padding-top: 2px; }
+}
+// Intro Section
+.intro-section {
+    img {
+        min-height: 25rem;
+        object-fit: cover;
+    }
+}
+.intro-slider {
+    .banner { height: 100vh; }
+    .banner-content {
+        width: 100%;
+        padding: 0 1.5rem;
+    }
+    .banner-title {
+        font-size: 6em;
+        line-height: 1.2;
+    }
+    .owl-dots .owl-dot {
+        &:hover {
+            span {
+                background-color: #fff;
+                border-color: #fff;
+            }
+        }
+        span {
+            background-color: transparent;
+            border-width: 2px;
+            opacity: 1;
+        }
+    }
+    .btn { font-size: 1.4em; }
+}
+.intro-slide1 {
+    .banner-subtitle {
+        font-size: 2.4em;
+        letter-spacing: 0;
+    }
+    .banner-title { margin-bottom: .4rem; }
+    .btn { padding: 1.215em 2.3em; }
+}
+.intro-slide2 {
+    .banner-content { margin-top: 4.9rem; }
+    .banner-title { margin-bottom: .6rem; }
+    p { margin-bottom: 4.3rem; letter-spacing: -.01em; }
+    .btn {
+        padding: 1.22em 2.56em;
+    }
+}
+// Intro Banners
+.intro-banner1,
+.intro-banner2 {
+    padding-top: 81.4%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: #151515;
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 30rem;
+        height: 137%;
+        background-color: #1e1e1e;
+        z-index: 0;
+    }
+    &::before {
+        top: -65%;
+        left: 0;
+        transform: translateX(-40%) rotateZ(-37deg);
+    }
+    &::after {
+        top: 35%;
+        right: 0;
+        transform: translateX(50%) rotateZ(-37deg);
+    }
+    .banner-content { left: 14.5%; }
+    .banner-title { font-size: 3em; }
+}
+.intro-banner1 {
+    .banner-title {
+        margin-bottom: .7rem;
+        line-height: 1.33;
+    }
+    p {
+        font-size: 1.8em;
+        letter-spacing: -.05em;
+        opacity: .5;
+    }
+}
+.intro-banner2 {
+    .banner-subtitle {
+        margin-bottom: 1.1rem;
+        font-size: 2em;
+    }
+    .banner-title strong { font-size: 1.67em; }
+}
+.category-overlay {
+    .category-name {
+        font: {
+            size: 2.4em;
+            weight: 400;
+            family: $second-font-family;
+        }
+    }
+    .category-content { font-family: $second-font-family; }
+}
+// CTA
+.banner-cta {
+    padding: 8.5rem 1.5rem 8.9rem;
+    .banner-subtitle {
+        margin-bottom: 1.2rem;
+        font-size: 3em;
+    }
+    .banner-title {
+        margin-bottom: .7rem;
+        font-size: 4em;
+    }
+    p {
+        letter-spacing: 0;
+        opacity: .8;
+    }
+    .btn { padding: 1.22em 2.35em; }
+}
+// Products-Section 
+.products-section {
+    .title {
+        font-size: 1.8rem;
+        letter-spacing: 0;
+    }
+    .banner-sm {
+        .banner-title {
+            font-size: 3em;
+        }
+    }
+    .banner-content { width: 100%; }
+    .banner-title {
+        margin-bottom: 0;
+        padding: 5rem 0;
+        font-size: 4em;
+        transition: padding .4s;
+    }
+    .banner-subtitle {
+        position: absolute;
+        margin-bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 7.8rem;
+        width: 100%;
+        opacity: 0;
+        font-size: 1.6em;
+        letter-spacing: 0;
+        transition: opacity .4s, bottom .4s;
+    }
+    .banner .btn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        bottom: 0;
+        transition: opacity .4s, bottom .4s, color .3s, background-color .3s, border-color .3s;
+    }
+    .banner  {
+        &:hover {
+            .banner-title { padding: 0 0 11rem; }
+            .banner-subtitle,
+            .btn {
+                opacity: 1;
+            }
+        }
+    }
+}
+// Newsletter
+.banner-newsletter {
+    padding: 10.4rem 1.5rem 10.7rem;
+    .input-wrapper {
+        display: inline-flex;
+        max-width: 60rem;
+        height: 4.8rem;
+    }
+    input.form-control {
+        font-family: $font-family;
+        color: #999;
+        background-color: #fff;
+        font-style: italic;
+    }
+    .banner-title {
+        margin-bottom: .8rem;
+        font-size: 3em;
+    }
+    .btn { padding: 1em 2.6em; }
+}
+// Footer
+.footer-middle {
+    .widget:not(.widget-about) { margin-top: .6rem; }
+    .payment {
+        margin-left: 2px;
+        padding-top: 1rem;
+    }
+}
+.post-list-xs .post-calendar, .post-list-xs .post-title { font-family: $font-family; }
+.footer .widget-about .logo-footer { margin-bottom: 2.6rem; }
+.widget-about {
+    label {
+        display: block;
+        margin-bottom: .4rem;
+        font-size: 1.4rem;
+    }
+    .widget-body {
+        margin-bottom: .6rem;
+        li { margin-bottom: 2.2rem; }
+    }
+}
+// Responsive
+@include mq(md) {
+    .products-section {
+        .product-wrapper { padding: 0 11.3%; }
+    }
+}
+@include mq(xxl, max) {
+    .intro-banner1,
+    .intro-banner2 {
+        font-size: .8rem;
+    }
+    .header-middle .header-left { flex: none; }
+    .header-middle .header-right >*:not(:last-child) { margin-right: 1.5rem; }
+}
+@include mq(1280px, max) {
+    .menu > li { margin-right: 1.8rem; }
+}
+@include mq(1080px, max) {
+    .header-middle {
+        .login span,
+        .search-toggle span { display: none; }
+        .search-toggle { margin: 0; }
+    }
+}
+@include mq(lg, max) {
+    .header-top {
+        .contact,
+        .social-links,
+        .call { display: none; }
+    }
+    .header-middle .header-left { flex: 1; }
+    .header-middle .cart-dropdown { display: block; }
+    .products-section .product-wrapper {
+        padding-top: 4rem;
+        padding-bottom:  4rem;
+    }
+    .banner { font-size: .8rem; }
+    .intro-slide2 rect { stroke-width: 30px; }
+}
+@include mq(sm, max) {
+    .banner { font-size: .7rem; }
+    .intro-slider rect { stroke-width: 20px; }
+}
+@include mq(xs, max) {
+    .intro-slide2 {
+        font-size: .6rem;
+        .banner-content { padding-left: 3em; }
+        rect { stroke-width: 18px; }
+    }
+    .products-section .banner { font-size: 1rem; }
+}
+
+// Shop Page
+.header-border {
+    border-bottom-color: rgba(255,255,255,.1);
+}
+.page-header {
+    height: 374px;
+    padding-top: 124px;
+    .page-title {
+        font-family: $second-font-family;
+        letter-spacing: .025em;
+    }
+    .page-subtitle {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 1.6rem;
+        opacity: .8;
+    }
+}
+
+// Product page
+.single-product {
+    .service-list {
+        .icon-box-title { letter-spacing: -.025em; }
+        p { font-family: $third-font-family; }
+    } 
+}
+.product-banner {
+    .banner-content {
+        top: 18.7%; 
+        padding: 0 1.5rem;
+    }
+    .banner-price-info {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 1.4em;
+        sup {
+            font-size: .5em;
+        } 
+    }
+    .banner-subtitle {
+        margin-bottom: .7rem; 
+        padding: 0 1rem;
+        font-size: 2.4em;
+        line-height: 1.25;
+        letter-spacing: 0; 
+    }
+    .banner-title {
+        margin-bottom: .6rem;
+        font-size: 4em;
+    }
+    p {
+        font-size: 1.6em;
+    }
+}
+.product-single {
+    .product-name {
+        font-family: $second-font-family;
+        font-weight: 400;
+        letter-spacing: .05em;
+    }
+    .btn-cart {
+        max-width: 38.9rem;
+    }
+    p { font-family: $font-family; }
+}
+
+/* Instagram */
+.instagram {
+    a {
+        &::before {
+            // background: #e82d7c; 
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(90deg) scale(2);
+            transition: all .3s;
+        }
+    }
+
+    &:hover {
+        a {
+            &::after {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+        }
+    }
+}

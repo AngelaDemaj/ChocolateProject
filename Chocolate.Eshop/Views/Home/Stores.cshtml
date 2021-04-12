@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["Title"] = "Stores";
+}
+
+@section Styles{
+
+    <style>
+        #map {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+}
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Our Stores</h1>
+        </div>
+
+        <div class="page-content mt-10 pt-7">
+            <section class="store-section pt-10 pb-10">
+                <div class="container">
+                    <h2 class="title mt-2">Find the nearest store</h2>
+                    <div class="row cols-sm-2 cols-lg-4">
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/Stores/Store_1.jpg" alt="team member" width="280" height="280">
+                                <div class="overlay social-links">
+                                    <button class="btn btn-primary" onclick="viennaFunction()">Find Store</button>
+                                </div>
+                            </figure>
+                            <h4 class="member-name">Vienna</h4>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/Stores/Store_2.jpg" alt="team member" width="280" height="280">
+                                <div class="overlay social-links">
+                                    <button class="btn btn-primary" onclick="athensFunction()">Find Store</button>
+                                </div>
+                            </figure>
+                            <h4 class="member-name">Athens</h4>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/Stores/Store_3.jpg" alt="team member" width="280" height="280">
+                                <div class="overlay social-links">
+                                    <button class="btn btn-primary" onclick="reykjavikFunction()">Find Store</button>
+                                </div>
+                            </figure>
+                            <h4 class="member-name">Reykjavik</h4>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/Stores/Store_4.jpg" alt="team member" width="280" height="280">
+                                <div class="overlay social-links">
+                                    <button class="btn btn-primary" onclick="amsterdamFunction()">Find Store</button>
+                                </div>
+                            </figure>
+                            <h4 class="member-name">Amsterdam</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container">
+                <div>
+                    <h2 id="culture" class="title mt-2">Καλη ορεξη!</h2>
+                    <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196.55918352009812!2d23.724755438275803!3d37.97836765741043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a4abcc9c7789%3A0x383bd2f8f1c5f8b7!2zzqTOvyDOo861z4HOvM-AzrXPhM-Mz4PPgM65z4TOvyDPhM63z4Igzp3OrM69z4PPhc-C!5e0!3m2!1sel!2sgr!4v1617448060818!5m2!1sel!2sgr" height="400" width="1190" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <!-- End About Section-->
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="~/vendor/jquery.count-to/jquery.count-to.min.js"></script>
+
+        <script>
+            function viennaFunction() {
+                document.getElementById("culture").innerHTML = "Guten Appetit!"
+
+                var element = document.getElementById("map");
+                element.setAttribute("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.448143196267!2d16.36723181385473!3d48.19798341793587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07830fcd1b33%3A0x3ab9f6d953824cd8!2zV2llZG5lciBIYXVwdHN0cmHDn2UgOSwgMTA0MCBXaWVuLCDOkc-Fz4PPhM-Bzq_OsQ!5e0!3m2!1sel!2sgr!4v1617446853093!5m2!1sel!2sgr")
+            }
+
+            function athensFunction() {
+                document.getElementById("culture").innerHTML = "Καλη Ορεξη!"
+
+                var element = document.getElementById("map");
+                element.setAttribute("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196.55918352009812!2d23.724755438275803!3d37.97836765741043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a4abcc9c7789%3A0x383bd2f8f1c5f8b7!2zzqTOvyDOo861z4HOvM-AzrXPhM-Mz4PPgM65z4TOvyDPhM63z4Igzp3OrM69z4PPhc-C!5e0!3m2!1sel!2sgr!4v1617448060818!5m2!1sel!2sgr")
+            }
+
+            function reykjavikFunction() {
+                document.getElementById("culture").innerHTML = "góð matarlyst!"
+
+                var element = document.getElementById("map");
+                element.setAttribute("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.1853088717903!2d-21.88641363855492!3d64.09786983444964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d673792e42843b%3A0xb845f86a956c85ff!2sS%C3%A6tar%20Syndir!5e0!3m2!1sel!2sgr!4v1617447768860!5m2!1sel!2sgr")
+            }
+
+            function amsterdamFunction() {
+                document.getElementById("culture").innerHTML = "goede eetlust!"
+
+                var element = document.getElementById("map");
+                element.setAttribute("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4872.107226805676!2d4.883970327105453!3d52.369447851946994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c1885e656d%3A0xd2f18158f3164533!2sVan%20Stapele%20Koekmakerij!5e0!3m2!1sel!2sgr!4v1617447940977!5m2!1sel!2sgr")
+            }
+        </script>
+    }
+</body>

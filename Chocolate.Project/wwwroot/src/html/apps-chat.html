@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @@include("partials/title-meta.html", {"title": "Chat"})
+
+        @@include("partials/head-css.html")
+
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            @@include('./partials/topbar.html', {"pagetitle": "Chat"})
+
+            @@include('./partials/left-sidebar.html')
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+
+                        <div class="row">
+                            
+                            <div class="col-xl-3 col-lg-4">
+                                <div class="card chat-list-card mb-xl-0">
+                                    <div class="card-body">
+                                        
+                                        <div class="media">
+                                            <div class="mr-2 align-self-center">
+                                                <img src="assets/images/users/user-1.jpg" alt="" class="rounded-circle avatar-sm">
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-1">Nowak Helme</h5>
+                                                <p class="font-13 text-muted mb-0">Admin Head</p>
+                                            </div>
+                                            <div class="dropdown">
+                                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr class="my-3">
+
+                                        <div class="search-box chat-search-box">
+                                            <input type="text" class="form-control" placeholder="Search...">
+                                            <i class="mdi mdi-magnify search-icon"></i>
+                                        </div>
+
+                                        <hr class="my-3">
+
+                                        <div class="">
+                                            <ul class="list-unstyled chat-list slimscroll mb-0" style="max-height: 410px;">
+                                                <li class="active">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="chat-user-img active align-self-center mr-2">
+                                                                <img src="assets/images/users/user-2.jpg" class="rounded-circle avatar-sm" alt="">
+                                                            </div>
+                                                            
+                                                            <div class="media-body overflow-hidden">
+                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Margaret Clayton</h5>
+                                                                <p class="text-truncate mb-0">I've finished it! See you so...</p>
+                                                            </div>
+                                                            <div class="font-11">05 min</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="chat-user-img active avatar-sm align-self-center mr-2">
+                                                                <span class="avatar-title rounded-circle bg-soft-success text-success">
+                                                                    <i class="mdi mdi-account"></i>
+                                                                </span>
+                                                            </div>
+                                                            
+                                                            <div class="media-body overflow-hidden">
+                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Jason Bent</h5>
+                                                                <p class="text-truncate mb-0">Hey! there I'm available</p>
+                                                            </div>
+                                                            <div class="font-11">20 min</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="unread">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="chat-user-img align-self-center mr-2">
+                                                                <img src="assets/images/users/user-3.jpg" class="rounded-circle avatar-sm" alt="">
+                                                            </div>
+                                                            
+                                                            <div class="media-body overflow-hidden">
+                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Mark Nieto</h5>
+                                                                <p class="text-truncate mb-0">This theme is awesome!</p>
+                                                            </div>
+                                                            <div class="font-11">32 min</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="unread">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="chat-user-img active align-self-center mr-2">
+                                                                <img src="assets/images/users/user-4.jpg" class="rounded-circle avatar-sm" alt="">
+                                                            </div>
+                                                            
+                                                            <div class="media-body overflow-hidden">
+                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Garret Sauer</h5>
+                                                                <p class="text-truncate mb-0">Nice to meet you</p>
+                                                            </div>
+                                                            <div class="font-11">01 hr</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="chat-user-img align-self-center mr-2">
+                                                                <img src="assets/images/users/user-5.jpg" class="rounded-circle avatar-sm" alt="">
+                                                            </div>
+                                                            
+                                                            <div class="media-body overflow-hidden">
+                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Michael James</h5>
+                                                                <p class="text-truncate mb-0">Good morning</p>
+                                                            </div>
+                                                            <div class="font-11">01 hr</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="unread">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="chat-user-img avatar-sm align-self-center mr-2">
+                                                                <span class="avatar-title  rounded-circle bg-soft-primary text-primary">
+                                                                    <i class="mdi mdi-account"></i>
+                                                                </span>
+                                                            </div>
+                                                            
+                                                            <div class="media-body overflow-hidden">
+                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Felicia Johnson</h5>
+                                                                <p class="text-truncate mb-0">Meeting 10am</p>
+                                                            </div>
+                                                            <div class="font-11">02 hr</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="chat-user-img active align-self-center mr-2">
+                                                                <img src="assets/images/users/user-6.jpg" class="rounded-circle avatar-sm" alt="">
+                                                            </div>
+                                                            
+                                                            <div class="media-body overflow-hidden">
+                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Tracy Marsh</h5>
+                                                                <p class="text-truncate mb-0">Hey! there I'm available</p>
+                                                            </div>
+                                                            <div class="font-11">04 hr</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="chat-user-img align-self-center mr-2">
+                                                                <img src="assets/images/users/user-7.jpg" class="rounded-circle avatar-sm" alt="">
+                                                            </div>
+                                                            
+                                                            <div class="media-body overflow-hidden">
+                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Richard Lopez</h5>
+                                                                <p class="text-truncate mb-0">Nice to meet you</p>
+                                                            </div>
+                                                            <div class="font-11">05 hr</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-8">
+                                <div class="conversation-list-card card">
+                                    <div class="card-body">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-1 text-truncate">Margaret Clayton</h5>
+                                                <p class="font-13 text-muted mb-0"><i class="mdi mdi-circle text-success mr-1 font-11"></i> Active</p>
+                                            </div>
+                                            <div class="dropdown">
+                                                <a href="#" class="dropdown-toggle arrow-none card-drop font-20" data-toggle="dropdown" aria-expanded="false">
+                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <!-- item-->
+                                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="my-3">
+
+                                        <div>
+                                            <ul class="conversation-list slimscroll" style="max-height: 410px;">
+                                                <li>
+                                                    <div class="chat-day-title">
+                                                        <span class="title">Today</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="message-list">
+                                                        <div class="chat-avatar">
+                                                            <img src="assets/images/users/user-2.jpg" alt="">
+                                                        </div>
+                                                        <div class="conversation-text">
+                                                            <div class="ctext-wrap">
+                                                                <span class="user-name">Margaret Clayton</span>
+                                                                <p>
+                                                                    Hello!
+                                                                </p>
+                                                            </div>
+                                                            <span class="time">10:00</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li class="odd">
+                                                    <div class="message-list">
+                                                        <div class="chat-avatar">
+                                                            <img src="assets/images/users/user-1.jpg" alt="">
+                                                        </div>
+                                                        <div class="conversation-text">
+                                                            <div class="ctext-wrap">
+                                                                <span class="user-name">Nowak Helme</span>
+                                                                <p>
+                                                                    Hi, How are you? What about our next meeting?
+                                                                </p>
+                                                            </div>
+                                                            <span class="time">10:01</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="message-list">
+                                                        <div class="chat-avatar">
+                                                            <img src="assets/images/users/user-2.jpg" alt="">
+                                                            
+                                                        </div>
+                                                        <div class="conversation-text">
+                                                            <div class="ctext-wrap">
+                                                                <span class="user-name">Margaret Clayton</span>
+                                                                <p>
+                                                                    Yeah everything is fine
+                                                                </p>
+                                                            </div>
+                                                            <span class="time">10:03</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="message-list">
+                                                        <div class="chat-avatar">
+                                                            <img src="assets/images/users/user-2.jpg" alt="male">
+                                                            
+                                                        </div>
+                                                        <div class="conversation-text">
+                                                            <div class="ctext-wrap">
+                                                                <span class="user-name">Margaret Clayton</span>
+                                                                <p>
+                                                                    & Next meeting tomorrow 10.00AM
+                                                                </p>
+                                                            </div>
+                                                            <span class="time">10:03</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li class="odd">
+                                                    <div class="message-list">
+                                                        <div class="chat-avatar">
+                                                            <img src="assets/images/users/user-1.jpg" alt="">
+                                                        </div>
+                                                        <div class="conversation-text">
+                                                            <div class="ctext-wrap">
+                                                                <span class="user-name">Nowak Helme</span>
+                                                                <p>
+                                                                    Wow that's great
+                                                                </p>
+                                                            </div>
+                                                            <span class="time">10:04</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 conversation-input border-top">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div>
+                                                    <input type="text" class="form-control" placeholder="Enter Message...">
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button type="submit" class="btn btn-primary chat-send width-md waves-effect waves-light"><span class="d-none d-sm-inline-block mr-2">Send</span> <i class="mdi mdi-send"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end row -->
+                        
+                    </div> <!-- container-fluid -->
+
+                </div> <!-- content -->
+
+                @@include('./partials/footer.html')
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+        @@include('./partials/right-sidebar.html')
+
+        <!-- Vendor js -->
+        <script src="assets/js/vendor.min.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.min.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,43 @@
+//
+// layouts.scss
+//
+
+body[data-layout-size="boxed"] {
+    background-color: $boxed-body-bg;
+    #wrapper {
+        max-width: $boxed-layout-width;
+        margin: 0 auto;
+        background-color: $body-bg;
+        box-shadow: $shadow;
+    }
+
+    .navbar-custom {
+        max-width: $boxed-layout-width;
+        margin: 0 auto;
+    }
+
+    .footer {
+        margin: 0 auto;
+        max-width: calc(#{$boxed-layout-width} - #{$leftbar-width});
+    }
+
+    &.enlarged {
+        .footer {
+            max-width: calc(#{$boxed-layout-width} - #{$leftbar-width-collapsed});
+        }
+    }
+}
+
+// Horizontal layout
+
+body[data-layout="horizontal"]{
+    &[data-layout-size="boxed"] {
+        #wrapper, .navbar-custom, .footer{
+            max-width: 100%;
+        }
+
+        .container-fluid {
+            max-width: $boxed-layout-width;
+        }
+    }
+}

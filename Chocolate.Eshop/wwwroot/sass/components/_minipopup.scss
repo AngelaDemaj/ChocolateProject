@@ -1,0 +1,80 @@
+/* -------------------------------------------
+    Mini Popup
+---------------------------------------------- */
+
+
+@include set-default(
+    (
+        minipopup: (
+            area: (
+                left: 30px,
+                bottom: 30px,
+                z-index: 2000,
+            )
+        )
+    )
+);
+
+.minipopup-area {
+    position: fixed;
+    @include print_css( minipopup, area );
+}
+.minipopup-box {
+    position: absolute;
+    left: -8rem;
+    width: 273px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: opacity .3s, left .3s ease-out, transform .3s;
+
+    &.show {
+        opacity: 1;
+        left: 0;
+    }
+
+    &.focus {
+        transform: scale(.95) translateY(-100%);
+    }
+
+    .product-name {
+        display: block;
+        font-size: 1.3rem;
+        margin-bottom: 3px;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+
+    .product-list-sm {
+        margin-bottom: 2rem;
+    }
+
+    img {
+        max-width: 9rem;
+        max-height: 9rem;
+    }
+
+    .ratings-container {
+        margin-bottom: 0;
+    }
+
+    .product-price {
+        color: $primary-color;
+        margin-bottom: 3px;
+    }
+}
+
+.minipopup-title {
+    border: 1px dashed;
+    padding: .6rem .4rem .6rem 1.5rem;
+    color: #999;
+    font-size: 1.3rem;
+
+    .btn {
+        margin-left: 1rem;
+    }
+}

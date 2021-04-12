@@ -1,0 +1,322 @@
+/* 
+Demo 16
+*/
+// Header
+.header-top {
+    .dropdown,
+    .dropdown-expanded li {
+        &:hover,
+        &.show {
+            > a { color: #ccc; }
+        }
+    }
+}
+.header-middle .cart-dropdown:hover .cart-count { color: #fff; }
+
+// Intro Section 
+.intro-section {
+    .height-x1 { height: 178px; }
+    .height-x3 { height: 534px; }
+}
+@include mq(xl) {
+    .col-3-xl {
+        max-width: 30%;
+        flex: 0 0 30%;
+    }
+    .col-7-xl {
+        max-width: 70%;
+        flex: 0 0 70%;
+    }
+    .col-1-xl {
+        max-width: 10%;
+        flex: 0 0 10%;
+    }
+}
+.intro-slider {
+    .banner-content { padding: 0 1.5rem; }
+    p { line-height: 1.2; }
+    .btn { padding: .72em 2em; }
+
+    .owl-dots {
+        transform: none;
+        left: calc(7.32% - .5rem);
+        .owl-dot {
+            span {
+                opacity: .3;
+            }
+        }
+    }
+}
+.intro-slide1 {
+    .banner-content {
+        bottom: 20.4%;
+        padding-left: 7.31%;
+    }
+    .banner-subtitle { font-size: 3em; }
+    .banner-title { font-size: 4.5em; }
+    p {
+        margin-bottom: 2.2rem;
+        font-size: 1.8em;
+    }
+}
+.intro-slide2 {
+    .banner-content {
+        padding-left: 7.31%;
+    }
+    .banner-subtitle { font-size: 3em; }
+    .banner-title { font-size: 4.6em; }
+    p { font-size: 2.4em; }
+}
+.intro-slide3 {
+    .banner-content {
+        padding-right: 7.31%;
+    }
+    .banner-subtitle {
+        font-size: 2.4em;
+        color: #4b4b4c;
+    }
+    .banner-title {
+        margin-bottom: 1.7rem;
+        font-size: 4em;
+    }
+    p {
+        font-size: 2em;
+        color: #4b4b4c;
+    }
+    .banner-price-info {
+        margin-bottom: 3.8rem;
+        font-size: 3em;
+        color: #333;
+    }
+}
+.intro-banner1,
+.intro-banner2 {
+    .banner-title { font-size: 2em; }
+    .banner-subtitle { font-size: 1.8em; letter-spacing: -.07em; }
+    .banner-content {
+        padding: 0 1.5rem 0 8.8%;
+        bottom: 20.2%;
+    }
+}
+.intro-banner2 {
+    .banner-content { bottom: 17.7%; }
+}   
+.intro-banner3 {
+    .banner-content {
+        padding: 0 1.5rem 0 8.8%;
+    }
+    .banner-subtitle { margin-bottom: .4rem; font-size: 3em; }
+    .banner-title {
+        margin-bottom: 1.7rem;
+        font-size: 2em;
+    }
+    .btn { padding: .63em 1.53em; }
+}
+// Service List
+.service-list {
+    .icon-box { padding: 2.7rem 0; }
+    .icon-box-icon {
+        margin-right: 1rem;
+        font-size: 3.2rem;
+        color: $primary-color;
+    }
+    p {
+        font-family: $font-family;
+        line-height: 1.22;
+        letter-spacing: -.01em;
+        color: #777;
+    }
+    .icon-box-title {
+        letter-spacing: 0;
+        font-size: 1.4rem;
+        line-height: 1.22;
+        color: #323232;
+    }
+    .owl-item {
+        background-color: #f4f4f4;
+    }
+}
+// Banner Group
+.banner-group {
+    // Heights
+    .height-x2 { height: 600px; }
+    .height-x1 { height: 300px; }
+
+    .banner-content { padding: 0 1.5rem; }
+    .btn { padding: 0.88em 1.53em; }
+}
+.banner1 {
+    .banner-content {
+        padding-left: 6.9%;
+        bottom: 7.93%;
+    }
+    .banner-title {
+        font-size: 2.4em;
+        line-height: 1.167;
+    }
+    .banner-subtitle { font-size: 1.8em; }
+    .banner-price-info {
+        font-size: 2.4em;
+        line-height: 1;
+        span {
+            font-size: 3.34em;
+        }
+    }
+}
+.banner2,
+.banner3,
+.banner4 {
+    .banner-subtitle { font-size: 1rem; }
+    .banner-title {
+        font-size: 2rem;
+        color: #444;
+    }
+}
+.banner2 {
+    .banner-content { top: 10.7%; }
+}
+.banner3 {
+    .banner-content { bottom: 10%; }
+}
+.banner4 {
+    .banner-content { bottom: 10%; }
+}
+.banner5 {
+    .banner-content { bottom: 10.7%; }
+    .banner-title { font-size: 3em; }
+    .banner-subtitle { font-size: 1.8em; }
+}
+.banner6 {
+    background-color: #f0f3f3;
+    align-items: center;
+    .banner-content { padding: 0 1.5rem; }
+    .banner-subtitle { font-size: 1.4em; }
+    .banner-title {
+        font-size: 2em;
+        color: #444;
+        span {
+            margin-bottom: .8rem;
+            font-size: 1.2em;
+        }
+    }
+}
+.banner7 {
+    .banner-content { padding-left: 5.17%; }
+    .banner-subtitle {
+        margin-bottom: 1.8rem;
+        font-size: 1.8em;
+    }
+    .banner-title {
+        margin-bottom: .7rem;
+        font-size: 2.4em;
+    }
+    p {
+        font-size: 2em;
+        line-height: 1;
+    }
+}
+// Banner Newsletter
+.banner-newsletter {
+    border: 2px solid $primary-color;
+	.banner-content { padding: 1.8rem 0; }
+	.icon-box { justify-content: flex-start; }
+    .icon-box p {
+		line-height: 1.43;
+		letter-spacing: .01em;
+    }
+    .icon-box-icon {
+		margin: 0 2.4rem 0 .2rem;
+        font-size: 4.5rem;
+    }
+    .icon-box-title {
+		font-size: 1.8rem;
+        line-height: .9;
+    }
+    .input-wrapper {
+        height: 4.8rem;
+        .form-control {
+            border: 1px solid #e4e4e4;
+            border-right: 0;
+        }
+        .btn {
+            padding: 1em 2.6em;
+        }
+    }
+}
+// Blog
+.post-list {
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: .88em 1.36em;
+        &:not(:hover) {
+            background-color: #f1f1f1;
+            border-color: #f1f1f1;
+        }
+    }
+}
+// Brand
+.brand-carousel {
+    .owl-item { padding: 1rem 0; }
+
+    .owl-nav {
+        .owl-prev,
+        .owl-next {
+            font-size: 3rem;
+            border: 0;
+            color: #999;
+            &:not(.disabled):hover {
+                background: transparent; 
+                color: $primary-color;
+            }
+        }
+    }
+}
+// Footer
+.footer-middle {
+    .widget:not(.widget-about) { margin-top: .3rem; }
+    .widget-about .logo-footer { margin-bottom: 2rem; }
+}
+.widget-about {
+    p { margin-bottom: 3.1rem; }
+}
+.logo-footer { margin-bottom: 1.1rem; }
+
+// Responsive
+@include mq(xl, max) {
+    .menu {
+        .dropdown-box { left: -6.5rem; }
+    }
+}
+@include mq(lg, max) {
+    .header-bottom { display: none; }
+    .banner { font-size: .9rem; }
+	.banner-newsletter .icon-box { justify-content: center; }
+}
+@include mq(md) {
+    .mobile-menu-toggle { color: $primary-color; }
+}
+@include mq(md, max) {
+    .banner-group {    
+        .height-x2 { height: 400px; }
+        .height-x1 { height: 200px; }
+    }
+}
+@include mq(sm, max) {
+    .banner { font-size: .8rem; }
+    .banner-newsletter {
+        .icon-box {
+            display: block;
+            text-align: center;
+        }
+        .icon-box-icon {
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+        .icon-box-content { text-align: center; }
+	}
+}
+
+// Shop page
+.product-wrap { margin-bottom: 3rem; }
+

@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "My Leaves";
+}
+
+
+@section Styles{
+
+    <link href="~/css/site.min.css" rel="stylesheet" />
+}
+
+<h1>My Leaves</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New+</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <h2 class="sub-header">
+                A list of all Leaves
+            </h2>
+            <table id="leave-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Leave Type</th>
+                        <th>Status</th>
+                        <th>Start Date</th>
+                        <th>Number Of Days</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/site.min.js"></script>
+    <script>
+        jQuery(function () {
+            var dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
+
+            $('#leave-datatable').DataTable({
+                "serverSide": true,
+                dom: 'Brtlip',
+                buttons: [{
+                    extend: "pdf",
+                    className: "btn btn-sm  btn-primary",
+                    orientation: "portrait",
+                    pageSize: "A4"
+                }],
+                "ajax": {
+                    url: "/api/leaves/myLeaves",
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: function (data) {
+                        return JSON.stringify(data);
+                    },
+                },
+                order: [[0, 'desc']],
+                "columns": [
+                    {
+                        "data": "leaveType",
+                        "render": function (a, b, data, d) {
+                            switch (data.leaveType) {
+                                case 1:
+                                    return "Annual";
+                                    break;
+                                case 2:
+                                    return "Sick";
+                                    break;
+                                case 3:
+                                    return "Maternity";
+                                    break;
+                                case 4:
+                                    return "Paternity";
+                                    break;
+                                case 5:
+                                    return "Study";
+                                    break;
+                                default:
+                                    data.leaveType
+                            }
+                        }
+                    },
+                    {
+                        "data": "status",
+                        "render": function (a, b, data, d) {
+                            switch (data.status) {
+                                case 1:
+                                    return "Pending";
+                                    break;
+                                case 2:
+                                    return "Approved";
+                                    break;
+                                case 3:
+                                    return "Rejected";
+                                    break;
+                                default:
+                                    data.status
+                            }
+                        }
+                    },
+                    {
+                        "data": "startDate",
+                        "render": function (a, b, data, d) {
+                            if (data.startDate !== null) {
+                                let date = new Date(data.startDate);
+                                return date.toLocaleDateString('en-GB', dateOptions);
+                            }
+                            return null;
+                        }
+                    },
+                    { "data": "numberOfDays" },
+                    {
+                        "data": "id",
+                        "render": function (a, b, data, d) {
+                            return `<a class="btn btn-outline-info btn-xs mr-1" href="/leave/details/${data.id}"><i class="fas fa-eye mr-1"></i>Details</a> `;
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+        })
+    </script>
+}

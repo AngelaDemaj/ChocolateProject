@@ -1,0 +1,108 @@
+/* -------------------------------------------
+    comments
+---------------------------------------------- */
+.comments {
+    padding-top: 4.3rem;
+    border-top: 1px solid #ebebeb;
+	ul ul {
+        margin-top: 4rem;
+        margin-left: 8rem;
+        padding-top: 4.5rem;
+        border-top: .1rem solid #ebebeb;
+	}
+	li {
+		border-bottom: .1rem solid #ebebeb;
+		padding-bottom: 3.5rem;
+		margin-bottom: 4rem;
+		&:last-child {
+			border-bottom-width: 0;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+}
+@include mq( sm, max ) {
+    .comments ul ul {
+        margin-left: 3rem;
+    }
+}
+.comment {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	p:last-child { margin-bottom: 0; }
+}
+.comment-body {
+	position: relative;
+	flex: 1 1 auto;
+	padding: .9rem 0 0 3rem;
+}
+
+.comment-reply {
+	color: #777;
+	position: absolute;
+	right: 0;
+    top: 1.7rem;
+    text-transform: uppercase;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: -.01em;
+    padding-bottom: .5rem;
+    transition: color .3s, box-shadow .3s;
+	&:hover,
+	&:focus {
+		color: $primary-color;
+		box-shadow: 0 2px 0 $primary-color;
+	}
+}
+.comment-media {
+    max-width: 8rem;
+    flex: 0 0 8rem;
+    height: 8rem;
+    border-radius: 50%;
+	overflow: hidden;
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.comment-user {
+	margin-bottom: 1rem;
+	h4 {
+		font-size: 1.4rem;
+		line-height: 1;
+		letter-spacing: -.01em;
+		margin-bottom: 0;
+		a {
+			&:hover,
+			&:focus {
+				color: $primary-color;
+			}
+		}
+		span {
+            display: block;
+		}
+	}
+}
+
+.comment-date {
+	color: #ccc;
+	font-size: 1.3rem;
+	line-height: 1;
+}
+
+.reply {
+    margin-bottom: 7rem;
+    background-color: #f2f3f5;
+    padding: 4.3rem 3rem 5.4rem;
+    .form-control {
+        max-width: 100%;
+        color: #999;
+        border-color: #ebebeb;
+        background: #fff;
+    }
+    p { font-size: 1.3rem; }
+}
+

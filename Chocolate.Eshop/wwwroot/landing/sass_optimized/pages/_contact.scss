@@ -1,0 +1,36 @@
+/* -------------------------------------------
+    Contact Page
+---------------------------------------------- */
+
+.contact-section {
+    h2 {
+        font-size: 2.4rem;
+    }
+    h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    h4 {
+        font-size: inherit;
+    }
+    form {
+        p {
+            font-size: 1.3rem;
+            letter-spacing: .01em;
+        }
+    }
+    .form-control {
+        background: #fff;
+        border-color: transparent;
+        transition: border-color .3s;
+        &::placeholder {
+            color: #999;
+        }
+        &:focus {
+            border-color: $border-color;
+        }
+    }
+    textarea {
+        min-height: 10rem;
+    }
+}

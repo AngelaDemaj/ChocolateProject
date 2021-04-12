@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@section Styles{
+    <style>
+        tr > td{
+            text-align:center;
+        }
+
+        thead > tr > th{
+            padding:20px;
+        }
+
+        label > select.custom-select.custom-select-sm.form-control.form-control-sm {
+            width: 150px;
+            max-width: 150px;
+            text-align: right;
+            position:relative;
+            right:0;
+        }
+
+        div#position-datatable_paginate.dataTables_paginate.paging_simple_numbers > ul.pagination {
+            margin-top: 50px;
+        }
+    </style>
+}
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Join The Lozan Family</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="title mt-2">Available Positions</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card-box table-responsive">
+                                <table id="position-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Position Title</th>
+                                            <th>Department</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- End Team Section -->
+        </div>
+    </main>
+    @section Scripts{
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+        <script src="~/vendor/jquery/site.min.js"></script>
+        <script>
+            jQuery(function () {
+                $('#position-datatable').DataTable({
+                    "serverSide": true,
+                    dom: 'frtp',
+                    "ajax": {
+                        url: "/api/positions/query",
+                        type: 'POST',
+                        contentType: "application/json",
+                        data: function (data) {
+                            return JSON.stringify(data);
+                        },
+                    },
+                    order: [[0, 'desc']],
+                    "columns": [
+                        { "data": "name" },
+                        {
+                            "data": "departmentId",
+                            "render": function (a, b, data, d) {
+                                return data.department.name;
+                            }
+                        },
+                        {
+                            "data": "id",
+                            "render": function (a, b, data, d) {
+                                return `<a class="btn btn-outline-info btn-xs mr-1" href="/position/details/${data.id}"><i class="fas fa-eye mr-1"></i>Details</a> `;
+                            },
+                            "orderable": false
+                        }
+                    ]
+                });
+            })
+        </script>
+    }
+</body>

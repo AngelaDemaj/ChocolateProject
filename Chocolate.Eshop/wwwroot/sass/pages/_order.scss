@@ -1,0 +1,209 @@
+.order {
+    &.main {
+        border-top: 1px solid #e1e1e1;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .order-message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: $dark-color;
+        padding: 3rem;
+        border: 2px solid #e1e1e1;
+        border-radius: 3px;
+
+        i {
+            font-size: 2.8rem;
+            color: #a8c26e;
+            margin-top: -.1rem;
+            margin-right: 1.5rem;
+        }
+    }
+    .order-results {
+        display: flex;
+    }
+
+    .overview-item {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 1.8rem;
+        flex: 1;
+
+        strong {
+            color: $dark-color;
+        }
+        
+    }
+
+    .address-info {
+        border-bottom: 1px solid #e1e1e1;   
+
+        p {
+            color: #666;
+            font-family: $font-family;
+            line-height: 2.15;
+        }
+    }
+
+    .btn.btn-back {
+        // padding: .5rem 1rem;
+        font-size: 1.3rem;
+    }
+
+    .summary-subtotal:last-child {
+        border-bottom: none;
+    }
+}
+
+.order-details {
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+    padding: 0 3rem;
+}
+
+.order-details-table {
+    .product-name {
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 3.5;
+
+        i {
+            font-size: 1rem;
+        }
+        span {
+            font-weight: 700;
+        }
+    }
+
+    th > .summary-subtitle {
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-align: left;
+    }
+    .product-price {
+        display: block;
+    }
+
+    .summary-subtotal-price, .product-price {
+        text-align: right;
+    }
+    .summary-subtotal-price { font-weight: 600; }
+
+    .product-price {
+        font-size: 1.4rem;
+        color: #666;
+        font-weight: 400;
+        padding-top: 1.5rem;
+    }
+
+    thead {
+        border-bottom: 1px solid #e1e1e1;
+    }
+
+    tbody tr:first-child {
+        td { 
+            padding-top: 2rem;
+
+            &.product-price {
+                padding-top: 3.3rem;
+            }
+        }
+    }
+}
+
+@include mq(lg, 'max') {
+    .order {
+        .order-results {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .overview-item {
+            min-width: 33.3%;
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+@include mq(md, 'max') {
+    .order {
+        .order-message {
+            font-size: 2rem;
+        }
+
+        .order-results {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .overview-item {
+            flex-direction: row;
+            width: 100%;
+            margin-bottom: 1rem;
+
+            span {
+                width: 50%;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@include mq(sm, 'max') {
+    .order {
+        .order-details {
+            padding: 0 2rem;
+        }
+
+        .order-message {
+            font-size: 1.8rem;
+        }
+
+        .overview-item {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@include mq(xs, 'max') {
+    .order {
+        .order-details {
+            padding: 0 1.5rem;
+        }
+
+        .order-message {
+            font-size: 1.6rem;
+        }
+
+        .overview-item {
+            font-size: 1.4rem;
+        }
+    }
+
+    .step-by .title.title-step { 
+        font-size: 1.6rem;
+
+        &::before {
+            font-size: 1.4rem;
+            top: 50%;
+        }
+    }
+
+    .order-details-table {
+        tbody {
+            .product-name {
+                white-space: pre-wrap;
+                line-height: 2;
+            }
+        }
+    }
+}

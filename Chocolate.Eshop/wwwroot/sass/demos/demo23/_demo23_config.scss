@@ -1,0 +1,56 @@
+/* 
+Demo 23 Variables
+*/
+
+@include set(
+	(
+		header: (
+			bottom: (
+				color: #fff,
+				background: $primary-color
+			),
+			sticky: (
+				padding-top: 0,
+				padding-bottom: 0,
+				background: $primary-color
+			)
+		),
+		menu: (
+			ancestor: (
+				_gap: .5rem,
+				padding: 2rem 1.5rem,
+				_active-color: #fff,
+			)
+		),
+		product: (
+			rating: (
+				_star-color: #ffc222
+			),
+			price: (
+				color: $primary-color
+			),
+			body: (
+				padding-bottom: 1.6rem
+			)
+		),
+		post: (
+			body: (
+				padding: 1.9rem 0 1.5rem,
+			),
+			info: (
+				margin-bottom: .7rem
+			),
+			title: (
+				text-transform: none,
+				margin-bottom: 1.5rem,
+				padding-left: 2px,
+				font-family: $second-font-family,
+				font-size: 1.4rem,
+				letter-spacing: 0,
+			),
+			icon: (
+				_gap: .6rem
+			)
+		)
+	)
+)

@@ -1,0 +1,62 @@
+/* -------------------------------------------
+    Owl Carousel
+---------------------------------------------- */
+
+.owl-carousel {
+    .owl-item {
+        img {
+            height: auto;
+        }
+    }
+}
+.owl-loaded .owl-stage::after {
+    content: '';
+}
+
+.owl-carousel:not(.owl-loaded) {
+    flex-wrap: nowrap;
+    overflow: hidden;
+    // &[class*='cols-']:not(.gutter-no) {
+    //     margin-left: -10px !important;
+    //     margin-right: -10px !important; 
+    //     width: auto;
+    // }
+}
+
+.owl-theme {
+    .owl-nav.disabled+.owl-dots {
+        margin-top: 1.5rem;
+    }
+
+    .owl-dots {
+        .owl-dot{
+            &.active {
+                span {
+                    background-color: $primary-color;
+                    border-color: $primary-color;
+                }
+            }
+
+            span {
+                margin: 5px;
+            }
+        }
+    }
+}
+
+.owl-dot-white {
+    .owl-dots {
+        .owl-dot {
+            span {    
+                background-color : #fff;
+                border-color: #fff;   
+                opacity: .8;
+            }
+            &.active span {
+                background-color : #fff;
+                border-color: #fff;   
+                opacity: 1;
+            }
+        }
+    }
+}

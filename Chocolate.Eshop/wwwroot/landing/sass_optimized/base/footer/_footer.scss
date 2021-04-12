@@ -1,0 +1,391 @@
+/* -------------------------------------------
+    Footer
+        - Footer top
+        - Footer middle
+        - Footer bottom
+        - Copyright
+        - Widget newsletter
+        - Widget about
+        - Sticky Footer
+---------------------------------------------- */
+
+// Variables
+@include set-default(
+	(
+		footer: (
+            font-family: "'Open Sans', sans-serif",
+            font-size: 1.3rem,
+            letter-spacing: false,
+            background: #222,
+            color: false,
+            _link-active-color: #fff,
+
+            top: (
+                padding: 3.5rem 0,
+                border-top: false,
+                border-bottom: 1px solid #333,
+                background: false,
+            ),
+            middle: (
+                padding: 3rem 0 0,
+                letter-spacing: false,
+                border-bottom: 1px solid #333,
+                background: false,
+                widget: (
+                    margin-bottom: 3rem,
+                    title: (
+                        padding: .6rem 0,
+                        margin-bottom: .9rem,
+                        font-family: inherit,
+                        font-size: 1.4rem,
+                        font-weight: 700,
+                        letter-spacing: 0,
+                        line-height: false,
+                        text-transform: false,
+                        color: #ccc, 
+                    ),
+                    body: (
+                        padding: 8px 0 0,
+                        color: #999,
+                    ),
+                    list-item: (
+                        line-height: 1.2,
+                        margin-bottom: 13px,
+                    ),
+                    label: (
+                        font-family: false,
+                        font-size: false,
+                        font-weight: 600,  
+                        letter-spacing: false,
+                        line-height: false,
+                        text-transform: uppercase,
+                        color: #ccc,
+                    )
+                )
+            ),
+            bottom: (
+                padding: 2.8rem 0,
+                background: false,
+            ),
+            copyright: (
+                font-family: false,
+                font-size: 1.2rem,
+                font-weight: false,
+                color: false,
+                letter-spacing: false,
+                line-height: 1.5,
+            ),
+            social-link: (
+                letter-spacing: .005em,
+                color: #999,
+                border: 2px solid #999,
+                hover: (
+                    color: #fff,
+                )
+            ),
+            about: (
+                logo: (
+                    margin-bottom: 1.6rem,
+                ),
+                p: (
+                    margin-bottom: 3rem,
+                    color: #999,
+                    line-height: 1.85,
+                    letter-spacing: -.025em
+                )
+            ),
+            newsletter: (
+                title: (
+                    padding: 0,
+                    margin-bottom: .5rem,
+                    font-family:  inherit,
+                    font-size: 1.4rem,
+                    font-weight: 700,
+                    letter-spacing: 0,
+                    text-transform: false,
+                    line-height: 1,
+                    color: #ccc,
+                ),
+                desc: (
+                    margin-bottom: 0,
+                    font-family:  inherit,
+                    font-size: false,
+                    font-weight: false,
+                    letter-spacing: false,
+                    text-transform: false,
+                    line-height: 1.23,
+                    color: #999,
+                ),
+                form: (
+                    max-width: 48rem
+                ),
+                input: (
+                    padding: false,
+                    border: 0,
+                    color: false,
+                    background: #2c2c2c,
+                ),
+                btn: (
+                    padding: false
+                )
+            )
+        )
+    )
+);
+// Footer
+.footer {
+    @include print_css( footer );
+    p {
+        font-size: inherit;
+    }
+    a:not(.social-link) {   
+        &:hover {
+            @include css( color, footer, _link-active-color );
+        }
+    }
+    .social-link {
+        @include print_css( footer, social-link );
+        &:hover {
+            @include print_css( footer, social-link, hover );
+        }
+    }
+    .widget-title {
+        border-bottom: none;
+    }
+}
+.logo-footer, .logo-footer img {
+    display: block;
+}
+// Footer Top
+.footer-top {
+    @include print_css( footer, top );
+}
+
+// Footer Middle
+.footer-middle {
+    @include print_css( footer, middle );
+
+    .widget {
+        @include print_css( footer, middle, widget );
+    }
+    .widget-title {
+        @include print_css( footer, middle, widget, title );
+    }
+    .widget-body {
+        @include print_css( footer, middle, widget, body );
+        li {
+            @include print_css( footer, middle, widget, list-item );
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .widget-instagram {
+        .widget-body {
+            padding-top: 0;
+            margin: -5px -4px;
+        }
+        .col-3 {
+            padding: 5px 4px;
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+    label {
+        @include print_css( footer, middle, widget, label );
+    }
+}
+
+// Footer Bottom
+.footer-bottom {
+    &,
+    .container,
+    .container-fluid{
+        display: flex;
+        align-items: center;
+    }
+    @include print_css( footer, bottom );
+
+    .footer-left,
+    .footer-right {
+        flex: 1;
+    }
+    .footer-left {
+        display: flex;
+    }
+    .footer-right {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+// Responsive
+@include mq('lg', 'max') {
+    .footer-top {
+        .logo-footer {
+            margin-bottom: 2.7rem;
+
+            img {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+    .newsletter-info {
+        margin-bottom: 2rem;
+    }
+    .footer-middle {
+        padding: 3rem 0 2rem;
+        .widget {
+            margin-bottom: 2rem;
+        }
+        .widget-body {
+            padding: 0;
+        }
+    }
+    .footer-bottom {
+        &,
+        > .container {
+            display: block;
+        }
+        .footer-left,
+        .footer-right {
+            justify-content: center;
+        }
+        .footer-left,
+        .footer-center {
+            margin-bottom: 2.7rem;
+        }
+    }
+    .footer-center {
+        text-align: center;
+    }
+}  
+
+// Copyright Text
+.footer .copyright {
+    margin: 0;
+    @include print_css( footer, copyright );
+}
+
+// Widget Newsletter
+.widget-newsletter {
+    .newsletter-info {
+        max-width: 35rem;
+        width: 100%;
+    }
+    .input-wrapper {
+        @include css( max-width, footer, newsletter, form, max-width );
+    }
+    input {
+        @include print_css( footer, newsletter, input );
+    }
+    .btn {
+        @include print_css( footer, newsletter, btn );
+    }
+    .widget-title {
+        @include print_css( footer, newsletter, title );
+    }
+    p {
+        @include print_css( footer, newsletter, desc );
+    }
+}
+// Widget About
+.footer .widget-about {
+    .logo-footer {
+        display: block;
+        @include print_css(footer, about, logo);
+    }
+    p {
+        @include print_css(footer, about, p);
+    }
+    .widget-body {
+        padding: 0;
+    }
+}
+
+.payment {
+    img {
+        display: block;
+    }
+}
+
+// Sticky Footer
+.sticky-footer {
+    display: flex;
+    > * {
+        flex: 1;
+    }
+    .cart-dropdown:hover .cart-toggle {
+        color: #222;
+    }
+    .cart-toggle,
+    .search-toggle {
+        padding: 0;
+        color: inherit;
+    }
+    .cart-dropdown.dir-up::after {
+        bottom: 100%;
+    }
+    .dropdown-box,
+    .input-wrapper {
+        margin-bottom: 2rem;
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -2rem;
+            width: 100%;
+            height: 2rem;
+        }
+    }
+    .header-search.show,
+    .header-search:hover {
+        color: #222
+    }
+}
+.sticky-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0 1.3rem;
+    span {
+        margin-top: .8rem;
+        font-size: 1rem;
+        line-height: 1;
+        letter-spacing: .025em;
+        text-transform: uppercase;
+    }
+    svg {
+        margin: -1.1rem -1rem;
+        width: 4.3rem;
+        height: 4.3rem;
+        stroke: #666;
+        fill: #666;
+        transition: stroke .3s, fill .3s;
+    }
+    &:hover,
+    &.active {
+        color: #222;
+        svg {
+            stroke: #222;
+            fill: #222;
+        }
+    }
+}
+
+@include mq(sm) {
+    .sticky-footer {
+        padding: 0 4rem;
+    }
+}
+
+@include mq(md) {
+    .sticky-footer {
+        display: none;
+    }
+}

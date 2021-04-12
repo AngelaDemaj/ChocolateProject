@@ -1,0 +1,114 @@
+/*
+Demo 10 Variables
+*/
+@include set(
+    (
+        base: (
+            title: (
+                font-family: $second-font-family,
+                font-size: 2rem,
+                font-weight: 600,
+                letter-spacing: .025em
+            )
+        ),
+        header: (
+            letter-spacing:  .085em,
+            font-family: $second-font-family,
+            top: (
+                background: transparent,
+                color: #fff,
+                border-bottom: 1px solid rgba(255, 255, 255, .1)
+            ),
+            middle: (
+                padding-top: 2.8rem,
+                padding-bottom: 2.8rem,
+                font-size: 1.4rem,
+                font-weight: 400,
+                color: #fff,
+                background: transparent
+            ),
+            cart: (
+                label: (
+                    margin: 0 .7rem .2rem 0,
+                    font-weight: inherit
+                ),
+                count: (
+                    color: #fff,
+                    hover: (
+                        color: $primary-color
+                    )
+                ),
+                icon: (
+                    color: #fff,
+                    hover: (
+                        border-color: #fff,
+                        background: #fff
+                    )
+                )
+            ),
+            login: (
+                label: (
+                    font-weight: inherit
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                gap: 2.4rem,
+                padding: 1.5rem 0,
+                font-weight: 400,
+                _active-color: #fff
+            ),
+            submenu: (
+                font-family: $third-font-family,
+                font-weight: 400
+        ),
+            megamenu: (
+                title: (
+                    letter-spacing: -.025em
+                )
+            )
+        ),
+        product: (
+            rating: (
+                _star-color: #777
+            ),
+            price: (
+                color: $primary-color
+            )
+        ),
+        footer: (
+            font-family: $font-family,
+            middle: (
+                padding: 4.7rem 0 0,
+                widget: (
+                    title: (
+                        margin-bottom: .7rem,
+                        color: #999
+                    ),
+                    label: (
+                        color: #999
+                    ),
+                    body: (
+                        padding: 0,
+                        color: #666
+                    ),
+                    list-item: (
+                        margin-bottom: 1.1rem
+                    )
+                ),
+            ),
+            bottom: (
+                padding: 3.5rem 0
+            ),
+            copyright: (
+                font-family: $font-family,
+                letter-spacing: .005em,
+                color: #777
+            ),
+            social-link: (
+                font-size: 1.4rem
+            )
+        )
+    )
+)  

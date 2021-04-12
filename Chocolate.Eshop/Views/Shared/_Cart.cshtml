@@ -1,0 +1,62 @@
+﻿@using Newtonsoft.Json;
+@using Chocolate.DataAccess.ViewModels;
+@using Microsoft.AspNetCore.Http;
+@{
+    List<ItemViewModel> items = new List<ItemViewModel>();
+    ItemViewModel viewModel = null;
+    int totalProducts = Context.Session.Keys.Count();
+    double totalPrice = 0;
+    @foreach (var key in Context.Session.Keys)
+    {
+        viewModel = JsonConvert.DeserializeObject<ItemViewModel>
+            (Context.Session.GetString(key.ToString()));
+        totalPrice += viewModel.Product.Price * viewModel.Quantity;
+        items.Add(viewModel);
+    }
+}
+<div class="dropdown cart-dropdown">
+    <a href="@Url.Action("index","cart")" class="cart-toggle">
+        <span class="cart-label">
+            <span class="cart-name text-white">My Cart</span>
+            <span class="cart-price text-white">@totalPrice€</span>
+        </span>
+        <i class="minicart-icon">
+            <span class="cart-count">@totalProducts</span>
+        </i>
+    </a>
+    <!-- End Cart Toggle -->
+    <div class="dropdown-box">
+        <div class="product product-cart-header">
+            <span class="product-cart-counts">Total Items:@totalProducts</span>
+            <span><a href="@Url.Action("index","cart")">View cart</a></span>
+        </div>
+        <div class="products scrollable">
+            @foreach (var item in items)
+            {
+                <div class="product product-cart">
+                    <div class="product-detail">
+                        <a href="product.html" class="product-name">@item.Product.Name</a>
+                        <div class="price-box">
+                            <span class="product-quantity">@item.Quantity</span>
+                            <span class="product-price">@item.Product.Price€</span>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- End of Cart Product -->
+        </div>
+        <!-- End of Products  -->
+        <div class="cart-total">
+            <label>Subtotal:</label>
+            <span class="price">
+                @totalPrice€
+            </span>
+        </div>
+        <!-- End of Cart Total -->
+        <div class="cart-action">
+            <a href="@Url.Action("Checkout", "Cart", new {total = totalPrice })" class="btn btn-dark"><span>Checkout</span></a>
+        </div>
+        <!-- End of Cart Action -->
+    </div>
+    <!-- End Dropdown Box -->
+</div>

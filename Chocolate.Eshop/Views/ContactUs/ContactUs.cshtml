@@ -1,0 +1,61 @@
+﻿@model Chocolate.DataAccess.ViewModels.ContactMessageViewModel;
+
+@{
+    ViewData["Title"] = "FAQ";
+}
+
+@section Styles{
+    <style>
+
+        .form-control{
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+    </style>
+    
+}
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Contact Us</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <div class="row mb-10">
+                        <div class="col-md-12 order-md-first pt-md-5">
+                            <h2 class="title lh-1 ls-m">You have the questions, we have the answers!</h2>
+                            <form asp-action="ContactUs" autocomplete="off">
+                                <div class="form-group row">
+                                    <label class="col-md-2 col-form-label">Email</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Email" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-2 col-form-label">Subject</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Subject" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-2 col-form-label">Description</label>
+                                    <div class="col-md-10">
+                                        <textarea asp-for="Description" class="form-control" rows="3" id="example-textarea"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Send Mail</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End About Section-->
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+        
+    }
+</body>

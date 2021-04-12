@@ -1,0 +1,134 @@
+﻿@using Chocolate.DataAccess.Models.Enums
+@model Chocolate.DataAccess.ViewModels.CandidateViewModel
+
+@{
+    ViewData["Title"] = "Candidates";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/assets/libs/dropify/dropify.min.css" type="text/css" />
+}
+
+<h2>Create new Candidate</h2>
+<hr />
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form asp-action="Create" enctype="multipart/form-data">
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="FirstName">First Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="FirstName" class="form-control">
+                            </div>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="LastName">Last Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="LastName" class="form-control">
+                            </div>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="DateOfBirth">Date of Birth</label>
+                            <div class="col-md-10">
+                                <input type="date" value="" asp-for="DateOfBirth" class="form-control" />
+                            </div>
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Phone.Number" class="col-md-2 col-form-label">Phone Number</label>
+                            <div class="col-md-8">
+                                <input type="text" id="simpleinput" asp-for="Phone.Number" class="form-control" />
+                            </div>
+                            <div class="col-md-2">
+                                <select asp-for="Phone.PhoneType" class="form-control" asp-items="Html.GetEnumSelectList<PhoneType>()"></select>
+                            </div>
+                            <span asp-validation-for="Phone.Number" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Email.Mail" class="col-md-2 col-form-label">Email</label>
+                            <div class="col-md-8">
+                                <input type="text" id="simpleinput" asp-for="Email.Mail" class="form-control" />
+                            </div>
+                            <div class="col-md-2">
+                                <select asp-for="Email.MailType" class="form-control" asp-items="Html.GetEnumSelectList<MailType>()"></select>
+                            </div>
+                            <span asp-validation-for="Email.Mail" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Address.Location" class="col-md-2 col-form-label">Street Name</label>
+                            <div class="col-md-7">
+                                <input type="text" id="simpleinput" asp-for="Address.Location" class="form-control" />
+                            </div>
+
+
+                            <label asp-for="Address.AddressNumber" class="col-md-1 col-form-label">Street Number</label>
+                            <div class="col-md-2">
+                                <input type="text" id="simpleinput" asp-for="Address.AddressNumber" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Address.Location" class="text-danger"></span>
+                            <span asp-validation-for="Address.AddressNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Address.Country" class="col-md-2 col-form-label">Country</label>
+                            <div class="col-md-2">
+                                <input type="text" id="simpleinput" asp-for="Address.Country" class="form-control" />
+                            </div>
+
+
+                            <label asp-for="Address.PostCode" class="col-md-1 col-form-label">Postal Code</label>
+                            <div class="col-md-1">
+                                <input type="text" id="simpleinput" asp-for="Address.PostCode" class="form-control" />
+                            </div>
+
+
+                            <label asp-for="Address.Comments" class="col-md-1 col-form-label">Comments</label>
+                            <div class="col-md-5">
+                                <input type="text" id="simpleinput" asp-for="Address.Comments" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Address.PostCode" class="text-danger"></span>
+                            <span asp-validation-for="Address.Country" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="PositionId">Department</label>
+                            <div class="col-md-10">
+                                <select asp-for="PositionId" class="form-control" asp-items="@(new SelectList(Model.Positions,"Id","Name"))"></select>
+                            </div>
+                            <span asp-validation-for="PositionId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="CV">CV</label>
+                            <div class="col-md-10">
+                                <input type="file" class="dropify" id="CV" asp-for="CV" data-height="250">
+                            </div>
+                            <span asp-validation-for="CV" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Submit</button>
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/assets/libs/dropify/dropify.min.js"></script>
+    <script src="~/assets/js/pages/form-fileupload.init.js"></script>
+}

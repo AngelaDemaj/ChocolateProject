@@ -1,0 +1,85 @@
+/*
+Demo 9 Variables
+*/
+@include set(
+    (
+        header: (
+            font-family: $font-family,
+            middle: (
+                font-weight: 600,
+                font-size: 1.3rem,
+                color: #666,
+                logo: (
+                    margin-right: 0
+                )
+            ),
+            login: (
+                label: (
+                    font-weight: inherit,
+                    text-transform: none,
+                )
+            ),
+            cart: (
+                label: (
+                    font-weight: inherit,
+                    text-transform: none,
+                    price: (
+                        color: inherit
+                    )
+                ),
+                icon: (
+                    color: inherit
+                )
+            ),
+            bottom: (
+                font-size: 1.3rem,
+                font-weight: 600,
+                color: #fff
+            ),
+            inner-wrap: (
+                background: #363636
+            ),
+            mmenu-toggle: (
+                color: $secondary-color,
+            ),
+            sticky: (
+                background: #363636
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 2rem 0,
+                font-weight: 600
+            )
+        ),
+        product: (
+            rating: (
+                _star-color: $primary-color
+            ),
+            body: (
+                padding-bottom: 0
+            )
+        ),
+        post: (
+            body: (
+                padding: 2rem
+            ),
+            title: (
+                margin-bottom: 1.9rem,
+                text-transform: none,
+                font-size: 1.8rem,
+                line-height: 1.33
+            ),
+            content: (
+                margin-bottom: 3.7rem,
+                _row-count: 4
+            )
+        ),
+        footer: (
+            letter-spacing: -.015em,
+            copyright: (
+                letter-spacing: 0
+            )
+        )
+    )
+)

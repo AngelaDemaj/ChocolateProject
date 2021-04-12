@@ -1,0 +1,126 @@
+﻿@model Chocolate.Eshop.ViewModels.RegisterViewModel
+
+
+@section Styles{
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-bottom: 10px;
+        }
+    </style>
+}
+
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Join The Lozan Family</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="title mt-2">Register Form</h2>
+                    <form asp-action="Register">
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="FirstName">First Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="FirstName" class="form-control">
+                            </div>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="LastName">Last Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="LastName" class="form-control">
+                            </div>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="UserName">User Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="UserName" class="form-control">
+                            </div>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Email" class="col-md-2 col-form-label">Email</label>
+                            <div class="col-md-10">
+                                <input type="text" id="simpleinput" asp-for="Email" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="Password">Password</label>
+                            <div class="col-md-10">
+                                <input type="password" value="" asp-for="Password" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="ConfirmPassword">Confirm Password</label>
+                            <div class="col-md-10">
+                                <input type="password" value="" asp-for="ConfirmPassword" class="form-control" />
+                            </div>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Number" class="col-md-2 col-form-label">Phone Number</label>
+                            <div class="col-md-10">
+                                <input type="text" id="simpleinput" asp-for="Number" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Number" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Location" class="col-md-2 col-form-label">Street Name</label>
+                            <div class="col-md-7">
+                                <input type="text" id="simpleinput" asp-for="Location" class="form-control" />
+                            </div>
+
+
+                            <label asp-for="AddressNumber" class="col-md-1 col-form-label">Street Number</label>
+                            <div class="col-md-2">
+                                <input type="text" id="simpleinput" asp-for="AddressNumber" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Address.Location" class="text-danger"></span>
+                            <span asp-validation-for="Address.AddressNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Country" class="col-md-2 col-form-label">Country</label>
+                            <div class="col-md-7">
+                                <input type="text" id="simpleinput" asp-for="Country" class="form-control" />
+                            </div>
+
+
+                            <label asp-for="PostCode" class="col-md-1 col-form-label">Postal Code</label>
+                            <div class="col-md-2">
+                                <input type="text" id="simpleinput" asp-for="PostCode" class="form-control" />
+                            </div>
+
+                            <span asp-validation-for="Address.PostCode" class="text-danger"></span>
+                            <span asp-validation-for="Address.Country" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Register</button>
+                    </form>
+                </div>
+
+            </section>
+
+            <!-- End Team Section -->
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+    }
+</body>

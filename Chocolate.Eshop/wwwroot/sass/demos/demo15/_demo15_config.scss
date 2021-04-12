@@ -1,0 +1,98 @@
+/* 
+Demo 15
+Variables
+*/
+@include set(
+    (
+        base: (
+            _container-width: 1420px,
+            title: (
+                font-size: 2rem,
+                font-weight: 700,
+                letter-spacing: -.01em,
+                color: #333
+            )
+        ),
+        header: (
+            middle: (
+                background: transparent,
+                color: #fff,
+                font-weight: 600,
+                letter-spacing: 0
+            ),
+            bottom: (
+                font-size: 1.4rem,
+                font-family: $font-family,
+                color: #fff
+            ),
+            cart: (
+                label: (
+                    price: (
+                        color: inherit
+                    )
+                ),
+                icon: (
+                    color: inherit
+                ),
+                count: (
+                    color: inherit
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: .9rem 0,
+                font-weight: 600,
+                color: #d8d7d6 
+            )
+        ),
+        product: (
+            body: (
+                padding-top: 1.8rem,
+                padding-bottom: 0
+            )
+        ),
+        footer: (
+            color: #999,
+            background: transparent,
+            _link-active-color: $primary-color,
+            top: (
+                border-top: 1px solid #f4f4f4,
+                border-bottom: 1px solid #f4f4f4,
+            ),
+            middle: (
+                padding-top: 2rem,
+                border-bottom: 1px solid #f4f4f4,
+                widget: (
+                    title: (
+                        color: #222,
+                        margin-bottom: 1rem,
+                    )
+                )
+            ),
+            bottom: (
+                padding: 1.8rem 0
+            ),
+            newsletter: (
+                title: (
+                    color: #222,
+                    margin-bottom: .4rem,
+                    text-transform: none,
+                    font-size: 1.6rem,
+                    font-family: $font-family,
+                    letter-spacing: .02em,
+                ),
+                desc: (
+                    font-size: 1.4rem
+                ),
+                form: (
+                    max-width: 54rem,
+                ),
+                input: (
+                    background: #f4f4f4,
+                    color: #999
+                )
+            )
+        )
+    )
+)

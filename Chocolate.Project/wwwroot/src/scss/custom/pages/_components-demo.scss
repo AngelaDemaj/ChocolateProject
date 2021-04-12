@@ -1,0 +1,101 @@
+// 
+// components-demo.scss
+//
+
+// Demo Only
+.button-list {
+    .btn {
+        margin-top: 7px;
+        margin-right: 5px;
+    }
+}
+
+// list group
+
+.list-group-item {
+    border: 1px solid lighten($gray-200, 2%);
+    border-left: none;
+    border-right: none;
+    &:hover{
+        background: lighten($gray-200, 2%);
+    }
+    &:first-child{
+        border-top: none;
+    }
+    &:last-child{
+        border-bottom: none;
+    }
+}
+
+// Icon demo ( Demo only )
+.icons-list-demo {
+    div {
+        cursor: pointer;
+        line-height: 45px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: block;
+        overflow: hidden;
+        p {
+            margin-bottom: 0;
+            line-height: inherit;
+        }
+    }
+    i {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 22px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        margin-right: 12px;
+        color: rgba($dark, 0.7);
+        border-radius: 3px;
+        display: inline-block;
+        transition: all 0.2s;
+    }
+    .col-lg-4{
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        background-clip: padding-box;
+        margin-bottom: 10px;
+        &:hover,
+        &:hover i {
+            color: $primary;
+        }
+    }
+}
+
+  // Demos button
+  .demos-show-btn {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    writing-mode: vertical-rl;
+    font-weight: 500;
+    background-color: $danger;
+    color: $white !important;
+    line-height: 36px;
+    padding: 15px 3px;
+    border-radius: 6px 0 0 6px;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    z-index: 9;
+}
+
+@media (max-width: 600px) {
+    .demos-show-btn {
+        display: none;
+    }
+}
+
+
+// Scrollspy
+
+.scrollspy-example {
+    position: relative;
+    height: 200px;
+    margin-top: .5rem;
+    overflow: auto;
+}

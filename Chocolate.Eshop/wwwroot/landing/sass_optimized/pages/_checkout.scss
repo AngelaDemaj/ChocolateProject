@@ -1,0 +1,106 @@
+/* -------------------------------------------
+    Checkout Page
+---------------------------------------------- */
+
+.checkout {
+    line-height: 1.54;
+    label {
+        display: block;
+        padding-left: .2rem;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        line-height: 1;
+    }
+    .form-control {
+        font-size: 1.3rem;
+        font-family: $font-family;
+        transition: background-color .3s, border-color .3s;
+        color: #999;
+        &:not(:focus) {
+            background-color: #f6f7f9;
+        }
+        &:focus {
+            border-color: $primary-color;
+        }
+    }
+    textarea.form-control {
+        padding-top: 1.5rem;
+    }
+    .form-control-label {
+        padding-left: 2.4rem;
+        margin-bottom: 0;
+        font-size: 1.4rem;
+        line-height: 2.58;
+        &::before {
+            border-radius: 0;
+        }
+    }
+    .product-name {
+        font-size: 1.3rem;
+        line-height: 1.54;
+        letter-spacing: 0;
+        white-space: normal;
+    }
+    .summary {
+        padding-top: 1.8rem;
+    }
+    .btn-order {
+        width: 100%;
+    }
+    .card { background: transparent; }
+    .card-header {
+        font-size: 1.4rem;
+        line-height: 3rem;
+        text-transform: capitalize;
+        a {
+            padding: 0 0 0 2.5rem;
+            &::before,
+            &::after {
+                position: absolute;
+                content: '';
+                display: inline-block;
+                border-radius: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &::before {
+                left: 0;
+                width: 1.4rem;
+                height: 1.4rem;
+                background: #fff;
+                border: 1px solid #cdcdcd;
+            }
+            &.collapse::after {
+                width: .6rem;
+                height: .6rem;
+                left: .4rem;
+                background: #666;
+            }
+        }
+    }
+    .card-body {
+        padding: .6rem 0 1.8rem 2.5rem;
+        font-size: 1.3rem;
+        line-height: 2;
+    }
+}
+.order-table {
+    margin-bottom: 4.3rem;
+    color: #222;
+    tbody { vertical-align: top; }
+    th {
+        padding: 0 0 .7rem 1px;
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    td {
+        padding: 1.5rem 0 1.5rem 1px;
+        border-bottom: 1px solid $border-color;
+    }
+    .order-total {
+        td {
+            border-bottom: none;
+            padding: 1.2rem 0 0;
+        }
+    }
+}

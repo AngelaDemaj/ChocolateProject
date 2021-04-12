@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Warehouses";
+}
+
+@section Styles{  
+    <link href="~/css/site.min.css" rel="stylesheet" />
+}
+
+<h1>Warehouses</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New+</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <table id="warehouse-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    <script src="~/js/site.min.js"></script>
+    <script>
+        var is_active_check = function (data) {
+            return data ? "Active" : "Inactive";
+        }
+
+        jQuery(function () {
+            $('#warehouse-datatable').DataTable({
+                "serverSide": true,
+                dom: 'Bfrtlip',
+                buttons: [{
+                    extend: "pdf",
+                    className: "btn btn-sm  btn-primary",
+                    orientation: "portrait",
+                    pageSize: "A4"
+                }],
+                "ajax": {
+                    url: "/api/warehouses/query",
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: function (data) {
+                        return JSON.stringify(data);
+                    },
+                },
+                order: [[0, 'desc']],
+                "columns": [
+                    { "data": "name" },
+                    { "data": "isActive", "render": is_active_check },
+                    {
+                        "data": "id",
+                        "render": function (a, b, data, d) {
+                            return `<a class="btn btn-outline-primary btn-xs mr-1" href="/warehouse/edit/${data.id}"><i class="fas fa-edit mr-1"></i>Edit</a> ` +
+                                `<a class="btn btn-outline-info btn-xs mr-1" href="/warehouse/details/${data.id}"><i class="fas fa-eye mr-1"></i>Details</a> ` +
+                                `<a class="btn btn-outline-danger btn-xs" href="/warehouse/delete/${data.id}"><i class="fas fa-trash mr-1"></i>Delete</a>`;
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+        })
+    </script>
+}

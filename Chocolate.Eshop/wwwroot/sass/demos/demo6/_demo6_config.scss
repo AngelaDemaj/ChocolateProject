@@ -1,0 +1,91 @@
+/* 
+Demo 6
+*/
+@include set(
+    (
+        header: (
+            middle: (
+                padding-top: 3rem,
+                padding-bottom: 3rem,
+                font-family: $font-family,
+                font-weight: 400,
+                font-size: 1.4rem,
+                letter-spacing: 0,
+                color: #666,
+                logo: (
+                    margin-right: 0
+                )
+            ),
+            mmenu-toggle: (
+                color: #666
+            ),
+            cart: (
+                label: (
+                    text-transform: false,
+
+                    price: (
+                        color: false,
+                    )
+                ),
+                count: (
+                    font-size: false,
+                    font-weight: false,
+                    color: false,
+                    transition: none,
+                    hover: (
+                        color: false,
+                    )
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                text-transform: none,
+                font-size: 1.4rem,
+                font-family: inherit,
+                font-weight: 400
+            )
+        ),
+        product: (
+            font-family: $font-family,
+            body: (
+                padding-top: 1.7rem,
+                padding-bottom: 1.7rem
+            ),
+            price: (
+                color: $primary-color
+            ),
+            name: (
+                padding-right: 2rem,
+            )
+        ),
+        footer: (
+            font-family: $font-family,
+            font-size: 1.4rem,
+            color: #ccc,
+            middle: (
+                padding: 3.6rem 0 2.8rem,
+                widget: (
+                    margin-bottom: 2.5rem,
+
+                    body: (
+                        display: flex,
+                        justify-content: center,
+                        flex-wrap: wrap,
+                        color: #ccc,
+                    ),
+                    list-item: (
+                        margin: 5px 11px 10px,
+                    )
+                )
+            ),
+            bottom: (
+                padding: 2.55rem 0
+            ),
+            copyright: (
+                font-family: $font-family,
+                color: #777
+            )
+        )
+    )
+) 

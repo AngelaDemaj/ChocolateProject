@@ -1,0 +1,109 @@
+/* 
+Demo 26 Variables
+*/
+@include set(
+    (
+        base: (
+            container-width: 1520px,
+        ),
+        header: (
+            logo: (
+                max-width: 202px
+            ),
+            top: (
+                background: linear-gradient(90deg, #0490de, #0c42a0 50%, #0490de),
+            ),
+            middle: (
+                padding-top: 2.7rem,
+                padding-bottom: 2.6rem,
+            ),
+            call: (
+                icon: (
+                    font-size: 2.4rem
+                ),
+                label: (
+                    _gap: .7rem
+                )
+            )
+        ),
+		category-menu: (
+            background: transparent,
+            item-active-color: $primary-color,
+            ancestor: (
+                padding: 2.05rem 0,
+                text-transform: none,
+				font-size: 1.4rem,
+				font-weight: 400,
+                font-family: $font-family,
+                color: #444,
+                _split-line: 0,
+			),
+			icon: (
+				margin-right: 1.5rem,
+                font-size: 2.6rem,
+                color: false,
+			),
+            submenu: (
+                padding: .5rem 0
+            )
+        ),
+        product: (
+            body: (
+                padding-top: .8rem
+            )
+        ),
+        post: (
+            title: (
+                text-transform: none,
+                font-size: 1.8rem,
+                font-weight: 700,
+                letter-spacing: -.025em,
+            ),
+            calendar: (
+                background: rgba($primary-color, .8),
+                color: #fff,
+                border: 0,
+            )
+        ),
+        footer: (
+            background: #2b2b2b,
+            font-family: $font-family,
+            middle: (
+                padding: 4.8rem 0 3rem,
+                font-family: $font-family,
+                border-bottom: 1px solid #3f3f3f,
+                widget: (
+                    title: (
+                        color: #fff
+                    ),
+                )
+            ),
+            bottom: (
+                padding: 3rem 0,
+            ),
+            copyright: (
+                font-size: 1.3rem,
+                font-family: $font-family,
+            ),
+            newsletter: (
+                title: (
+                    margin-bottom: 0,
+                    font-size: 1.8rem,
+                    letter-spacing: -.01em,
+                    line-height: 1,
+                    font-family: $font-family,
+                    color: #fff
+                ),
+                desc: (
+                    line-height: 1.8rem,
+                    letter-spacing: .01em,
+                    font-family: $font-family
+                ),
+                input: (
+                    padding: 0 0 0 2.3rem,
+                    background: #fff
+                )
+            )
+        )
+    )
+)

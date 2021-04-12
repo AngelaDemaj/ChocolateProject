@@ -1,0 +1,86 @@
+﻿@using Chocolate.DataAccess.Models.Enums
+@model Chocolate.DataAccess.ViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Product Details</h2>
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form>
+                        <div class="form-group row">
+                            <label asp-for="Barcode" class="col-md-2 col-form-label">Barcode</label>
+                            <div class="col-md-10">
+                                <input asp-for="Barcode" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Name" class="col-md-2 col-form-label">Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="Name" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Description" class="col-md-2 col-form-label">Description</label>
+                            <div class="col-md-10">
+                                <textarea asp-for="Description" class="form-control" readonly></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Price" class="col-md-2 col-form-label">Price</label>
+                            <div class="col-md-10">
+                                <input asp-for="Price" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Weight" class="col-md-2 col-form-label">Weight</label>
+                            <div class="col-md-10">
+                                <input asp-for="Weight" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Category" class="col-md-2 col-form-label">Category</label>
+                            <div class="col-md-10">
+                                <input asp-for="Category" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="RawMaterialIds">Raw Materials</label>
+                            <div class="col-md-10">
+                                <select class="form-control" asp-for="RawMaterialIds" asp-items="@(new SelectList(Model.RawMaterials, "Id", "Name"))" disabled="disabled"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <input type="hidden" asp-for="ImageData" class="form-control" />
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Product Image</label>
+                            <div class="col-md-10">
+                                <img src="@Model.ImageString" />
+                            </div>
+                        </div>
+
+                        
+
+                        <a asp-action="Edit" class="btn btn-lighten-primary waves-effect waves-primary width-md" asp-route-id="@Model.Id">Edit</a>
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @@include("partials/title-meta.html", {"title": "Coming soon"})
+
+        @@include("partials/head-css.html")
+
+    </head>
+
+    <body class="authentication-bg">
+        <div class="mt-5 mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="text-center">
+                            <a href="index.html" class="logo">
+                                <img src="assets/images/logo-light.png" alt="" height="22" class="logo-light mx-auto">
+                               <img src="assets/images/logo-dark.png" alt="" height="22" class="logo-dark mx-auto">
+                            </a>
+
+                            <h3 class="mt-4">Stay tunned, we're launching very soon</h3>
+                            <p class="text-muted">We're making the system more awesome.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <div data-countdown="2021/01/17" class="counter-number"></div>
+                    </div> <!-- end col-->
+                </div> <!-- end row-->
+
+            </div>
+        </div>
+
+        
+        <!-- Vendor js -->
+        <script src="assets/js/vendor.min.js"></script>
+
+        <!-- Plugins js-->
+        <script src="assets/libs/jquery-countdown/jquery.countdown.min.js"></script>
+
+        <!-- countdown init -->
+        <script src="assets/js/pages/countdown.init.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.min.js"></script>
+        
+    </body>
+</html>

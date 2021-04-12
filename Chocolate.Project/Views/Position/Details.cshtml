@@ -1,0 +1,82 @@
+﻿@model Chocolate.DataAccess.ViewModels.PositionViewModel
+
+@{
+    ViewData["Title"] = "Positions";
+}
+
+<h2>Position Details</h2>
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="Name">Title</label>
+                            <div class="col-md-10">
+                                <input readonly="readonly" asp-for="Name" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Department</label>
+                            <div class="col-md-10">
+                                <input readonly="readonly" asp-for="Department.Name" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Description" class="col-md-2 col-form-label">Description</label>
+                            <div class="col-md-10">
+                                <input asp-for="Description" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Degree" class="col-md-2 col-form-label">Degree</label>
+                            <div class="col-md-10">
+                                <input asp-for="Degree" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="WorkExperience" class="col-md-2 col-form-label">Work Experience</label>
+                            <div class="col-md-10">
+                                <input asp-for="WorkExperience" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Languages" class="col-md-2 col-form-label">Languages</label>
+                            <div class="col-md-10">
+                                <input asp-for="Languages" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Qualifications" class="col-md-2 col-form-label">Qualifications</label>
+                            <div class="col-md-10">
+                                <input asp-for="Qualifications" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input asp-for="IsActive" class="custom-control-input" disabled />
+                                <label class="custom-control-label" asp-for="IsActive">Active</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a asp-action="Edit" class="btn btn-lighten-primary waves-effect waves-primary width-md" asp-route-id="@Model.Id">Edit</a>
+                            <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

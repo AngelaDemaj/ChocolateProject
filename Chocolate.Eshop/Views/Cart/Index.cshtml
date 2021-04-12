@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Chocolate.DataAccess.ViewModels.ItemViewModel>
+
+@{
+    ViewData["Title"] = "Cart";
+    double totalPrice = 0;
+    foreach (var item in Model)
+    {
+        totalPrice += item.Product.Price * item.Quantity;
+    }
+}
+
+@section Styles{
+
+}
+<body>
+    <div class="page-header" style="height:auto; background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+        <h1 class="page-title text-white">My Shopping Cart</h1>
+        <hr />
+    </div>
+    <main class="main cart">
+
+        <div class="page-content pt-10 pb-10">
+            <div class="container mt-4 mb-4">
+                <div class="row gutter-lg">
+                    <div class="container-fluid">
+                        <h3 class="title title-simple text-left">Shopping cart</h3>
+                        <table class="shop-table cart-table mt-2 border">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="text-left pl-4">Product</th>
+                                    <th>Price</th>
+                                    <th class="text-left pl-4">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="justify-content-center">
+                                        <td class="product-thumbnail pl-10">
+                                            <a href="product-simple.html">
+                                                <figure>
+                                                    <img src="@string.Format($"data:image/jpg;base64 , {Convert.ToBase64String(item.Product.Photos[0].ImageData)}")" width="100" height="100"
+                                                         alt="product">
+                                                </figure>
+                                            </a>
+                                        </td>
+                                        <td class="product-name">
+                                            <a href="product-simple.html">@item.Product.Name</a>
+                                        </td>
+                                        <td class="product-price justify-content-center align-middle pt-5">
+                                            <span class="amount">@item.Product.Price &euro;</span>
+                                        </td>
+                                        <td class="product-quantity justify-content-center align-middle">
+                                            <div class="input-group">
+                                                <input class="form-control" type="number" min="1"
+                                                       max="1000000" value="@item.Quantity">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                        <div style="padding-left:70%" class="mt-5">
+                            <a href="@Url.Action("Checkout", "Cart", new {total = totalPrice })" class="btn btn-primary btn-checkout">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+    }
+</body>

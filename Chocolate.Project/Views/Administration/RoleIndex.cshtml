@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Roles";
+}
+
+@section Styles{
+    <link href="~/css/site.min.css" rel="stylesheet" />
+}
+
+<h1>Roles</h1>
+
+<p>
+    <a asp-action="CreateRole" class="btn btn-success">Add New+</a>
+</p>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <p class="text-muted font-14 mb-3"> </p>
+
+            <table id="roles-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/site.min.js"></script>
+    <script>
+        jQuery(function () {
+            $('#roles-datatable').DataTable({
+                "serverSide": true,
+                dom: 'Bfrtlip',
+                buttons: [{
+                    extend: "pdf",
+                    className: "btn btn-sm  btn-primary",
+                    orientation: "portrait",
+                    pageSize: "A4"
+                }],
+                "ajax": {
+                    url: "/api/roles/query",
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: function (data) {
+                        return JSON.stringify(data);
+                    },
+                },
+                order: [[0, 'desc']],
+                "columns": [
+                    { "data": "name" },
+                    {
+                        "data": "id",
+                        "render": function (a, b, data, d) {
+                            return `<a class="btn btn-outline-primary btn-xs mr-1" href="/administration/editRole/${data.id}"><i class="fas fa-edit mr-1"></i>Edit</a> `;
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+        })
+    </script>
+}

@@ -1,0 +1,109 @@
+/* 
+Demo 3
+*/
+@include set(
+    (
+        base: (
+            title: (
+                line-height: 2.5,
+                margin-bottom: 2rem,
+                border: (
+                    color: #e1e1e1,
+                    height: 1px
+                )
+            )
+        ),
+        header: (
+            top: (
+                background: #eeeeee
+            ),
+            bottom: (
+                color: #fff
+            ),
+            inner-wrap: (
+                background: $secondary-color,
+                padding: 0 2.4rem
+            ),
+            sticky: (
+                padding-top: 1rem,
+                padding-bottom: 1rem,
+                font-size: 1.3rem,
+                color: #fff,
+                background: $secondary-color
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 2rem 0
+            )
+        ),
+        category-menu: (
+            padding: 0 0 .4rem,
+            background: #fff,
+            border: 1px solid $border-color,
+            ancestor: ( 
+                border-bottom: false,
+                padding: 1.2rem 0,
+                line-height: 1,
+                min-height: 3.9rem,
+                // letter-spacing: .025em,
+                font-weight: 300,
+                color: #333,
+                font-family: $font-family,
+                _split-line: false
+            ),
+            title: (
+                margin: 0 0 1.1rem,
+                padding: 1.7rem 0 1.3rem,
+                line-height: 1,
+                border-bottom: 1px solid $border-color
+            ),
+            icon: (
+                margin-bottom: 2px,
+                font-size: 1.7rem,
+                margin-right: .9rem,
+                margin-top: -1px,
+                color: #666
+            )
+        ),
+        product: (
+            margin-bottom: 2px,
+            body: (
+                padding-top: 1.4rem,
+                padding-bottom: 1rem
+            ),
+            label: (
+                new: (
+                    background: #fff,
+                    color: $primary-color,
+                ),
+                sale: (
+                    background: $primary-color
+                )
+            ),
+            rating: (
+                _star-color: $primary-color
+            )
+        ),
+        post: (
+            body: (
+                padding: 1.9rem 0 2.5rem
+            ),
+            info: (
+                margin-bottom: .7rem,
+                color: #666
+            ),
+            title: (
+                margin-bottom: 1.5rem,
+                font-size: 1.4rem,
+                font-family: $second-font-family,
+                letter-spacing: 0,
+                line-height: 1.2,
+                color: #222
+            ),
+            btn: (
+                _icon-gap: .5rem
+            )
+        )
+    )
+);

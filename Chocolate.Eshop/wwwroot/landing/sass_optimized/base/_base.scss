@@ -1,0 +1,201 @@
+/* -------------------------------------------
+    Base
+---------------------------------------------- */
+
+// Variables
+@include set-default(
+	(
+		base: (
+            // max-width of '.container'
+            _container-width: 1220px,
+            // max-width of '.container-fluid'
+            _container-fluid-width: 1820px,
+            // grid spaces
+            _gutter-lg: 15px,
+            _gutter-md: 10px,
+            _gutter-sm: 5px,
+            _gutter-xs: 1px,
+            // background of grey section
+            _grey-section-bg: #f6f7f9,
+            // Body
+            body: (
+                font-family: $font-family,
+                font-size: 1.4rem,
+                line-height: 1.6,
+                color: $body-color
+            ),
+            page-wrapper: (
+                margin-left: false,
+                margin-right: false,
+            ),
+            // ScrollTop
+            scroll-top: (
+                background-color: #43494e
+            )
+        ),
+    )
+);
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    font-size-adjust: 100%;
+    font-weight: 400;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    @include print_css( base, body );
+}
+main {
+    display: block;
+    position: relative;
+}
+
+.page-wrapper {
+    position: relative;
+    transition: margin .4s, opacity .5s;
+    opacity: 0;
+    @include print_css( base, page-wrapper );
+    .loaded > & {
+        opacity: 1;
+    }
+}
+
+.grey-section {
+    @include css(background, base, _grey-section-bg);
+}
+
+ul {
+    padding-left: 1.5em;
+}
+.menu, .menu ul,
+.mobile-menu, .mobile-menu ul,
+.nav, .nav ul,
+.widget-body, .widget-body ul,
+.list,
+.breadcrumb,
+.filter-items,
+.select-menu > ul,
+.dropdown-box,
+.pagination,
+.nav-filters,
+.category ul,
+.comments ul,
+.product-nav,
+.product-tabs>div ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color .3s;
+    &:hover {
+        color: $primary-color;
+    }
+}
+:focus {
+    outline: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+i {
+    font-style: normal;
+}
+button {
+    &:focus {
+        outline: none;
+    }
+}
+.scrollable,
+.sidebar-content {
+    -webkit-overflow-scrolling: touch;
+	&::-webkit-scrollbar {
+		height: 7px;
+		width: 4px;
+    }
+	&::-webkit-scrollbar-thumb {
+		margin-right: 2px;
+		background: rgba(0,0,0,.25);
+		border-radius: 5px;
+		cursor: pointer; 
+	}
+}
+
+// Animation
+.appear-animate {
+    transform:  translate3d(0, 0, 0) scale(1);
+    will-change: transform, filter, opacity;
+}
+
+// ScrollTop 
+.scroll-top {
+    position: fixed;
+    right: 15px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform .3s, visibility .3s, opacity .3s;
+    transform: translateY(40px);
+    z-index: 9999;
+
+    @include print_css( base, scroll-top );
+    
+    &:hover {
+        color: #fff;
+    }
+}
+
+@include mq(md) {
+    .scroll-top.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Sticky Content Animation
+@keyframes fixedTop { 
+    from { 
+        transform: translateY(-100%); 
+        transform-origin: center top 0px;
+    }
+    to { 
+        transform: translateY(0) 
+    }  
+}
+// Sticky Content(new)
+.sticky-content {
+    &.fix-top { top: 0; }
+    &.fixed {
+        &.fix-top {
+            animation: fixedTop .4s;
+        }
+        position: fixed;
+        left: 0;
+        right: 0;
+        opacity: 1;
+        transform: translateY(0);
+        background: #fff;
+        z-index: 1051;
+        box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+    }
+}

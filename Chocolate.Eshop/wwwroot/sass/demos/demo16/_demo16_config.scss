@@ -1,0 +1,101 @@
+/* 
+Demo 16 Variables
+*/
+@include set(
+    (
+        base: (  
+            _grey-section-bg: #f4f4f4
+        ),
+        header: (
+            _link-active-color: #ccc,
+            top: (
+                background: $primary-color,
+                color: #fff
+            ),
+            middle: (
+                padding-top: 3rem,
+                padding-bottom: 3rem
+            ),
+            bottom: (
+                font-weight: 700,
+                color: #444,
+                border-top: 1px solid #e1e1e1,
+                border-bottom: 1px solid #e1e1e1,
+            ),
+            cart: (
+                toggle: (
+                    padding: 1.35rem 0
+                ),
+                label: (
+                    price: (
+                        color: inherit,
+                    )
+                ),
+                count: (
+                    color: inherit,
+                    hover: (
+                        color: $primary-color
+                    )
+                ),
+            ),
+            search: (
+                toggle: (
+                    padding: 1.65rem 0,
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 2rem 0
+            )
+        ),
+        product: (
+            price: (
+                margin-bottom: 1.5rem,
+                color: $primary-color,
+            ),
+            body: (
+                padding-bottom: 0
+            )
+        ),
+        post: (
+            title: (
+                text-transform: none,
+                font-size: 1.6rem,
+                font-weight: 600,
+                font-family: $second-font-family,
+                letter-spacing: 0,
+                color: #444
+            ),
+            content: (
+                margin-bottom: 2rem,
+                _row-count: 3
+            ),
+            calendar: (
+                color: #fff,
+                border: 0,
+                background: $primary-color,
+            ),
+            btn: (
+                _icon-gap: .7rem,
+            ),
+        ),
+        footer: (
+            background: #1d1d1d,
+            middle: (
+                padding-top: 4.6rem,
+                letter-spacing: -.016rem,
+                border-color: #292929,
+                widget: (
+                    margin-bottom: 2.6rem,
+                    title: (
+                        letter-spacing: 0
+                    ),
+                    body: (
+                        padding-top: .9rem
+                    )
+                )
+            )
+        )
+    )
+)

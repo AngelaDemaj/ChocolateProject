@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Orders";
+}
+
+@section Styles{
+    <style>
+        tr > td {
+            text-align: center;
+        }
+
+        thead > tr > th {
+            padding: 20px;
+        }
+
+        select.custom-select.custom-select-sm.form-control.form-control-sm {
+            width: 150px;
+            max-width: 150px;
+            text-align: right;
+            position: relative;
+            right: 0;
+        }
+
+        #order-datatable_length.dataTables_length, #order-datatable_info.dataTables_info  {
+            display: none
+        }
+
+        div#position-datatable_paginate.dataTables_paginate.paging_simple_numbers > ul.pagination {
+            margin-top: 50px;
+        }
+
+        main.main > div.page-content.mt-10.pt-7 > section.about-section > div.container {
+            margin-bottom: 50px;
+        }
+
+        div.col-12 > a.btn.btn-lighten-primary.waves-effect.waves-primary.width-md {
+            margin-top: 40px;
+        }
+    </style>
+}
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Your Account</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="title mt-2">Your Orders</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card-box table-responsive">
+                                <table id="order-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Order Date</th>
+                                            <th>Delivery Date</th>
+                                            <th>Payment Method</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <a asp-controller="Account" asp-action="Details" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- End Team Section -->
+        </div>
+    </main>
+    @section Scripts{
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+        <script src="~/vendor/jquery/site.min.js"></script>
+        <script>
+            jQuery(function () {
+                var dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+                $('#order-datatable').DataTable({
+                    "serverSide": true,
+                    dom: 'rtli',
+                    "ajax": {
+                        url: "/api/orders/query",
+                        type: 'POST',
+                        contentType: "application/json",
+                        data: function (data) {
+                            return JSON.stringify(data);
+                        }
+                    },
+                    order: [[0, 'desc']],
+                    "columns": [
+                        {
+                            "data": "orderPlaced", "render": function (a, b, data, d) {
+                                if (data.orderPlaced !== null) {
+                                    let date = new Date(data.orderPlaced);
+                                    return date.toLocaleDateString('en-GB', dateOptions);
+                                }
+                                return null;
+                            }
+                        },
+                        {
+                            "data": "orderFulfilled", "render": function (a, b, data, d) {
+                                if (data.orderFulfilled !== null) {
+                                    let date = new Date(data.orderFulfilled);
+                                    return date.toLocaleDateString('en-GB', dateOptions);
+                                }
+                                return "Not Fulfilled";
+                            }
+                        },
+                        {
+                            "data": "paymentType",
+                            "render": function (a, b, data, d) {
+                                return data.paymentType == 1 ? "Pay on Delivery" : "Credit Card"
+                            }
+                        }
+                    ]
+                });
+            })
+        </script>
+    }
+</body>
+
+
+

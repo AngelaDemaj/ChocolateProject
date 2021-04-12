@@ -1,0 +1,144 @@
+﻿@model IEnumerable<Chocolate.DataAccess.ViewModels.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <style>
+        @@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+        @@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+        @@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+        .font-brand-name {
+            /*font-family: 'Parisienne', cursive;*/
+            font-family: 'Kaushan Script', cursive !important;
+        }
+
+        .font-welcome {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+
+<div class="page-content">
+    <section class="intro-section">
+        <div class="owl-carousel owl-theme row owl-dot-inner owl-dot-white intro-slider animation-slider cols-1"
+             data-owl-options="{
+                        'items': 1,
+                        'nav': false,
+                        'loop': true,
+                        'dots': true
+                    }">
+            <div class="intro-slide1 banner banner-fixed"
+                 style="background-image: url(images/Chocolatephotos/teahub.jpg); background-color: rgba(0, 0, 0, 0.64)">
+                <div class="banner-content mt-4 x-50 y-50 text-center">
+                    <h3 style="font-size: 100px;" class="banner-title font-brand-name  ls-m text-white slide-animate"
+                        data-animation-options="{'name': 'fadeInUp', 'duration': '1.2s', 'delay': '.8s'}">
+                        Lozan Chocolate
+                    </h3>
+                    <p class="text-white mb-3 slide-animate"
+                       data-animation-options="{'name': 'fadeInUp', 'duration': '1.2s', 'delay': '1.1s'}">
+                        Handmade in Athens, Greece
+                    </p>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-outline btn-white slide-animate"
+                       data-animation-options="{'name': 'fadeInUp', 'duration': '1.2s', 'delay': '1.3s'}">
+                        Shop
+                    </a>
+                </div>
+            </div>
+            <div class="intro-slide2 banner banner-fixed"
+                 style="background-image: url(images/Chocolatephotos/Many-kinds-of-chocolate-candy-dessert_3840x2160.jpg); background-color: #666">
+                <div class="banner-content x-50 y-50 text-center">
+                    <h3 class="banner-title font-secondary text-white  slide-animate"
+                        data-animation-options="{'name': 'fadeIn', 'duration': '2s', 'delay': '.3s'}">
+                        Lozan Spring Catalog 2021
+                    </h3>
+                    <p style="font-size : 34px;" class="text-white font-brand-name slide-animate"
+                       data-animation-options="{'name': 'fadeIn', 'duration': '1.5s', 'delay': '.9s'}">
+                        Handmade with love & care.
+                    </p>
+                    <a asp-controller="Featured" asp-action="Index" class="btn btn-outline btn-white slide-animate"
+                       data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1s', 'delay': '1s'}">
+                        Discover
+                        now<i class="d-icon-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container mt-10 pt-3 appear-animate">
+        <h2 class="title title-simple">Best Sellers</h2>
+        <div class="owl-carousel owl-theme row cols-lg-4 cols-md-3 cols-2" data-owl-options="{
+                        'items': 4,
+                        'nav': false,
+                        'dots': true,
+                        'margin': 20,
+                        'loop': false,
+                        'responsive': {
+                            '0': {
+                                'items': 2
+                            },
+                            '768': {
+                                'items': 3
+                            },
+                            '992': {
+                                'items': 4
+                            }
+                        }
+                    }">
+
+            @foreach (var product in Model)
+            {
+                <div class="product product-classic appear-animate" data-animation-options="{
+                            'name': 'fadeInRightShorter',
+                            'delay': '.5s'
+                        }">
+                    <figure class="product-media">
+                        <a href="@Url.Action("View","Product", new { id=product.Id})">
+                            <img src="@product.ImageString" alt="product" width="280"
+                                 height="315">
+                        </a>
+                        <div class="product-label-group">
+                            <label class="product-label label-new">new</label>
+                        </div>
+                    </figure>
+                    <div class="product-details">
+
+                        <h3 class="product-name">
+                            <a href="@Url.Action("View", "Product", new { id = product.Id})">@product.Name</a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="price">@product.Price.ToString("0.00") &euro;</span>
+                        </div>
+                        <div class="product-action">
+                            <a href="#" id="@product.Id" class="btn-product btn-cart" data-toggle="modal"
+                               data-target="#addCartModal" title="Add to cart">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+</div>
+
+@section Scripts{
+    <script src="~/vendor/nouislider/nouislider.min.js"></script>
+    <script>
+        $(".btn-cart").click(function () {
+            var productId = $(this).attr("id");
+
+            $.ajax({
+                type: "POST",
+                url: "/api/carts",
+                data: JSON.stringify({ 'productId': productId, 'quantity': 1 }),
+                dataType: "json",
+                contentType: "application/json"
+            }).done(function () {
+                toastr.success("Product added successfully");
+            }).fail(function (e) {
+                toastr.success("Product added successfully");
+            });
+
+        });
+    </script>
+}

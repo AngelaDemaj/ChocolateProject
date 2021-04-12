@@ -1,0 +1,116 @@
+/* 
+Demo 28 Variables
+*/
+@include set(
+    (
+        base: (
+            title: (
+                margin-bottom: 0,
+                font-size: 3rem,
+                text-transform: false,
+                letter-spacing: -0.025em,
+
+                desc: (
+                    color: false,
+                    letter-spacing: -0.025em,
+                )
+            )
+        ),
+        header: (
+            font-family: $font-family,
+
+            top: (
+                background: #f4f4f4
+            ),
+            middle: (
+                padding-top: 2.5rem,
+                padding-bottom: 2.4rem,
+                color: false,
+                font-size: 1.3rem,
+                font-weight: 600,
+                text-transform: uppercase,
+            ),
+            bottom: (
+                background: $secondary-color,
+                text-transform: capitalize,
+                color: #fff,
+                font-size: 1.5rem,
+            ),
+            cart: (
+                label: (
+                    margin: 0 1rem 0 0,
+
+                    price: (
+                        color: inherit,
+                    )
+                ),
+                icon: (
+                    color: $secondary-color,
+    
+                    hover: (
+                        color: $primary-color,
+                    )
+                ),
+                count: (
+                    color: inherit,
+                )
+            ),
+            search: (
+                toggle: (
+                    padding: 1.5rem 0,
+                )
+            ),
+            login: (
+                label: (
+                    _gap: 0,
+                    line-height: 1.1
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                _gap: 2rem,
+                padding: 2rem 0,
+                font-size: false,
+                font-weight: false,
+                text-transform: false,
+            ),
+            submenu: (
+                text-transform: none,
+            )
+        ),
+        product: (
+            price: (
+                color: $primary-color,
+            ),
+            rating: (
+                _star-color: #444,
+            )
+        ),
+        product-single: (
+            rating: (
+                _star-color: #444
+            )
+        ),
+        footer: (
+            top: (
+                padding: 2rem 0,
+                border-bottom: false,
+                background: $primary-color
+            ),
+            middle: (
+                padding: 4rem 0 0,
+                letter-spacing: -0.015em,
+
+                widget: (
+                    body: (
+                        letter-spacing: -.015em
+                    )
+                )
+            ),
+            copyright: (
+                color: #777
+            )
+        )
+    )
+)

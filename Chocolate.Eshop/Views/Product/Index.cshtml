@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Chocolate.DataAccess.ViewModels.ProductViewModel>
+
+<div class="page-header" style="height:auto; background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); background-color: #3C63A4;">
+    <h1 class="page-title text-white">Our Delicious Products</h1>
+    <hr />
+</div>
+<div class="page-content mb-10">
+    <div class="container">
+        <div class="row main-content-wrap gutter-lg">
+
+            <div class="col-lg-12 main-content">
+                <nav class="toolbox sticky-toolbox sticky-content fix-top">
+                    <div class="toolbox-left">
+                        <a href="#"
+                           class="toolbox-item left-sidebar-toggle btn btn-sm btn-outline btn-primary d-lg-none">
+                            Filters<i class="d-icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </nav>
+                <div class="product-lists product-wrapper ">
+                    @foreach (var product in Model)
+                    {
+                        <div style="display:inline-block;" class="product product-list">
+                            <figure class="product-media">
+                                <a href="@Url.Action("View", "Product", new { id = product.Id})">
+                                    <img src="@product.ImageString" alt="product" width="260" height="293">
+                                </a>
+                            </figure>
+                            <div class="product-details">
+                                <h3 class="product-name">
+                                    <a href="@Url.Action("View", "Product", new { id = product.Id})">@product.Name</a>
+                                </h3>
+                                <div class="product-price">
+                                    <span class="price">@product.Price.ToString("0.00") €</span>
+                                </div>
+                                <p class="product-short-desc">
+                                    @product.Description
+                                </p>
+                                <div class="product-action">
+                                    <a class="btn-product btn-cart" id="@product.Id" title="Add to cart">add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/vendor/nouislider/nouislider.min.js"></script>
+    <script>
+        $(".btn-cart").click(function () {
+            var productId = $(this).attr("id");
+
+            $.ajax({
+                type: "POST",
+                url: "/api/carts",
+                data: JSON.stringify({ 'productId': productId, 'quantity': 1 }),
+                dataType: "json",
+                contentType: "application/json"
+            }).done(function () {
+                toastr.success("Product added successfully");
+            }).fail(function (e) {
+                toastr.success("Product added successfully");
+            });
+
+        });
+    </script>
+}

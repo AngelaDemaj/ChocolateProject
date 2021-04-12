@@ -1,0 +1,73 @@
+[
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [      
+      "wwwroot/assets/libs/datatables/dataTables.bootstrap4.css",
+      "wwwroot/assets/libs/datatables/responsive.bootstrap4.css",
+      "wwwroot/assets/libs/datatables/buttons.bootstrap4.css",
+      "wwwroot/assets/libs/datatables/select.bootstrap4.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/assets/libs/datatables/jquery.dataTables.min.js",
+      "wwwroot/assets/libs/datatables/dataTables.bootstrap4.js",
+      "wwwroot/assets/libs/datatables/dataTables.responsive.min.js",
+      "wwwroot/assets/libs/datatables/responsive.bootstrap4.min.js",
+      "wwwroot/assets/libs/datatables/dataTables.buttons.min.js",
+      "wwwroot/assets/libs/datatables/buttons.bootstrap4.min.js",
+      "wwwroot/assets/libs/datatables/buttons.html5.min.js",
+      "wwwroot/assets/libs/datatables/buttons.print.min.js",
+      "wwwroot/assets/libs/datatables/dataTables.keyTable.min.js",
+      "wwwroot/assets/libs/datatables/dataTables.select.min.js",
+      "wwwroot/assets/libs/pdfmake/pdfmake.min.js",
+      "wwwroot/assets/libs/pdfmake/vfs_fonts.js",
+      "wwwroot/assets/js/pages/datatables.init.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/sitemulti.min.css",
+    "inputFiles": [
+      "wwwroot/assets/libs/datatables/dataTables.bootstrap4.css",
+      "wwwroot/assets/libs/datatables/responsive.bootstrap4.css",
+      "wwwroot/assets/libs/datatables/buttons.bootstrap4.css",
+      "wwwroot/assets/libs/datatables/select.bootstrap4.css",
+      "wwwroot/assets/libs/multiselect/multi-select.css",
+      "wwwroot/assets/libs/select2/select2.min.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "removeLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/sitemulti.min.js",
+    "inputFiles": [
+      "wwwroot/assets/libs/datatables/jquery.dataTables.min.js",
+      "wwwroot/assets/libs/datatables/dataTables.bootstrap4.js",
+      "wwwroot/assets/libs/datatables/dataTables.responsive.min.js",
+      "wwwroot/assets/libs/datatables/responsive.bootstrap4.min.js",
+      "wwwroot/assets/libs/datatables/dataTables.buttons.min.js",
+      "wwwroot/assets/libs/datatables/buttons.bootstrap4.min.js",
+      "wwwroot/assets/libs/datatables/buttons.html5.min.js",
+      "wwwroot/assets/libs/datatables/buttons.print.min.js",
+      "wwwroot/assets/libs/datatables/dataTables.keyTable.min.js",
+      "wwwroot/assets/libs/datatables/dataTables.select.min.js",
+      "wwwroot/assets/libs/pdfmake/pdfmake.min.js",
+      "wwwroot/assets/libs/pdfmake/vfs_fonts.js",
+      "wwwroot/assets/js/pages/datatables.init.js",
+      "wwwroot/assets/libs/multiselect/jquery.multi-select.js",
+      "wwwroot/assets/libs/jquery-quicksearch/jquery.quicksearch.min.js",
+      "wwwroot/assets/libs/select2/select2.min.js"
+    ]
+  }
+]

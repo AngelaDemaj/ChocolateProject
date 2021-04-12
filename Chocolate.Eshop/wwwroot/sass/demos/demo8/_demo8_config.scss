@@ -1,0 +1,120 @@
+/*
+Demo 8
+*/
+@include set(
+    (
+        base: (
+            _container-width: 1460px,
+            title: (
+                font-family: $second-font-family,
+                font-size: 2.4rem,
+                font-weight: 400,
+                letter-spacing: .05em,
+
+                desc: (
+                    font-family: $font-family,
+                    margin-bottom: 3rem,
+                )
+            ),
+        ),
+        header: (
+            font-family: $second-font-family,
+            top: (
+                background: #202020,
+                color: #999,
+                letter-spacing: .05em,
+                min-height: 3.9rem,
+                _links-gap: 1.5rem,
+            ),
+            middle: (
+                padding: 2.85rem 0,
+                font-size: 1.4rem,
+                font-weight: 400,
+                letter-spacing: 0,
+                color: #fff,
+                background: transparent,
+
+                logo: (
+                    margin-right: 0
+                ),
+            ),
+            bottom: (
+                background: transparent
+            ),
+            call: (
+                label: (
+                    _gap: 3px,
+                )
+            ),
+            login: (
+                label: (
+                    font-weight: inherit
+                )
+            ),
+            cart: (
+                label: (
+                    price: (
+                        color: inherit
+                    )
+                ),
+                icon: (
+                    color: inherit
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                _gap: 2.4rem,
+                font-weight: 400,
+                letter-spacing: 0
+            ),
+            submenu: (
+                font-family: $third-font-family,
+            )
+        ),
+        mobile-menu: (
+            letter-spacing: .025em,
+        ),
+        product: (
+            label: (
+                sale: (
+                    background: $primary-color
+                ),
+                new: (
+                    background: #444
+                )
+            ),
+            price: (
+                color: $primary-color
+            )
+        ),
+        footer: (
+            font-family: $third-font-family,
+
+            middle: (
+                padding: 4rem 0 .5rem,
+                widget: (
+                    title: (
+                        color: #999
+                    )
+                )
+            ),
+            bottom: (
+                padding: 2.7rem 0
+            ),
+            about: (
+                logo: (
+                    margin-bottom: 2rem,
+                ),
+                p: (
+                    font-family: inherit,
+                    max-width: 28rem,
+                    margin-bottom: 2.5rem
+                )
+            ),
+            copyright: (
+                font-family: inherit
+            )
+        )
+    )
+)

@@ -1,0 +1,49 @@
+﻿@model Chocolate.DataAccess.ViewModels.DiscountLevelViewModel
+
+@{
+    ViewData["Title"] = "Discount Levels";
+}
+
+<h2>Discount Level Details</h2>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group row">
+                            <label asp-for="Amount" class="control-label col-md-2"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Amount" class="form-control" readonly="readonly"/>
+                            </div>
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="DiscountPercentage" class="control-label col-md-2">Discount Percentage</label>
+                            <div class="col-md-10">
+                                <input asp-for="DiscountPercentage" class="form-control" readonly="readonly"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="DiscountId" class="control-label col-md-2">Discount</label>
+                            <div class="col-md-10">
+                                <input asp-for="DiscountId" class="form-control" readonly="readonly">
+                            </div>
+                        </div>
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <div>
+                            <a asp-action="Edit" class="btn btn-lighten-primary waves-effect waves-primary width-md" asp-route-id="@Model.Id">Edit</a>
+                            <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

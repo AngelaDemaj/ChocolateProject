@@ -1,0 +1,89 @@
+/* 
+Demo 20 Variables
+*/
+@include set(
+	(
+		header: (
+			_link-active-color: #fff,
+			top: (
+				color: rgba(255,255,255,.6),
+				border-bottom: 1px solid rgba(255,255,255,.15),
+				background: $primary-color,
+			),
+			middle: (
+				font-weight: 600,
+				color: #fff,
+				background: $primary-color,
+			),
+			bottom: (
+				background: #fff,
+				color: #222
+			),
+			sticky: (
+				background: $primary-color
+			),
+			cart: (
+				label: (
+					color: #fff,
+					price: (
+						color: inherit
+					),
+				),
+				count: (
+					color: #fff,
+					hover: (
+						color: $primary-color
+					)
+				),
+				icon: (
+					color: inherit,
+					hover: (
+						border-color: #fff,
+						background: #fff
+					)
+				)
+			)
+		),
+		menu: (
+			ancestor: (
+				padding: 2rem 0
+			)
+		),
+		product: (
+            margin-bottom: 20px,
+			price: (
+				margin-bottom: 1.3rem
+			),
+			body: (
+				padding-bottom: 0
+			)
+		),
+		post: (
+			title: (
+				text-transform: none,
+				font-size: 1.6rem,
+				letter-spacing: -.025em,
+				line-height: 1.2,
+			),
+			content: (
+				margin-bottom: 2rem,
+				_row-count: 3,
+			)
+		),
+		footer: (
+			middle: (
+				padding: 4.3rem 0 0,
+				widget: (
+					margin-bottom: 3.4rem,
+					title: (
+						margin-bottom: 1.6rem,
+					),
+					body: (
+						padding-top: 2px,
+						letter-spacing: -.015em
+					)
+				)
+			)
+		)
+	)
+)

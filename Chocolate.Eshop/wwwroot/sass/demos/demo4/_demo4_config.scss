@@ -1,0 +1,95 @@
+/* 
+Demo 4
+*/
+@include set(
+    (
+        base: (
+            title: (
+                font-family: $second-font-family,
+                font-weight: 700,
+                line-height: 2.5,
+                margin-bottom: 2rem,
+                border: (
+                    color: #e1e1e1,
+                    width: 1px
+                )
+            )
+        ),
+        post: (
+            body: (
+                padding: 1.9rem 0 2rem
+            ),
+            info: (
+                margin-bottom: .6rem
+            ),
+            title: (
+                margin-bottom: 1.5rem,
+                font-size: 1.4rem,
+                font-family: $second-font-family,
+                font-weight: 400
+            ),
+            btn: (
+                _icon-gap: .5rem
+            )
+        ),
+        footer: (
+            background: transparent,
+            _link-active-color: $primary-color,
+            middle: (
+                padding: 3.3rem 0 .7rem,
+                border-top: 1px solid #e7e7e7,
+                border-bottom: 1px solid #e7e7e7,
+                widget: (
+                    title: (
+                        margin-bottom: .7rem,
+                        font-size: 1.6rem,
+                        font-weight: 600,
+                        letter-spacing: 0,
+                        color: #333
+                    ),
+                    body: (
+                        padding: 0,
+                        color: #666,
+                        letter-spacing: -.01em,
+                    )
+                )
+            ),
+            newsletter: (
+                desc: (
+                    margin-top: -3px,
+                    margin-bottom: 1.5rem,
+                    color: false,
+                    line-height: 1.6
+                ),
+                form: (
+                    max-width: 60rem
+                ),
+                input: (
+                    border: 0,
+                    background: #f4f4f4,
+                    color: #999,
+                ),
+                btn: (
+                    padding: 0 1.8rem,
+                    letter-spacing: 0.025em,
+                )
+            ),
+            bottom: (
+                padding: 3.55rem 0
+            ),
+            copyright: (
+                letter-spacing: .005em,
+                color: #777
+            ),
+            social-link: (
+                border: 1px solid #999,
+                line-height: 2.8rem,
+            )
+        ),
+        product: (
+            price: (
+                color: $primary-color
+            )
+        )
+    )
+);

@@ -1,0 +1,35 @@
+﻿@model Chocolate.DataAccess.ViewModels.StorageUnitViewModel
+@{
+    ViewData["Title"] = "Storage Units";
+}
+<h2>Edit Storage Unit</h2>
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <form asp-action="Edit">
+
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-2 " asp-for="WarehouseId">Warehouse</label>
+                            <div class="col-md-10">
+                                <select asp-for="WarehouseId" class="form-control" asp-items='@(new SelectList(Model.WarehouseAddress,"Key","Value"))'></select>
+                            </div>
+                            <span asp-validation-for="WarehouseId" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Save</button>
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

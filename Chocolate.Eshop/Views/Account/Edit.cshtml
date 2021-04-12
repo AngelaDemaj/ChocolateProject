@@ -1,0 +1,87 @@
+﻿@model Chocolate.DataAccess.ViewModels.CustomerViewModel;
+
+
+@section Styles{
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-bottom: 10px;
+        }
+    </style>
+}
+
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Your Account</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="title mt-2">Personal Inforamtion</h2>
+                    <form asp-action="Edit">
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="FirstName">First Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="FirstName" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="LastName">Last Name</label>
+                            <div class="col-md-10">
+                                <input asp-for="LastName" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Phone.Number" class="col-md-2 col-form-label">Phone Number</label>
+                            <div class="col-md-10">
+                                <input type="text" id="simpleinput" asp-for="Phone.Number" class="form-control"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Location" class="col-md-2 col-form-label">Street Name</label>
+                            <div class="col-md-7">
+                                <input type="text" id="simpleinput" asp-for="Address.Location" class="form-control"/>
+                            </div>
+
+
+                            <label asp-for="Address.AddressNumber" class="col-md-1 col-form-label">Street Number</label>
+                            <div class="col-md-2">
+                                <input type="text" id="simpleinput" asp-for="Address.AddressNumber" class="form-control"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Address.Country" class="col-md-2 col-form-label">Country</label>
+                            <div class="col-md-7">
+                                <input type="text" id="simpleinput" asp-for="Address.Country" class="form-control"/>
+                            </div>
+
+
+                            <label asp-for="Address.PostCode" class="col-md-1 col-form-label">Postal Code</label>
+                            <div class="col-md-2">
+                                <input type="text" id="simpleinput" asp-for="Address.PostCode" class="form-control"/>
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Save Changes</button>
+                    </form>
+                </div>
+
+            </section>
+
+            <!-- End Team Section -->
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+    }
+</body>

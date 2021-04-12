@@ -1,0 +1,74 @@
+/* -------------------------------------------
+    Animation
+---------------------------------------------- */
+
+@keyframes fadeInUpShorter {
+  from {
+      opacity: 0;
+      transform: translate(0,50px);
+      transform-origin: 0 0;
+  }
+  to {
+      opacity:1;
+      transform:none
+  }
+}
+.fadeInUpShorter {
+  animation-name: fadeInUpShorter
+}
+@keyframes fadeInLeftShorter {
+  from {
+      opacity: 0;
+      transform: translate(50px,0);
+      transform-origin: 0 0;
+  }
+  to {
+      opacity: 1;
+      transform: none
+  }
+}
+.fadeInLeftShorter {
+  animation-name: fadeInLeftShorter
+}
+
+@keyframes fadeInRightShorter {
+from {
+  opacity: 0;
+  transform: translate(-50px,0);
+  transform-origin: 0 0;
+}
+
+to {
+  opacity: 1;
+  transform: none
+}
+}
+
+.fadeInRightShorter {
+  animation-name: fadeInRightShorter
+}
+
+@keyframes blurIn {
+    from {
+        opacity: 0;
+        filter: blur(20px);
+        transform: scale(1.2);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: none 
+    }
+}
+
+.blurIn {
+  animation-name: blurIn
+}
+
+.appear-animate {
+  visibility: hidden;
+}
+
+.appear-animation-visible {
+  visibility: visible;
+}

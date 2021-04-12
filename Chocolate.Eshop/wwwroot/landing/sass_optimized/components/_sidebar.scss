@@ -1,0 +1,231 @@
+/* -------------------------------------------
+	Sidebars
+		- Base
+		- Sidebar Elements
+		- Right Sidebar
+		- Fixed Sidebar
+		- Tag
+		- Blog Sidebar
+------------------------------------------- */
+
+@include set-default(
+	(
+		sidebar: (
+			_page-move: 250px,
+		),
+		right-sidebar: (
+			_page-move: 250px
+		)
+	)
+);
+
+// Sidebar Base
+.sidebar-active .sidebar,
+.right-sidebar-active .right-sidebar {
+	.sidebar-overlay {
+		visibility: visible;
+		opacity: 1;
+	}
+	.sidebar-content {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+.page-wrapper {
+	.sidebar-active & {
+		margin-left: #{
+			if( get( base, page-wrapper, margin-left), get( base, page-wrapper, margin-left), 0 ) + 
+			get( sidebar, _page-move )
+		};
+		margin-right: #{
+			if( get( base, page-wrapper, margin-right), get( base, page-wrapper, margin-right), 0 ) -
+			get( sidebar, _page-move )
+		};
+	}
+	.right-sidebar-active & {
+		margin-left: #{
+			if( get( base, page-wrapper, margin-left), get( base, page-wrapper, margin-left), 0 ) -
+			get( right-sidebar, _page-move )
+		};
+		margin-right: #{
+			if( get( base, page-wrapper, margin-right), get( base, page-wrapper, margin-right), 0 ) +
+			get( right-sidebar, _page-move )
+		};
+	}
+}
+
+// issue: fixed element for sidebar's push animation
+// // .sidebar-fixed-element {
+// .sticky-sidebar-fixed {
+// 	transition: margin .4s;
+
+// 	.sidebar-active & {
+// 		margin-right: -250px;
+// 	}
+// 	.right-sidebar-active & {
+// 		margin-left: -250px;
+// 	}
+// }
+
+// Sidebar Elements
+.sidebar-overlay, .sidebar-toggle, .sidebar-content, .sidebar-close {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1200;
+}
+.sidebar-overlay {
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,.8);
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility .4s, opacity .4s;
+}
+
+.sidebar-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 160px;
+	width: 40px;
+	height: 40px;
+	font-size: 1.4rem;
+	color: #fff;
+	background-color: rgba(28,26,26,0.8);
+}
+
+.sidebar-close {
+	margin: 0;
+	left: calc(100vw - 50px);
+	top: 25px;
+	transition: opacity .3s;
+}
+
+.sidebar-content {
+	bottom: 0;
+	width: 30rem;
+	padding: 2rem;
+	transform: translateX(-100%);
+	overflow: auto;
+	background-color: #fff;
+	opacity: 0;
+	line-height: 1.3;
+	transition: transform .4s, opacity .4s;
+
+	// notice: used only 6th, 18th demo's shop-sidebar
+	.sidebar-close {
+		display: flex;
+		position: static;
+		align-items: center;
+		margin-bottom: 2rem;
+		text-transform: uppercase;
+		letter-spacing: -.025em;
+		line-height: 1;
+	}
+	// notice: used only 6th, 18th demo's shop-sidebar
+	.close-icon {
+		width: 1.6rem;
+		height: 1.6rem;
+		margin-right: .6rem;
+
+		&::before,
+		&::after {
+			background: #666;
+		}
+	}
+}
+// Right Sidebar
+.right-sidebar {
+	order: 2;
+
+	.sidebar-toggle {
+		left: auto;
+		right: 0;
+	}
+	.sidebar-close {
+		left: 50px;
+	}
+	.sidebar-content {
+		transform: translateX(100%);
+		left: auto;
+		right: 0;
+	}
+}
+
+@include mq(lg, max) {
+	.sidebar-content {
+		width: 30rem;
+	}
+	.right-sidebar {
+		.sidebar-close {
+			left: 20px;
+		}
+	}
+}
+
+@include mq(lg) {
+	// Fixed Sidebar
+	.sidebar-fixed {
+		.sidebar-toggle,
+		.sidebar-overlay {
+			display: none;
+		}
+		.sidebar-content {
+			position: relative;
+			overflow: visible;
+			padding: 0;
+			opacity: 1;
+			z-index: 1;
+		}
+		.sidebar-content {
+			width: auto;
+			transform: none;
+		}
+	}
+}
+
+.right-sidebar .sidebar-content::-webkit-scrollbar {
+	width: 0;
+}
+
+
+// Tag
+.tag {
+	display: inline-block;
+	padding: 1px .9rem 0;
+	margin-bottom: 1rem;
+	margin-left: .14rem;
+	border: 1px solid #e1e1e1;
+	font-size: 1.2rem;
+	line-height: 1.58;
+	letter-spacing: -.01em;
+
+	&:hover {
+		color: $primary-color;
+	}
+}
+
+
+// Blog Sidebar
+.blog-sidebar {
+	.form-control { border-color: #e1e1e1; }
+	.widget-about .widget-title { margin-bottom: 1.3rem; }
+	.widget-categories {
+		margin-bottom: 1.2rem;
+		.widget-title { margin-bottom: .8rem; }
+	}
+	.filter-items {
+		li:not(:last-child) { border-bottom: 0; }
+		a { padding: .9rem 0; }
+	}
+	.tag {    
+		padding: 1.5px 1rem;
+		transition: color .3s, background-color .3s, border-color .3s;
+		&:hover {
+			background-color: $primary-color;
+			border-color: $primary-color;
+			color: #fff;
+		}
+	}
+}

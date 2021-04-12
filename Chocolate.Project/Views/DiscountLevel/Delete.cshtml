@@ -1,0 +1,47 @@
+﻿@model Chocolate.DataAccess.ViewModels.DiscountLevelViewModel
+
+@{
+    ViewData["Title"] = "Discount Levels";
+}
+
+
+<h2>Are you sure you want to delete this Discount Level?</h2>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group row">
+                            <label asp-for="Amount" class="control-label col-md-2"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Amount" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="DiscountPercentage" class="control-label col-md-2">Discount Percentage</label>
+                            <div class="col-md-10">
+                                <input asp-for="DiscountPercentage" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="DiscountId" class="control-label col-md-2">Discount</label>
+                            <div class="col-md-10">
+                                <input asp-for="DiscountId" class="form-control" readonly="readonly">
+                            </div>
+                        </div>
+                    </form>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Delete" class="btn btn-bordered-danger waves-effect  width-md waves-light">
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

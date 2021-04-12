@@ -1,0 +1,55 @@
+/* 
+Demo 5
+*/
+@include set(
+    (
+        header: (
+            top: (
+                background: #eee
+            ),
+            search: (
+                expanded: (
+                    width: 53rem
+                )
+            ),
+            bottom: (
+                background: #333
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 2rem 0,
+                color: #fff,
+                _gap: 2.8rem
+            )
+        ),
+        category-menu: (
+            icon: (
+                margin-bottom: 2px,
+            ),
+        ),
+        product: (
+            body: (
+                padding-bottom: 1rem
+            ),
+            price: (
+                color: $primary-color
+            ),
+            rating: (
+                margin-bottom: 2rem,
+                _star-color: #999
+            )
+        ),
+        footer: (
+            middle: (
+                padding: 4rem 0 0,
+
+                widget: (
+                    list-item: (
+                        letter-spacing: -0.025em
+                    )
+                )
+            )
+        )
+    )
+);

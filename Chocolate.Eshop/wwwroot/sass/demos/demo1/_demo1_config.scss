@@ -1,0 +1,18 @@
+/* Demo 1
+*/
+
+@include set(
+    (
+        post: (
+            title: (
+                text-transform: none,
+                font-size: 1.6rem,
+                letter-spacing: -.025em,
+                line-height: 1.2,
+            ),
+            content: (
+                _row-count: 3
+            )
+        )
+    )
+);

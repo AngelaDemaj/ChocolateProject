@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["Title"] = "AboutUs";
+}
+
+@section Styles{
+
+}
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">About Us</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="title mb-lg-9">About Lozan</h2>
+                    <div class="row mb-10">
+                        <div class="col-md-6">
+                            <img class="w-100 mb-4 appear-animate"
+                                 data-animation-options="{'name':'fadeInLeftShorter'}"
+                                 src="~/images/Chocolatephotos/choco-worker.jpg" alt="Donald Store" width="587" height="517"
+                                 style="position: sticky; top: 3rem; margin-top: 75px; ">
+                        </div>
+                        <div class="col-md-6 order-md-first pt-md-5">
+                            <p class="text-uppercase text-grey mb-0">Who we are</p>
+                            <h5 class="lh-1 ls-m">Traditional handmade chocolates
+                                with high quality raw materials</h5>
+                            <p class="font-primary font-weight-semi-bold">
+                                Lozan was created by Takis Kamateros, founder and CEO of Lozan Chocolate. He was inspired by his love of chocolate,
+                                and the ability to make people happy by providing the best quality of chocolate. Our company Lozan, is a family business operating
+                                in the Greek market since 2015 with the production and marketing of chocolate. For 6 years, always with persistence
+                                and always guided by the high level of quality and taste, we have managed to achieve significant recognition in the Greek market.
+                            </p>
+                            <p class="mb-8">
+                                At Lozan everyone—from our chocolatiers to our in-shop chocolate connoisseurs—is always inspired to take you away from the ordinary.
+                                We source premium-quality ingredients from around the world, and choose local options whenever possible. We never compromise on quality, and you bet you can taste it.
+                            </p>
+                            <p class="mb-8">
+                                Our goal is to offer a unique taste experience, to share with you our love for chocolate and to satisfy
+                                even the most demanding with our premium quality.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End About Section-->
+
+            <section class="team-section pt-10 pb-9">
+                <div class="container">
+                    <h2 class="title mt-2">Meet our support team</h2>
+                    <div class="row cols-sm-2 cols-md-4">
+                        <div class="member appear-animate" data-animation-options="{'name': 'fadeInLeftShorter'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/The crew/pou to ksereis.png" alt="team member" width="280" height="280">
+                                <div class="overlay social-links">
+                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                                </div>
+                            </figure>
+                            <h4 class="member-name">Takis Kamateros</h4>
+                            <h5 class="member-job">Ceo / Founder</h5>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.3s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/The crew/hidethepainharold.jpg" alt="team member" width="280" height="280">
+                                <div class="overlay social-links">
+                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                                </div>
+                            </figure>
+                            <h4 class="member-name">Xaralampos Ponos</h4>
+                            <h5 class="member-job">Support manager</h5>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.4s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/The crew/tommy-wiseau.jpg" alt="team member" width="280" height="280">
+                                <div class="overlay social-links">
+                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                                </div>
+                            </figure>
+                            <h4 class="member-name">Thomas Markos</h4>
+                            <h5 class="member-job">Supporter</h5>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/The crew/20200314_EUP503.jpg" alt="team member" width="280" height="280">
+                                <div class="overlay social-links">
+                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                                </div>
+                            </figure>
+                            <h4 class="member-name">Vladimiros Poutinos</h4>
+                            <h5 class="member-job">Human Resources</h5>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Team Section -->
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+    }
+</body>

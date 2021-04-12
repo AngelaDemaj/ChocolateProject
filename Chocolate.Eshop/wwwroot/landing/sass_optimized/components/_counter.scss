@@ -1,0 +1,18 @@
+/* -------------------------------------------
+    Counter
+---------------------------------------------- */
+.count-to {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -.025em;
+    line-height: 1;
+
+    &::after {
+        content: '+';
+    }
+}
+.count-title {
+    color: inherit;
+    font-weight: 400;
+    letter-spacing: -.025em;
+}

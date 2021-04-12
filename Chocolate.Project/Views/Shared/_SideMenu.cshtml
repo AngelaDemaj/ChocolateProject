@@ -1,0 +1,282 @@
+﻿<div class="left-side-menu">
+
+    <div class="slimscroll-menu">
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+
+            <ul class="metismenu" id="side-menu">
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="menu-title">Management</li>
+
+                    <li>
+                        <a asp-controller="Department" asp-action="Index">
+                            <i class="fas fa-briefcase"></i>
+                            <span> Departments </span>
+                        </a>
+                    </li>
+
+                }
+
+                @if (User.IsInRole("Admin") || User.IsInRole("HR") || User.IsInRole("DepartmentHead"))
+                {
+                    <li class="menu-title">Human Resources</li>
+
+                    <li>
+                        <a asp-controller="Employee" asp-action="Index">
+                            <i class="fas fa-users"></i>
+                            <span> Employees </span>
+                        </a>
+                    </li>
+
+                }
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        <a href="#" aria-expanded="false">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Leaves</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+
+                            <li>
+                                <a asp-controller="Leave" asp-action="Create">
+                                    <i class="far fa-calendar-plus"></i>
+                                    <span>New Leave</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Leave" asp-action="MyLeaves">
+                                    <i class="fas fa-folder-open"></i>
+                                    <span>My Leaves </span>
+                                </a>
+                            </li>
+
+
+                            @if (User.IsInRole("DepartmentHead"))
+                            {
+                                <li>
+                                    <a asp-controller="Leave" asp-action="MyApprovals">
+                                        <i class="fas fa-check-square"></i>
+                                        <span>My Approvals</span>
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </li>
+                }
+
+
+
+                @if (User.IsInRole("Admin") || User.IsInRole("HR"))
+                {
+                    <li>
+                        <a href="#" aria-expanded="false">
+                            <i class="fas fa-handshake"></i>
+                            <span>Recruitment</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+
+                            <li>
+                                <a asp-controller="Position" asp-action="Index">
+                                    <i class="fas fa-street-view"></i>
+                                    <span> Positions </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Candidate" asp-action="Index">
+                                    <i class="fas fa-portrait"></i>
+                                    <span> Candidates </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Interview" asp-action="Index">
+                                    <i class="fas fa-comments"></i>
+                                    <span> Interviews </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                @if (User.IsInRole("Admin") || User.IsInRole("Accounting"))
+                {
+                    <li class="menu-title">Shop</li>
+
+                    <li>
+                        <a asp-controller="Customer" asp-action="Index">
+                            <i class="fas  fa-address-card"></i>
+                            <span> Customers </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Order" asp-action="Index">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span> Orders </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Purchase" asp-action="Index">
+                            <i class="fas fa-wallet"></i>
+                            <span> Purchases </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" aria-expanded="false">
+                            <i class="fas fa-coins"></i>
+                            <span>Pricing</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a asp-controller="Discount" asp-action="Index">
+                                    <i class="fas fa-piggy-bank"></i>
+                                    <span> Discounts </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="DiscountLevel" asp-action="Index">
+                                    <i class="fas fa-wave-square"></i>
+                                    <span> Discount Levels </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Offer" asp-action="Index">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span> Offers </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="OfferItem" asp-action="Index">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span> Offer Items </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Warehouse"))
+                {
+                    <li class="menu-title">Repository</li>
+
+                    <li>
+                        <a asp-controller="Product" asp-action="Index">
+                            <i class="fas  fa-cookie-bite"></i>
+                            <span> Products </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="RawMaterial" asp-action="Index">
+                            <i class="fas fa-mortar-pestle"></i>
+                            <span> Raw Material </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Supplier" asp-action="Index">
+                            <i class="fas fa-truck-loading"></i>
+                            <span> Suppliers </span>
+                        </a>
+                    </li>
+                }
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Warehouse"))
+                {
+                    <li>
+                        <a href="#" aria-expanded="false">
+                            <i class="fas fa-people-carry"></i>
+                            <span>Storage</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+
+                            <li>
+                                <a asp-controller="Warehouse" asp-action="Index">
+                                    <i class="fas fa-warehouse"></i>
+                                    <span> Warehouses </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="StorageUnit" asp-action="Index">
+                                    <i class="fas fa-boxes"></i>
+                                    <span> Storage Units </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Sector" asp-action="Index">
+                                    <i class="fas fa-box"></i>
+                                    <span> Sectors </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Shelf" asp-action="Index">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span> Shelves </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="menu-title">Administrations</li>
+
+                    <li>
+                        <a href="#" aria-expanded="false">
+                            <i class="fas fa-users-cog"></i>
+                            <span>Users</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+
+                            <li>
+                                <a asp-controller="Administration" asp-action="UserIndex">
+                                    <i class="fas fa-user-cog"></i>
+                                    <span> All Users </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Account" asp-action="Register">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span> Register User </span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a asp-controller="Administration" asp-action="RoleIndex">
+                            <i class="fas fa-user-lock"></i>
+                            <span>Roles</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
+    </div>
+    <!-- Sidebar -left -->
+</div>

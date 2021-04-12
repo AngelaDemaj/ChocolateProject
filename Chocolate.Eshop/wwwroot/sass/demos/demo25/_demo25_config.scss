@@ -1,0 +1,88 @@
+/* 
+Demo 25 Variables
+*/
+@include set(
+    (
+        base: (
+            title: (
+                font-size: 2.6rem,
+                letter-spacing: -.025em,
+                text-transform: none,
+                line-height: 1,
+                color: $primary-color-dark,
+            )
+        ),
+        header: (
+            middle: (
+                padding-top: 2.8rem,
+                padding-bottom: 2.8rem,
+                color: #444,
+            ),
+            bottom: (
+                color: #fff,
+                background: #242c37
+            ),
+            sticky: (
+                padding-top: 0,
+                padding-bottom: 0,
+                background: #242c37
+            ),
+            wishlist: (
+                margin-right: 1.8rem,
+                icon: (
+                    font-size: 2.6rem,
+                    line-height: 1
+                )
+            ),
+            call: (
+                icon: (
+                    font-size: 2.6rem
+                )
+            ),
+            login: (
+                icon: (
+                    font-size: 2.6rem
+                )
+            ),
+            cart: (
+                icon: (
+                    margin-top: -2px,
+                    color: false,
+                    font-size: 2.6rem,
+                    line-height: 1
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 2rem 1.9rem,
+                color: #fff,
+                _gap: 2px,
+                _active-color: #fff,
+            )
+        ),
+        product: (
+            body: (
+                padding-bottom: 0
+            ),
+            price: (
+                margin-bottom: 1.3rem
+            )
+        ),
+        footer: (
+            middle: (
+                padding: 4.6rem 0 0,
+                letter-spacing: -.016em,
+                widget: (
+                    margin-bottom: 2.6rem,
+                    title: (
+                        letter-spacing: 0,
+                    ),
+                    body: (
+                        padding: .9rem 0 0,
+                    )
+                )
+            )
+        )
+    )
+)

@@ -1,0 +1,354 @@
+/* -------------------------------------------
+	Shop Sidebar
+		- Collapsible Widget
+		- Tag
+		- Filter Action
+		- Filter Items
+			(used in Widget, Select Menu)
+			(support submenu)
+			(support color item)
+		- Shop Sidebar
+		- Widget Products
+		- Fixed Sidebar for Shop Page
+			(>=992px)
+		- Remain Toggle for left, right sidebar
+------------------------------------------- */
+
+// Collapsible Widget
+.widget-collapsible {
+	> .widget-title {
+		position: relative;
+		cursor: pointer;
+	}
+	.toggle-btn {
+		display: block;
+		position: absolute;
+		top: 30px;
+		right: 2px;
+		padding: 0;
+		width: 10px;
+		opacity: 1;
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			border-top: 2px solid #666;
+			width: 10px;
+			transition: transform .3s;
+		}
+	}
+	> .collapsed .toggle-btn::before {
+		transform: rotate(90deg);
+	}
+	> .collapsed .toggle-btn::after {
+		transform: rotate(180deg);
+	}
+}
+
+.collapsed + .widget-body {
+	display: none;
+}
+
+// Filter Action, Price Slider, Filter Clean
+.filter-actions {
+	padding-bottom: 2rem;
+}
+.filter-price-slider {
+	font-size: 1.3rem;
+
+	& + .filter-actions {
+		padding-bottom: 1.5rem;
+		padding-left: 2px;
+	}
+}
+.toolbox .btn-link {
+	padding: 0;
+}
+.filter-clean {
+	font-size: 1.4rem;
+	margin-left: auto;
+	letter-spacing: -.025em;
+}
+
+// Filter Items
+.filter-items {
+	// Item
+	a {
+		position: relative;
+		display: block;
+		padding: 1rem 0 1rem 28px;
+
+		&:hover {
+			color: $primary-color;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			border: 1px solid $light-color;
+			width: 18px;
+			height: 18px;
+			border-radius: 2px;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 2px;
+			font-size: .7em;
+			font-weight: 900;
+			font-family: 'Font Awesome 5 Free';
+			text-align: center;
+			text-indent: 1px; // issue
+			line-height: 1.7em;
+
+			@include only-for-retina(1.5) {
+				text-indent: 0;
+			}
+		}
+	}
+	.active > a::before {
+		content: "\f00c";
+		color: #fff;
+		background-color: $dark-color;
+		border-color: $dark-color;
+	}
+	&.search-ul a {
+		padding-left: 2px;
+
+		&::before {
+			content: none;
+		}
+	}
+
+	> li:not(:last-child) {
+		border-bottom: 1px solid $border-color-light;
+	}
+
+	// Item's Count
+	li span {
+		position: absolute;
+		right: 2px;
+		color: #ccc;
+		font-family: $second-font-family;
+	}
+
+	// Arrow
+	.with-ul  {
+		> a > i {
+			content: '\f068';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			line-height: 0;
+			margin: -1rem -3px 0 0;
+			padding: 1rem 5px;
+			font-size: 1rem;
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 600;
+			transition: transform .3s;
+		}
+	}
+	// 
+	.show > a {
+		color: $primary-color;
+
+		i {
+			transform: rotate(-180deg);
+		}
+	}
+
+	// Sub Menu
+	ul {
+		display: none;
+		position: relative;
+		padding-left: 1.3rem;
+		margin-bottom: 1rem;
+		
+		&::before {
+			content: '';
+			position: absolute;
+			left: 2px;
+			top: 4px;
+			bottom: 3px;
+			border-left: 1px solid $border-color-light;
+		}
+
+		a {
+			padding: 5.5px 0;
+		}
+	}
+
+	// Color Item
+	.color {
+		top: 50%;
+		display: inline-block;
+		margin-right: .8rem;
+		margin-top: -4.5px;
+		width: .9rem;
+		height: .9rem;
+		border-radius: 50%;
+	}
+}
+
+// Shop Sidebar
+.shop-sidebar {
+	position: relative;
+
+    .sidebar-content {
+		padding: 3rem;
+	}
+
+	.filter-actions {
+		padding-top: 0;
+	}
+
+	.widget-title {
+		padding: 2.2rem 0 1.4rem 2px;
+		margin: 0;
+		border: none;
+		border-top: 3px solid $border-color-light;
+		font-weight: 600;
+		transition: padding-bottom .4s;
+	}
+	
+	.collapsed {
+		padding-bottom: 2.2rem;
+		& ~ .widget-body {
+			opacity: .1;
+		}
+	}
+	.widget-body {
+		margin-bottom: 1.1rem;
+		transition: opacity .3s;
+	}
+
+	// issue : need?
+    .btn-outline:not(:hover) {
+        color: $primary-color;
+        background: #fff;
+	}
+	.sidebar-toggle-btn,
+	.left-sidebar-toggle {
+		padding: .8em 1.04em;
+	}
+}
+// Products Widget
+.widget-products {
+	.widget-title {
+		margin-bottom: 2rem;
+		border-top: 0;
+		border-bottom: 1px solid $border-color;
+	}
+	.product-price {
+		color: $primary-color;
+	}
+	.owl-nav i {
+		font-size: 1.7rem;
+	}
+	.owl-nav {
+		top: -5.5rem;
+	}	
+}
+
+
+// Responsive
+@include mq(lg) {
+	.shop-sidebar .sidebar-content {
+		padding-top: 3rem;
+	}
+	.sidebar:not(.closed) .sticky-sidebar-fixed > .filter-actions {
+		visibility: hidden;
+	}
+	.sidebar-fixed {
+		.filter-actions:first-child {
+			padding-top: 3rem;
+		}
+
+		&.shop-sidebar .sidebar-content {
+			padding: 0 0 2rem;
+		}
+		
+		// 5. Toggle Fixed Sidebar
+		transition: margin .4s;
+
+		+ .main-content {
+			transition: flex-basis .4s, max-width .4s;
+		}
+	}
+
+	.sticky-sidebar-wrapper.closed {
+		height: 0; // to solve issue occurs by closed sticky sidebar for fixed sidebar
+	}
+	.closed.sidebar {
+		margin-left: -25%;
+	}
+	.closed.right-sidebar {
+		margin-right: -25%;
+	}
+
+	.closed + .main-content {
+		max-width: 100%;
+		flex-basis: 100%;
+	}
+
+	.main-content-wrap {
+		overflow: hidden;
+	}
+
+	// Remain Toggle
+	.sidebar-toggle-remain {
+		& .toggle-remain {
+			position: absolute;
+			transition: .4s;
+			left: 0;
+			@include only-for-ie() {
+				top: 2.7rem;
+			}
+		}
+		.filter-clean {
+			line-height: 3.7rem;
+		}
+		
+		// left sidebar
+		&.sidebar {
+			&.closed {
+				.toggle-remain {
+					left: calc(100% + 30px);
+
+					i::before {
+						content: "\e97e";
+					}
+				}
+
+				+ * > .toolbox:first-child {
+					padding-left: 10rem;
+				}
+			}
+
+			// for only left sidebar to hide "clean all"'s movement
+			.toggle-remain::before {
+				content: '';
+				position: absolute;
+				background-color: #fff;
+				right: calc(100% + 2px);
+				width: 20px;
+				bottom: -2px;
+				top: -2px;
+			}
+		}
+
+		// right sidebar
+		&.right-sidebar.closed {
+			.toggle-remain {
+				left: -3rem;
+				transform: translateX(-100%);
+
+				i::before {
+					content: "\f273";
+				}
+			}
+
+			+ * > .toolbox:first-child {
+				padding-right: 10rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+﻿@model Chocolate.DataAccess.ViewModels.DepartmentViewModel
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<h2>Create new Department</h2>
+<hr />
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form asp-action="Create">
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="Name">Department</label>
+                            <div class="col-md-10">
+                                <input asp-for="Name" class="form-control">
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Submit</button>
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

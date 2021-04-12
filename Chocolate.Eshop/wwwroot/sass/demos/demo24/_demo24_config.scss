@@ -1,0 +1,51 @@
+/* 
+Demo 24 Variables
+*/
+@include set(
+	(
+		base: (
+			title: (
+				margin-bottom: 2.5rem,
+				line-height: 1,
+				font-size: 3rem,
+				letter-spacing: -.025em,
+				text-transform: none,
+				desc: (
+					margin-bottom: 1.9rem,
+					letter-spacing: -.025em,
+				)
+			)
+		),
+		header: (
+			color: #444,
+			middle: (
+				font-weight: 700,
+				border-bottom: 1px solid #e1e1e1
+			),
+			bottom: (
+				font-weight: 700
+			)
+		),
+		menu: (
+			ancestor: (
+				padding: 2rem 0,
+			)
+		),
+		footer: (
+			middle: (
+				padding: 4.6rem 0 0,
+				letter-spacing: -.016em,
+				border-bottom: 1px solid #292929,
+				widget: (
+					margin-bottom: 2.6rem,
+					title: (
+						letter-spacing: 0
+					),
+					body: (
+						padding: .9rem 0 0
+					)
+				)
+			)
+		)
+	)
+)

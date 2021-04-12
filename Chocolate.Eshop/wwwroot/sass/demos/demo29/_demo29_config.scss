@@ -1,0 +1,165 @@
+/* 
+Demo 29 Variables
+*/
+@include set(
+    (
+        base: (
+            _grey-section-bg: #f7f7f9,
+            title: (
+                margin-bottom: 2.5rem,
+                font-size: 2rem,
+                font-weight: 700,
+                letter-spacing: false,
+                color: $primary-color-dark,
+                border: (
+                    color: $border-color,
+                    _width: 1px
+                )
+            )
+        ),
+        header: (
+            letter-spacing: false,
+
+            top: (
+                color: #999,
+                background: false,
+                border-bottom: 1px solid #eee,
+            ),
+            middle: (
+                padding-top: 2.65rem,
+                padding-bottom: 2.7rem,
+                color: $secondary-color,
+            ),
+            sticky: (
+                padding-top: 0,
+                padding-bottom: 0,
+            ),
+            wishlist: (
+                icon: (
+                    font-size: 2.6rem
+                )
+            ),
+            cart: (
+                icon: (
+                    display: block,
+                    font-size: 2.6rem,
+                    color: false,
+                ),
+                toggle: (
+                    padding: false,
+                ),
+            ),
+            call: (
+                label: (
+                    margin-bottom: 2px,
+                    font-size: 1.1rem,
+                    line-height: 1.5rem,
+                    letter-spacing: -.025em,
+                ),
+                icon: (
+                    margin: 0 0 -2px 0,
+                    font-size: 2.6rem
+                )
+            ),
+            login: (
+                icon: (
+                    font-size: 2.6rem
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 1.75rem 1.9rem,
+                gap: 2px,
+                color: #fff,
+                _active-color: #fff,
+            )
+        ),
+        product: (
+            background: #fff,
+
+            name: (
+                color: #444
+            ),
+            body: (
+                padding-top: 1rem,
+                padding-bottom: 2rem
+            ),
+            price: (
+                color: $secondary-color,
+                margin-bottom: 1.3rem
+            ),
+            rating: (
+                _star-color: #fdc647
+            ),
+            list-sm: (
+                name: (
+                        color: false,
+                ),
+                _image-width: 162px
+            )
+        ),
+        post: (
+            info: (
+                font-size: 1.3rem,
+                font-family: $font-family,
+            ),
+            title: (
+                font-size: 1.6rem,
+                font-weight: 700,
+                letter-spacing: -.01em,
+                text-transform: false,
+            )
+        ),
+        footer: (
+            top: (
+                padding: 3.8rem 0 2.5rem
+            ),
+            middle: (
+                padding: 5.6rem 0 4.1rem,
+                widget: (
+                    margin-bottom: 2.6rem,
+                    title: (
+                        color: #fff,
+                        font-family: false,
+                    ),
+                    body: (
+                        padding: .9rem 0 0,
+                    ),
+                    list-item: (
+                        margin-bottom: 1.5rem
+                    )
+                )
+            ),
+            bottom: (
+                text-align: center,
+                padding: 2.2rem 0 3rem
+            ),
+            copyright: (
+                font-size: 1.4rem,
+            ),
+            social-link: (
+                width: 4rem,
+                height: 4rem,
+                font-size: 1.6rem,
+                line-height: 36px,
+                border: 2px solid #666,
+                hover: (
+                    background: transparent,
+                )
+            ),
+            about: (
+                logo: (
+                    margin-bottom: false,
+                    margin: -1rem 0 1.3rem
+                ),
+                p: (
+                    margin-bottom: 3.2rem,
+                    color: false,
+                    line-height: 2,
+                    letter-spacing: 0,
+                )
+            )
+        )
+    )
+)

@@ -1,0 +1,52 @@
+﻿@model Chocolate.DataAccess.ViewModels.DiscountLevelViewModel
+
+@{
+    ViewData["Title"] = "Discount Levels";
+}
+
+<h2>Edit Dicount Level</h2>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group row">
+                            <label asp-for="Amount" class="control-label col-md-2"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Amount" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="DiscountPercentage" class="control-label col-md-2">Discount Percentage</label>
+                            <div class="col-md-10">
+                                <input asp-for="DiscountPercentage" class="form-control" />
+                            </div>
+                            <span asp-validation-for="DiscountPercentage" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="DiscountId" class="control-label col-md-2"></label>
+                            <div class="col-md-10">
+                                <select asp-for="DiscountId" class="form-control" asp-items='@(new SelectList(Model.Discounts,"Id","Id"))'>Discount</select>
+                            </div>
+                        </div>
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Save</button>
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

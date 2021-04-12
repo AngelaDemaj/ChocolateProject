@@ -1,0 +1,97 @@
+﻿@model Chocolate.DataAccess.ViewModels.PositionViewModel
+
+@{
+    ViewData["Title"] = "Careers";
+}
+
+@section Styles{
+
+}
+<style>
+    div.container > form > div > a.btn.btn-lighten-primary.waves-effect.waves-primary.width-md {
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+    section.about-section > div.container > form > div {
+        margin-top: 15px;
+    }
+    div.container > form > div.form-group.row > label.col-md-2.col-form-label {
+        padding-top: 10px;
+    }
+    div.container > form > div.form-group.row > label.col-md-2.col-form-label {
+        text-align: right;
+    }
+</style>
+
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Join The Lozan Family</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="title mt-2">Position Details</h2>
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="Name">Title</label>
+                            <div class="col-md-4">
+                                <input readonly="readonly" asp-for="Name" class="form-control" />
+                            </div>
+                            <label class="col-md-2 col-form-label">Department</label>
+                            <div class="col-md-4">
+                                <input readonly="readonly" asp-for="Department.Name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Description" class="col-md-2 col-form-label">Description</label>
+                            <div class="col-md-10">
+                                <input asp-for="Description" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Degree" class="col-md-2 col-form-label">Degree</label>
+                            <div class="col-md-10">
+                                <input asp-for="Degree" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="WorkExperience" class="col-md-2 col-form-label">Work Experience</label>
+                            <div class="col-md-10">
+                                <input asp-for="WorkExperience" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Languages" class="col-md-2 col-form-label">Languages</label>
+                            <div class="col-md-10">
+                                <input asp-for="Languages" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Qualifications" class="col-md-2 col-form-label">Qualifications</label>
+                            <div class="col-md-10">
+                                <input asp-for="Qualifications" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+                        <div>
+                            <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                            <a asp-controller="Candidate" asp-action="Create" class="btn btn-success waves-effect width-md">Apply</a>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+            
+            <!-- End Team Section -->
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+    }
+</body>
+

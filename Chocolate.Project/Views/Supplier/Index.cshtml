@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Suppliers";
+}
+
+@section Styles{
+
+    <link href="~/css/site.min.css" rel="stylesheet" />
+}
+
+<h1>Suppliers</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New+</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <table id="supplier-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/site.min.js"></script>
+    <script>
+        jQuery(function () {
+            //the ctor of datatables
+            $('#supplier-datatable').DataTable({
+                "serverSide": true,
+                //this shows different DOM elements. 
+                //For example the letter f is for filtering and it will show the search box in the top right
+                dom: 'Bfrtlip',
+                buttons: [{
+                    extend: "pdf",
+                    className: "btn btn-sm  btn-primary",
+                    orientation: "portrait",
+                    pageSize: "A4"
+                }],
+                "ajax": {
+                    url: "/api/suppliers/query",
+                    type: 'POST',
+                    contentType: "application/json",
+                    //this data is the JSON sent by datatables to our backend API
+                    data: function (data) {
+                        return JSON.stringify(data);
+                    },
+                },
+                //this is for default ordering
+                order: [[0, 'desc']],
+                "columns": [
+                    { "data": "name" },
+                    { "data": "type" },
+                    {
+                        "data": "id",
+                        "render": function (a, b, data, d) {
+                            return `<a class="btn btn-outline-primary btn-xs mr-1" href="/supplier/edit/${data.id}"><i class="fas fa-edit mr-1"></i>Edit</a> ` +
+                                `<a class="btn btn-outline-info btn-xs mr-1" href="/supplier/details/${data.id}"><i class="fas fa-eye mr-1"></i>Details</a> ` +
+                                `<a class="btn btn-outline-danger btn-xs" href="/supplier/delete/${data.id}"><i class="fas fa-trash mr-1"></i>Delete</a>`;
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+        })
+    </script>
+}

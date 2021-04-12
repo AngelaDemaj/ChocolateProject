@@ -1,0 +1,183 @@
+/* -------------------------------------------
+    Checkout Page
+---------------------------------------------- */
+
+.checkout {
+    line-height: 1.54;
+    &.main {
+        border-top: 1px solid #e1e1e1;
+    }
+    
+    label {
+        display: block;
+        padding-left: .2rem;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        line-height: 1;
+    }
+    .form-control {
+        font-size: 1.3rem;
+        font-family: $font-family;
+        transition: background-color .3s, border-color .3s;
+        color: #999;
+        &:not(:focus) {
+            background-color: #fff;
+        }
+        &:focus {
+            border-color: $primary-color;
+        }
+    }
+    textarea.form-control {
+        padding-top: 1.5rem;
+    }
+    .form-control-label {
+        padding-left: 2.4rem;
+        margin-bottom: 0;
+        font-size: 1.4rem;
+        line-height: 2.58;
+        &::before {
+            border-radius: 0;
+        }
+    }
+    .product-name {
+        font-size: 1.4rem;
+        letter-spacing: 0;
+        white-space: normal;
+    }
+    .product-total {
+        font-size: 1.4rem;
+        color: $grey-color;
+    }
+
+    .summary {
+        padding-top: 1.8rem;
+    }
+    .btn-order {
+        width: 100%;
+    }
+    .card { background: transparent; }
+    .card-header {
+        font-size: 1.4rem;
+        line-height: 3rem;
+        text-transform: capitalize;
+        font-weight: 300;
+        
+        a {
+            padding: 0 0 0 2.5rem;
+            &::before,
+            &::after {
+                position: absolute;
+                content: '';
+                display: inline-block;
+                border-radius: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &::before {
+                left: 0;
+                width: 1.8rem;
+                height: 1.8rem;
+                background: #fff;
+                border: 1px solid #cdcdcd;
+            }
+            &.collapse::after {
+                width: .8rem;
+                height: .8rem;
+                left: .5rem;
+                background: #666;
+            }
+        }
+    }
+    .card-body {
+        padding: .6rem 0 1.8rem 2.5rem;
+        font-size: 1.3rem;
+        line-height: 2;
+    }
+
+    .payment.accordion {
+        border-bottom: 1px solid #e1e1e1;
+        padding-bottom: 2rem;
+    }
+
+    .checkout-info {
+        padding: 1.5rem 0;
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 400;
+        letter-spacing: .01em;
+        font-family: $font-family;
+    }
+
+    .product-quantity {
+        font-weight: 500;
+    }
+
+    .title.title-simple {
+        font-weight: 700;
+    }
+}
+.order-table {
+    margin-bottom: 2rem;
+    color: #222;
+
+    thead {
+        border-bottom: 1px solid #e1e1e1;
+        line-height: 2.5;
+    }
+    tbody { 
+        vertical-align: top; 
+        padding-top: 2rem;
+    }
+    th {
+        padding: 0 0 .7rem 1px;
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    td {
+        line-height: 3.5;
+    }
+    .order-total {
+        td {
+            border-bottom: none;
+            padding: 1.2rem 0 0;
+        }
+    }
+
+    .shipping-row {
+        label {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .shipping-row-last {
+        border-bottom: 1px solid #e1e1e1;
+
+        label {
+            margin-bottom: 2rem;
+        }
+    }
+    .summary-subtotal-price { padding-top: 1rem; }
+    .summary-total-price { padding-top: 1.5rem; }
+}
+
+.sumnary-shipping {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+    }
+
+    .summary-subtitle {
+        text-align: left;
+    }
+}
+@include mq(xs, 'max') {
+    .order-table {
+        tbody {
+            .product-name, .product-total {
+                line-height: 2;
+            }
+        }
+    }
+}

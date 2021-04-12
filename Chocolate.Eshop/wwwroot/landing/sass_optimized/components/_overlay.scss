@@ -1,0 +1,110 @@
+/* -------------------------------------------
+    Overlay
+---------------------------------------------- */
+
+.overlay,
+.overlay-visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    transition: padding .3s ease-out, background-color .3s, opacity .3s;
+}
+
+.overlay {
+    padding-top: 10rem;
+    background: rgba(0,0,0,.3);
+    opacity: 0;
+    a > & {
+        cursor: pointer;
+    }
+    figure:hover & {
+        padding-top: 0;
+        opacity: 1;
+    }
+    &.social-links {
+        flex-direction: row;
+    }
+    .social-links {
+        justify-content: center;
+    }
+    a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+    a.social-link {
+        border-color: #fff;
+    }
+    .social-link:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+.overlay-visible {
+    figure:hover & {
+        background: rgba( $primary-color, .9);
+        padding-bottom: 9rem;
+    }
+}
+.overlay-transparent {
+    background: transparent;
+}
+
+// Global Overlays
+.overlay-dark,
+.overlay-light {
+    figure, .banner {
+        position: relative;
+    }
+
+    figure::after,
+    figure > a::after,
+    &.banner::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: $dark-color;
+        opacity: 0;
+        transition: opacity .3s, background .3s, transform .3s;
+    }
+
+    &:hover figure::after,
+    &:hover figure > a::after,
+    &.banner:hover::after {
+        opacity: .1;
+    }
+
+    &.banner-fixed::after,
+    &.post > figure::after {
+        content: none;
+    }
+    &.post > figure > a::after {
+        z-index: 1;
+    }
+}
+
+.overlay-light figure::after,
+.banner.overlay-light::after,  {
+    background: $light-color;
+}
+
+// Zoom
+.overlay-zoom {
+    overflow: hidden;
+    img {
+        transition: transform .3s;
+    }
+    &:hover {
+        img {
+            transform: scale(1.08);
+        }
+    }
+}

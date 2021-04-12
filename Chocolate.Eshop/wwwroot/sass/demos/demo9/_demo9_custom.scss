@@ -1,0 +1,294 @@
+/* 
+Demo 9 
+*/
+// Header
+.header .login { margin-right: 2.6rem; }
+.header .cart-name::after { font-size: 0.9rem; }
+.header .minicart-icon span { color: #666; }
+.sticky-header.fixed .minicart-icon span { color: #fff; }
+.header .cart-dropdown:not(:hover) .minicart-icon { border-color: inherit; }
+
+.header-search.hs-simple input.form-control { padding: 0 0 0 1.6rem; }
+.header-bottom {
+    .logo { display: none; }
+    .header-center,
+    .main-nav {
+        margin: 0;
+        width: 100%;
+    }
+    .cart-dropdown { display: none; }
+    &.fixed  {
+        .logo,
+        .cart-dropdown {
+            display: block;
+        }
+        .header-center { width: auto; }
+    }
+}
+// Intro Slider
+.intro-slider {
+    img {
+        min-height: 48rem;
+        object-fit: cover;
+    }
+    .owl-nav {
+        .owl-prev { left: 15.4%; }
+        .owl-next { right: 15.4%; }
+    }
+    .owl-nav {
+        .owl-prev,
+        .owl-next {
+            &:not(.disabled) {    
+                border-color: #aaa;
+                &:hover,
+                &:active
+                &:focus {
+                    border-color: #666;
+                    background: transparent;
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+.intro-slide1 {
+    color: #363636;
+    .banner-content {
+        max-width: 43.3rem;
+        margin-left: auto;
+    }
+    .banner-subtitle, .banner-title { font-size: 3em; }
+    .banner-subtitle { margin-bottom: .2rem; }
+    .banner-title {
+        margin-bottom: 0;
+        color: #363636;
+        strong {
+            margin-bottom: 1.8rem;
+            font-size: 1.67em;
+        }
+    }
+    p { margin-bottom: 3.2rem; }
+}
+.intro-slide2 {
+    .banner-content {
+        padding-left: 6.77%;
+    }
+    .banner-subtitle {
+        margin-bottom: 2px;
+        font-size: 2.4em;
+    }
+    .banner-title {
+        margin: 0 0 .1rem -2px;
+        font-size: 6em;
+    }
+    p {
+        margin-bottom: .9rem;
+        font-size: 1.8em;
+    }
+    .banner-price-info {
+        position: relative;
+        display: flex;
+        margin-bottom: 2.9rem;
+        align-items: center;
+        font-size: 4em;
+        sup {
+            position: absolute;
+            top: 1.5rem;
+            left: -3.3rem;
+            vertical-align: middle;
+            font-size: .45em;
+            transform: rotateZ(-90deg);
+        }
+        span {
+            padding: .55rem .5rem;
+            margin-left: .7rem;
+            margin-right: 2px;
+            border-radius: 2px;
+            background-color: #323232;
+            font-size: .925em;
+        }
+    }
+}
+.intro-slide3 {
+    .banner-title {
+        margin-bottom: 1.3rem;
+        font-size: 6em;
+    }
+    p {
+        font-size: 1.8em;
+        line-height: 1.34;
+    }
+}
+// Categories 
+.category {
+    .category-content {
+        &, .category-name { font-family: $second-font-family; }
+    }
+    &:hover .category-content { background-color: rgba(38,38,38,0.8); }
+}
+// Products Wrapper
+.products-wrapper {
+    .nav {
+        border-bottom: 0;
+        .nav-link {
+            margin-bottom: 0;
+            padding: .9rem 0;
+            color: #444;
+            font-size: 1.8rem;
+            &.active { color: $primary-color; }
+        }
+    }
+    .tab-pane { padding: 2rem 0 0; }
+}
+// Sales Section
+.sales-section {
+    .banner {
+        height: calc(100% - 4.7rem);
+        figure,
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .banner-content {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    .banner-subtitle {
+        margin-bottom: 1.3rem;
+        font-size: 4em;
+    }
+    .banner-title {
+        margin-bottom: 1.1rem;
+        font-size: 3em;
+    }
+    p {
+        font-size: 1.6rem;
+        line-height: 1.25;
+    }
+    .btn { padding: .88em 1.58em; }
+    .ratings-container { margin-bottom: 1.9rem; }
+}
+// Post
+.post-list {
+    background-color: #f4f4f4;
+    .post-media {
+        margin-right: 0;
+        img {
+            min-height: 30rem;
+            object-fit: cover;
+        }
+    }
+    .post-title { white-space: normal; }
+    .btn { padding: .88em 1.68em; }
+}
+// Banner CTA
+.banner-cta {
+    img {
+        max-height: 35rem;
+        min-height: 30rem;
+        object-fit: cover;
+    }
+    .banner-title {
+        font-size: 3em;
+        line-height: 1.06;
+    }
+    p { font-size: 1.6rem; }
+    .banner-content {
+        padding: 0 3rem;
+        max-width: 38rem;
+    }
+    input.form-control {
+        border: 0;
+        border-radius: 2rem;
+        background-color: rgba( #fff, .3 );
+    }
+    .btn { padding: .88em 1.68em; }
+}
+// Footer
+.footer {
+    .widget-contact {
+        label {
+            display: block;
+            margin-bottom: .4rem;
+            color: inherit;
+        }
+        a:not(:hover) { color: #666; }
+    }
+    .widget-instagram .widget-title { margin-bottom: 1.9rem; }
+}
+.footer-middle {
+    padding-top: 4rem;
+}
+// Responsive
+@include mq(sm) {
+    .post-list {
+        display: flex;
+        align-items: center;
+        .post-details {
+            padding: 2rem 4rem;
+            flex: 0 0 calc(50% + 1rem);
+            max-width: calc(50% + 1rem);
+        }
+    }
+}
+@include mq(xxl, max) {
+    .intro-slider {
+        .owl-nav {
+            .owl-prev { left: 3rem; }
+            .owl-next { right: 3rem; }
+        }
+    }
+}
+@include mq(xl, max) {
+    .fixed .hide-item { display: none; }
+}
+@include mq(lg, max) {
+    .header-bottom { display: none; }
+    .banner { font-size: .9rem; }
+    .intro-slide1 img { object-position: 60% 50%; }
+    .intro-slide2 .banner-content { max-width: 35rem; }
+    .mobile-menu-toggle svg { stroke: #666; }
+}
+@include mq(md, max) {
+    .sales-section .banner img { max-height: 35rem; }
+}
+@include mq(xs, max) {
+    .products-wrapper {
+        .nav-item {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+    .intro-slider .btn { font-size: 1.1rem; }
+    .intro-slide2 .banner-content { padding-left: 0; }
+    .intro-slide2 .banner-title { font-size: 5em; }
+    .intro-slide3 .banner-title { font-size: 4.2em; }
+}
+
+// Shop page
+.shop {
+    .product-wrap {
+        margin-bottom: 2rem;
+    }
+}
+.breadcrumb-nav {
+    border-color: #e3e3e3;
+    .breadcrumb {
+        padding: 1.2rem 0;
+        font-size: 1.3rem;
+    }
+}
+
+// Product page
+.product-single {
+    .btn-cart {
+        background-color: $secondary-color;
+        &:hover:not(:disabled) {
+            background-color: darken( $secondary-color, 7% );
+        }
+        &:disabled {
+            background-color: lighten( $secondary-color, 10% );
+        }
+    }
+}

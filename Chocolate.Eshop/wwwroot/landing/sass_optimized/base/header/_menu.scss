@@ -1,0 +1,415 @@
+/* -------------------------------------------
+    Menu
+        - Default
+
+        - Menu(MainMenu)
+            - MegaMenu
+            - MenuBanner
+            - Tips
+
+        - MobileMenu 
+            - MobileMenuWrapper
+            - MobileMenuContainer
+            - MobileMenu
+            - MobileMenuOverlay
+            - MobileMenuCloseButton
+
+        - CategoryMenu
+ ------------------------------------------- */
+// Variables
+@include set-default(
+	(
+		menu: (
+            // Active color
+            active: (
+                color: $primary-color
+            ),
+            // Ancestor
+            ancestor: (
+                _gap: 2.3rem,
+                padding: 1.4rem 0,
+                font-family: false,
+                font-size: false,
+                font-weight: 700,
+                letter-spacing: inherit,
+                line-height: 1,
+                text-transform: uppercase,
+                color: false,
+                _active-color: false,
+            ),
+            // Tip
+            tip: (
+                padding: .3rem .5rem,
+                font-size: 1rem,
+                font-weight: 600,
+                line-height: 1,
+                color: #fff,
+                text-transform: uppercase,
+                border-radius: 2px,
+                // Hot Label
+                _hot-color: #d26e4b,
+                // New Label
+                _new-color: $primary-color
+            ),
+            // MegaMenu
+            megamenu: (
+                padding: 1rem,
+                min-width: 61.8rem,
+                background: #fff,
+                title: (
+                    padding: 0 1rem,
+                    font-family: false,
+                    font-size: 1.4rem,
+                    font-weight: 600,
+                    line-height: 1,
+                    letter-spacing: false,
+                    text-transform: uppercase
+                ),
+            ),
+            // SubMenu
+            submenu: (
+                padding: 2rem 0,
+                background: #fff,
+                font-family: $second-font-family,
+                font-size: 1.4rem,
+                font-weight: 400,
+                line-height: 1.5,
+                letter-spacing: 0,
+                text-transform: false,
+                color: #666
+            )
+        ),
+        mobile-menu: (
+            color: #e1e1e1,
+            text-transform: uppercase,
+            font-size: 1.2rem,
+            font-weight: 700,
+            line-height: 1.5,
+            letter-spacing: -.025em,
+            // Mobile Menu Container
+            container: (
+                max-width: 296px,
+                padding: 2rem 1.5rem,
+                background: #222529,
+                border-color: #2e3237,
+                font-family: $second-font-family
+            ),
+            // Mobile Menu Item
+            item: (
+                padding: 1.3rem .6rem 1.3rem 1rem
+            ),
+            // Active
+            active: ( 
+                background: #2e3237,
+                color: false,
+                border: false
+            ),
+            // Title
+            title: (
+                text-transform: uppercase,
+                font-size: 1.4rem,
+                font-family: false,
+                font-weight: 700,
+                color: #fff
+            ),
+            // Overlay
+            overlay: (
+                background: #000,
+                opacity: .8
+            )
+        ),
+        category-menu: (
+            padding: false,
+            background: #feecd4,
+            border: false,
+            _item-active-color: $primary-color,
+            // Title
+            title: (
+                padding: .7rem 0,
+                margin: 0,
+                border-bottom: false,
+                text-transform: uppercase,
+                font-size: 1.4rem,
+                font-weight: 600,
+                font-family: $font-family,
+                line-height: 2.58,
+                letter-spacing: -.01em,
+                color: #4d463c
+            ),
+            // Ancestor
+            ancestor: (
+                _split-line: 1px solid #f2dfc7,
+                margin: false,
+                padding: 1.6rem 0,
+                min-height: false,
+                text-transform: capitalize,
+                font-size: 1.4rem,
+                font-family: $second-font-family,
+                font-weight: 400,
+                letter-spacing: -.01em,
+                line-height: 1.4,
+                color: #7e6e59,
+            ),
+            // Icon
+            icon: (
+                margin-right: .9rem,
+                font-size: 2.2rem,
+                color: false,
+            ),
+            // Submenu
+            submenu: (
+                padding: 2rem 0,
+                background: #fff,
+                font-family: $second-font-family,
+                font-size: 1.4rem,
+                font-weight: false,
+                line-height: 1.5,
+                letter-spacing: 0,
+                text-transform: false,
+                color: #666
+            )
+        )
+    )
+);
+// Default Menu Styles
+.menu {
+    display: flex;
+    align-items: center;
+    a {
+        display: inline-block;
+    }
+    li {
+        position: relative;
+        @include css( line-height, menu, submenu, line-height );
+        a {
+            padding: .7rem 0 .7rem 1rem;
+        }
+    }
+    li:hover,
+    .active {
+        > a:not(.menu-title) {
+            @include css( color, menu, active, color );
+        }
+    }
+    > li {
+        @include css( margin-right, menu, ancestor, _gap );
+        &:last-child {
+            margin-right: 0;
+        }
+        > a {
+            position: relative;
+            @include print_css( menu, ancestor );
+        }
+        &:hover,
+        &.active {
+            > a:not(.menu-title) {
+                @include css( color, menu, ancestor, _active-color );
+            }
+        }
+    }
+}
+
+// Underline Hover Style
+.menu-active-underline {
+    > li {
+        > a {
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                border: 1px solid;
+                transform-origin: right center;
+                transform: scale(0, 1);
+                transition: transform .3s;
+            }
+        }
+        &.active,
+        &:hover {
+            > a {
+                color: inherit;
+                &::before {
+                    transform-origin: left center;
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+}
+
+// Main Menu
+.main-nav {
+    @include print_css( header, main-nav );
+}
+
+// Mobile Menu
+// Mobile Menu Wrapper
+.mobile-menu-wrapper {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    font-family: $second-font-family;
+    transition: visibility .4s;
+}
+
+// Mobile Menu Container
+.mobile-menu-container {
+    @include css( max-width, mobile-menu, container, max-width);
+    @include css( padding, mobile-menu, container, padding);
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    @include css( background, mobile-menu, container, background);
+    box-shadow: 1px 0 5px rgba(0,0,0,.5);
+    transform: translateX(-#{get( mobile-menu, container, max-width )});
+    transition: transform .4s;
+    .mobile-menu {
+        margin-bottom: .5rem;
+        @include css( background, mobile-menu, container, background);
+    }
+    &.scrollable::-webkit-scrollbar-thumb, .sidebar-content::-webkit-scrollbar-thumb {
+        margin-right: 2px;
+        background: rgba(255,255,255,.1);
+        border-radius: 7px;
+        cursor: pointer;
+    }
+}
+
+// MobileMenu
+.mobile-menu {
+    text-transform: uppercase;
+    font: {
+        size: 1.2rem;
+        weight: 700;
+    }
+    line-height: 1.5;
+    letter-spacing: -.025em;
+    @include print_css( mobile-menu );
+
+    ul {
+        display: none;
+        width: 100%;
+    }
+
+    > li {
+        &:first-child {
+            padding-top: .5rem;
+        }
+        &:last-child {
+            padding-bottom: .5rem;
+        }
+    }
+
+    li {
+        a {
+            display: block;
+            position: relative;
+            @include css( padding, mobile-menu, item, padding);
+        }
+        i {
+            display: inline-block;
+            margin-bottom: 1px;
+            font-size: 2rem;
+            margin-right: .5rem;
+            line-height: 0;
+            vertical-align: middle;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #2e3237;
+        }
+    }
+    .expanded,
+    .active > a {
+        @include print_css( mobile-menu, active );
+    }
+}
+// MobileMenu Overlay
+.mobile-menu-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    @include css( background, mobile-menu, overlay, background);
+    opacity: 0;
+    transition: opacity .4s;
+}
+// MobileMenu Close Button
+.mobile-menu-close {
+    position: fixed;
+    left: calc(100vw - 50px);
+    top: 25px;
+    i {
+        font-size: 2.8rem;
+        color: #e1e1e1;
+    }
+    transition: opacity .3s;
+    opacity: 0;
+}
+// MobileMenu Animation ( new )
+.mmenu-anim {
+    transform: translateY(30%);
+    &, > li {
+        transition: transform .4s, opacity .3s;
+        transition-timing-function: cubic-bezier(0.5, 0, 0.3, 1);
+    }
+    @for $i from 0 through 7 {
+        >li:nth-child(#{$i}) {
+            opacity: 0;
+            transform: translateY( #{$i*50}px );
+        }
+    }
+}
+.mmenu-active {
+    overflow: hidden;
+
+    .mmenu-anim {
+        > li,
+        & {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .page-wrapper {
+        // if page wrapper has margin-left, then recalculate it's movement
+
+        margin-left: #{get( mobile-menu, container, max-width )};
+
+        margin-right: -#{
+            get( mobile-menu, container, max-width ) - 
+            if( get( base, page-wrapper, margin-left ), get( base, page-wrapper, margin-left ), 0 )
+        };
+    }
+
+    .mobile-menu-wrapper {
+        visibility: visible;
+    }
+
+    .mobile-menu-container {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-overlay {
+        @include css( opacity, mobile-menu, overlay, opacity);
+    }
+
+    .mobile-menu-close {
+        opacity: 1;
+    }
+}
+
+@include mq( '400px', 'max' ) {
+    .mobile-menu-close {
+        left: calc(100vw - 40px);
+        top: 10px;
+    }
+}

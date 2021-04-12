@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Chocolate Project</title>
+
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Donald - Bootstrap eCommerce Template">
+    <meta name="author" content="D-THEMES">
+
+    <link rel="icon" type="image/png" href="~/images/icons/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <script>
+        WebFontConfig = {
+            google: { families: ['Open+Sans:400,600,700', 'Poppins:400,600,700', 'Oswald:400,600,700'] }
+        };
+        (function (d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = 'js/webfont.js';
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>
+    @RenderSection("Styles", false)
+    <link rel="stylesheet" type="text/css" href="~/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.min.css">
+
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" type="text/css" href="~/vendor/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="~/vendor/owl-carousel/owl.carousel.min.css">
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" type="text/css" href="~/css/demo10.min.css">
+</head>
+<body class="home">
+    <div class="loading-overlay">
+        <div class="bounce-loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+            <div class="bounce4"></div>
+        </div>
+    </div>
+    <div class="page-wrapper">
+        <h1 class="d-none">Donald - Responsive eCommerce HTML Template</h1>
+        <header class="header header-transparent">
+            <div class="header-top">
+                <div class="container-fluid">
+                    <div class="header-left">
+                        <div class="social-links inline-links">
+                            <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                            <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                            <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                            <a href="https://www.instagram.com/lozanchocolates/" class="social-link social-instagram fab fa-instagram"></a>
+                        </div>
+                        <p class="welcome-msg">Welcome to the Lozan store!</p>
+                    </div>
+                    <div class="header-right">
+                        <a class="call" href="tel:#">
+                            Call us: 210-819-4522
+                        </a>
+                        <a asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                        <!-- End Phone Call -->
+                    </div>
+                </div>
+            </div>
+            <!-- End HeaderTop -->
+            <div class="header-middle sticky-header fix-top sticky-content has-center">
+                <div class="container-fluid">
+                    <div class="header-left">
+                        <a href="#" class="mobile-menu-toggle">
+                            <i class="d-icon-bars2"></i>
+                        </a>
+                        <a asp-controller="Home" asp-action="Index" class="logo d-lg-block d-none">
+                            <img src="~/images/Chocolatephotos/Logo-white.png" alt="logo" width="125" height="25" />
+                        </a>
+                        <!-- End Logo -->
+                    </div>
+                    <div class="header-center">
+                        <a href="demo10.html" class="logo d-lg-none d-block">
+                            <img src="~/images/Chocolatephotos/Logo-white.png" alt="logo" width="163" height="39" />
+                        </a>
+                        <nav class="main-nav mr-0">
+                            <ul style="font-size: 18px;" class="menu menu-active-underline">
+                                <li class="active">
+                                    <a asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Product" asp-action="Index">Products</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="Stores">Stores</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="AboutUs">About Us</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div style="font-size: 18px;" class="header-right">
+                        <!-- End Header Search -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="nav-link dropdown-toggle menu menu-active-underline" style="font-size: 18px;" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <span class="pro-user-name ml-1">
+                                    Welcome @Context.User.Identity.Name <i class="mdi mdi-chevron-down"></i>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a asp-controller="Account" asp-action="Logout" class="dropdown-item notify-item">
+                                        <span style="font-size: 18px;">LOGOUT</span>
+                                    </a>
+                                    <a asp-controller="Home" asp-action="Account" class="dropdown-item notify-item"></a>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="login">
+                                <ul style="font-size: 18px;" class="menu menu-active-underline">
+                                    <li>
+                                        <a asp-controller="Account" asp-action="Login">Login</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Account" asp-action="Register">Register</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                        @{ await Html.RenderPartialAsync("_Cart");}
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            @RenderBody()
+        </main>
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="footer-middle">
+                    <div class="row">
+                        <div class="col-xl-5col2">
+                            <div class="widget widget-about">
+                                @*<a href="demo10.html" class="logo-footer">
+                                        <img src="~/images/Chocolatephotos/Lozan_Gold.png" alt="logo-footer" width="146"
+                                             height="39" />
+                                    </a>*@
+                                <ul class="widget-body row">
+                                    <li class="col-sm-6">
+                                        <label>Address</label>
+                                        <a href="#">Taki Kamaterou 24, Athens</a>
+                                    </li>
+                                    <li class="col-sm-6">
+                                        <label>Email</label>
+                                        <a href="mailto:mail@example.com">info@lozan.com</a>
+                                    </li>
+                                    <li class="col-sm-6">
+                                        <label>Phone</label>
+                                        <a href="#">210-819-4522</a>
+                                    </li>
+                                    <li class="col-sm-6">
+                                        <label>WORKING DAYS/HOURS</label>
+                                        <a href="#">Mon - Sat / 9:00AM - 9:00PM</a>
+                                    </li>
+                                </ul>
+
+                                <div class="social-links mt-sm-0 mt-3">
+                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                                    <a href="https://www.instagram.com/lozanchocolates/" class="social-link social-instagram fab fa-instagram"></a>
+                                    <a href="#" class="social-link social-google fab fa-google"></a>
+                                    <a href="#" class="social-link social-pinterest fab fa-pinterest-p"></a>
+                                </div>
+
+                                <figure class="payment mt-sm-0 mt-3">
+                                    <img src="~/images/demos/demo10/payment.png" alt="payment" width="181" height="24" />
+                                </figure>
+                            </div>
+                            <!-- End Widget -->
+                        </div>
+                        <div class="col-xl-5col col-sm-6">
+                            <div class="widget">
+                                <h4 class="widget-title">Account</h4>
+                                <ul class="widget-body">
+                                    <li>
+                                        <a asp-controller="Account" asp-action="Details">My Account</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="ShippingGuide">Shipping Guide</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="FAQ">FAQs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Widget -->
+                        </div>
+                        <div class="col-xl-5col col-sm-6">
+                            <div class="widget">
+                                <h4 class="widget-title">Work With Us</h4>
+                                <ul class="widget-body">
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Careers">Careers</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Widget -->
+                        </div>
+                        <div class="col-xl-5col col-sm-6">
+                            <div class="widget">
+                                <h4 class="widget-title">About</h4>
+                                <ul class="widget-body">
+                                    <li>
+                                        <a asp-controller="Home" asp-action="AboutUs">About Lozan</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="ReturnPolicy">Return & Refund Policy</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="TermsAndConditions">Terms And Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Widget -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End FooterMiddle -->
+                <div class="footer-bottom d-block text-center">
+                    <p class="copyright">Ellino-Alvaniki Symmaxia &copy; 2021. All Rights Reserved</p>
+                </div>
+                <!-- End FooterBottom -->
+            </div>
+        </footer>
+    </div>
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/parallax/parallax.min.js"></script>
+    <script src="~/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
+    <script src="~/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <script src="~/vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <!-- Main JS File -->
+    <script src="~/js/main.js"></script>
+
+    @if (TempData["Message"] != null)
+    {
+        <script type="text/javascript">toastr.success("@TempData["Message"]");</script>
+        @TempData.Remove("Message");
+    }
+    @if (TempData["Candidate"] != null)
+    {
+        <script type="text/javascript">toastr.success("@TempData["Candidate"]");</script>
+        @TempData.Remove("Candidate");
+    }
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

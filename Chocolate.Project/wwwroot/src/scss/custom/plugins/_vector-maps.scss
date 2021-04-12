@@ -1,0 +1,17 @@
+//
+// vector-maps.scss
+//
+
+.jvectormap-label {
+    border: none;
+    background: $dark;
+    color: $light;
+    font-family: $font-family-secondary;
+    font-size: $font-size-base;
+    padding: 5px 8px;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout{
+    background-color: $dark;
+    color: $light;
+}

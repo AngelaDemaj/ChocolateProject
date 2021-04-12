@@ -1,0 +1,101 @@
+﻿@using Chocolate.DataAccess.Models.Enums
+@model Chocolate.DataAccess.ViewModels.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<h2>Edit Customer</h2>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form class="form-horizontal" role="form" asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group row">
+                            <label asp-for="FirstName" class="col-md-2 col-form-label">First Name</label>
+                            <div class="col-md-10">
+                                <input type="text" id="simpleinput" asp-for="FirstName" class="form-control" />
+                            </div>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="LastName" class="col-md-2 col-form-label">Last Name</label>
+                            <div class="col-md-10">
+                                <input type="text" id="simpleinput" asp-for="LastName" class="form-control" />
+                            </div>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Phone.Number" class="col-md-2 col-form-label">Phone Number</label>
+                            <div class="col-md-8">
+                                <input type="text" id="simpleinput" asp-for="Phone.Number" class="form-control" />
+                            </div>
+                            <div class="col-md-2">
+                                <select asp-for="Phone.PhoneType" class="form-control" asp-items="Html.GetEnumSelectList<PhoneType>()"></select>
+                            </div>
+                            <span asp-validation-for="Phone.Number" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Mail.Mail" class="col-md-2 col-form-label">Email</label>
+                            <div class="col-md-8">
+                                <input type="text" id="simpleinput" asp-for="Mail.Mail" class="form-control" />
+                            </div>
+                            <div class="col-md-2">
+                                <select asp-for="Mail.MailType" class="form-control" asp-items="Html.GetEnumSelectList<MailType>()"></select>
+                            </div>
+                            <span asp-validation-for="Mail.Mail" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Address.Location" class="col-md-2 col-form-label">Street Name</label>
+                            <div class="col-md-7">
+                                <input type="text" id="simpleinput" asp-for="Address.Location" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Address.Location" class="text-danger"></span>
+
+                            <label asp-for="Address.AddressNumber" class="col-md-1 col-form-label">Street Number</label>
+                            <div class="col-md-2">
+                                <input type="text" id="simpleinput" asp-for="Address.AddressNumber" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Address.AddressNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="Address.Country" class="col-md-2 col-form-label">Country</label>
+                            <div class="col-md-2">
+                                <input type="text" id="simpleinput" asp-for="Address.Country" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Address.Country" class="text-danger"></span>
+
+                            <label asp-for="Address.PostCode" class="col-md-1 col-form-label">Postal Code</label>
+                            <div class="col-md-1">
+                                <input type="text" id="simpleinput" asp-for="Address.PostCode" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Address.PostCode" class="text-danger"></span>
+
+                            <label asp-for="Address.Comments" class="col-md-1 col-form-label">Comments</label>
+                            <div class="col-md-5">
+                                <input type="text" id="simpleinput" asp-for="Address.Comments" class="form-control" />
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Save</button>
+                        <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

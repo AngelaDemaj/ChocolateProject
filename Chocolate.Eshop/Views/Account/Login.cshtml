@@ -1,0 +1,58 @@
+﻿@model Chocolate.Eshop.ViewModels.LoginViewModel
+
+
+@section Styles{
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .custom {
+            margin-bottom: 10px;
+        }
+    </style>
+}
+
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Join The Lozan Family</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="title mt-2">Login Form</h2>
+                    <form asp-action="Login">
+                        <div class="form-group-row">
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" asp-for="Input">UserName*</label>
+                                <div class="col-md-12">
+                                    <input asp-for="Input" class="form-control">
+                                    <span asp-validation-for="Input" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" asp-for="Password">Password*</label>
+                                <div class="col-md-12">
+                                    <input asp-for="Password" class="form-control">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-bordered-primary waves-effect width-md waves-light custom">Login</button>
+                    </form>
+                </div>
+
+            </section>
+
+            <!-- End Team Section -->
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+    }
+</body>

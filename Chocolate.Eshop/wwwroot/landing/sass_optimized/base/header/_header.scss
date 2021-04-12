@@ -1,0 +1,320 @@
+/* -------------------------------------------
+    Header
+        -Header
+        -Welcome-msg
+        -Header Search
+        -Other 
+            - Login
+            - Call
+            - Wishlist
+        -Sticky Header
+        -Other Options
+---------------------------------------------- */
+
+// Variables
+@include set-default(
+	(
+		header: (
+            font-family: "'Open Sans', sans-serif",
+            letter-spacing:  -.025em,
+            color: false,
+            background: #fff,
+            border-bottom: false,
+            // Link's color
+            _link-color: false,
+            // Link's color when it is hover or active
+            _link-active-color: $primary-color,
+            
+            transparent: (
+                fixed: (
+                    background: #222
+                )
+            ),
+            // Header Top
+			top: (
+				padding-top: false,
+				padding-bottom: false,
+				color: false,
+				background: #f2f3f5,
+				border-bottom: false,
+                font-family: false,
+				font-size: 1.1rem,
+				font-weight: false,
+                letter-spacing: -0.014em,
+                text-transform: uppercase,
+                _links-gap: 2rem,
+			),
+            // Header Middle
+			middle: (
+				padding-top: 2.8rem,
+                padding-bottom: 2.8rem,
+				color: #222,
+				background: #fff,
+				border-bottom: false,
+                font-family: false,
+				font-size: 1.2rem,
+				font-weight: 700,
+                letter-spacing: false,
+                text-transform: false,
+                logo: (
+                    margin-right: 4.1rem,
+                    _mobile-margin-right: 2rem
+                ),
+                main-nav: (
+                    margin-right: 1.5rem,
+                ),
+			),
+            // Header Bottom
+			bottom: (
+				padding-top: false,
+				padding-bottom: false,
+				color: false,
+				background: #fff,
+				border-top: false,
+				border-bottom: false,
+                font-family: false,
+				font-size: 1.3rem,
+				font-weight: false,
+                letter-spacing: false,
+                text-transform: false,
+            ),
+            // Inner Wrap ( child of header container or header container-fluid )
+            inner-wrap: (
+                padding: false
+            ),
+            // Sticky Header
+            sticky: (
+                padding-top: 1.3rem,
+                padding-bottom: 1.3rem,
+                background: false,
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1),
+                color: false
+            ),
+            // MainMenu
+            main-nav: (
+                margin: false,
+                padding: false,
+                background: false
+            ),
+            // MobileMenu Toggle
+            mmenu-toggle: (
+                color: $primary-color,
+            ),
+            // Header Search
+            search: (
+                // Toggle Search
+                toggle: (
+                    padding: 1.1rem 0,
+                    width: 30rem
+                ),
+                // Expanded Search
+                expanded: (
+                    width: 53rem,
+                    height: false
+                ),
+                // Shape is round
+                round: (
+                    width: 26rem,
+                    height: false
+                )
+            ),
+            // Logo
+			logo: (
+				max-width: 200px
+            ),
+            // Links
+                // Login
+                login: (
+                    label: (
+                        _gap: .9rem,
+                        font-weight: inherit,
+                        text-transform: uppercase
+                    ),
+                    icon: (
+                        font-size: 1.8rem
+                    )
+                ),
+                // Call
+                call: (
+                    label: (
+                        _gap: .9rem,
+                        font-size: false,
+                        font-weight: inherit,
+                        line-height: false,
+                        text-transform: uppercase,
+                    ),
+                    icon: (
+                        margin: 0 .2rem .2rem 0,
+                        font-size: 1.8rem
+                    )
+                ),
+                // Wishlist
+                wishlist: (
+                    label: (
+                        _gap: false,
+                        font-weight: inherit,
+                        text-transform: false,
+                    ),
+                    icon: (
+                        font-size: false
+                    )
+                ),
+		)
+	)
+);
+
+// Header
+.header {
+    @include print_css(header);
+    .container,
+    .container-fluid,
+    .inner-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    .inner-wrap {
+        @include print_css( header, inner-wrap );
+        width: 100%;
+    }
+}
+.header-transparent {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    background: transparent;
+    .fixed {
+        @include css( background, header, transparent, fixed, background );
+    }
+}
+.header-top,
+.header-middle,
+.header-bottom {
+    display: flex;
+}
+
+.has-center {
+    .header-left,
+    .header-right {
+        flex: 1;
+    }
+    .header-right {
+        justify-content: flex-end;
+    }
+    .header-center {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+.header-left,
+.header-right,
+.header-center {
+    display: flex;
+    align-items: center;
+}
+.header-right {
+    margin-left: auto;
+}
+.header-middle {
+    @include print_css(header, middle);
+    .logo {
+        @include css( margin-right, header, middle, logo, margin-right );
+    }
+    .main-nav {
+        @include css( margin-right, header, middle, main-nav, margin-right );
+    }
+    .header-right .cart-dropdown {
+        margin-right: 0 !important;
+    }
+}
+.logo {
+    @include print_css(header, logo);
+    img {
+        display: block;
+    }
+}
+
+.main-nav {
+    @include print_css( header, main-nav );
+}
+
+.sticky-header {
+    // transition: .4s;
+    &.fixed {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        @include print_css(header, sticky);
+        z-index: 1100;
+        animation: fixedTop .4s;
+    }
+}
+
+@include mq(lg, max) {
+    .sticky-wrapper {
+        height: auto !important;
+    }
+}
+// Mobile Menu Toggle
+.mobile-menu-toggle {
+    display: none;
+    width: 24px;
+    height: 16px;
+    svg {
+        stroke: #222;
+        margin: -17px -13px; 
+        width: 50px;
+        height: 50px;    
+    }
+    @include css( color, header, mmenu-toggle, color );
+}
+
+// Responsive
+@include mq('xl', 'max') {
+    .main-nav {
+        .menu {
+            > li {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+    .header-middle {
+        .logo {
+            @include css( margin-right, header, middle, logo, _mobile-margin-right );
+        }
+        .divider {
+            display: none;
+        }
+    }
+}
+
+@include mq(lg, max) {
+    .header {
+        .main-nav,
+        .divider {
+            display: none;
+        }
+    }
+    .header-middle {
+        .header-left,
+        .header-right {
+            flex: 1;
+        }
+        .header-right {
+            justify-content: flex-end;
+        }
+        .header-center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .logo {
+            margin-right: 0;
+        }
+    }
+    .mobile-menu-toggle {
+        display: block;
+        svg { stroke: $primary-color; }
+    }
+}

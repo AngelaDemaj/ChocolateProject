@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Positions";
+}
+
+@section Styles{
+    <link href="~/css/site.min.css" rel="stylesheet" />
+}
+
+<h1>Positions</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New+</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <h2 class="sub-header">
+                A list of all the Positions
+            </h2>
+            <table id="position-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Position Title</th>
+                        <th>Description</th>
+                        <th>Department</th>
+                        <th>Position Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/site.min.js"></script>
+    <script>
+        jQuery(function () {
+            $('#position-datatable').DataTable({
+                "serverSide": true,
+                dom: 'Bfrtlip',
+                buttons: [{
+                    extend: "pdf",
+                    className: "btn btn-sm  btn-primary",
+                    orientation: "portrait",
+                    pageSize: "A4"
+                }],
+                "ajax": {
+                    url: "/api/positions/query",
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: function (data) {
+                        return JSON.stringify(data);
+                    },
+                },
+                order: [[0, 'desc']],
+                "columns": [
+                    { "data": "name" },
+                    { "data": "description" },
+                    {
+                        "data": "departmentId",
+                        "render": function (a, b, data, d) {
+                            return data.department.name;
+                        }
+                    },
+                    {
+                        "data": "isActive", "render": function (data) {
+                            return data ? "Active" : "Inactive";
+                        }
+                    },
+                    {
+                        "data": "id",
+                        "render": function (a, b, data, d) {
+                            return `<a class="btn btn-outline-primary btn-xs mr-1" href="/position/edit/${data.id}"><i class="fas fa-edit mr-1"></i>Edit</a> ` +
+                                `<a class="btn btn-outline-info btn-xs mr-1" href="/position/details/${data.id}"><i class="fas fa-eye mr-1"></i>Details</a> ` +
+                                `<a class="btn btn-outline-danger btn-xs" href="/position/delete/${data.id}"><i class="fas fa-trash mr-1"></i>Delete</a>`;
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+        })
+    </script>
+}

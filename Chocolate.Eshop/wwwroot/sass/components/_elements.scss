@@ -1,0 +1,81 @@
+/* -------------------------------------------
+    Element List
+---------------------------------------------- */
+
+$elements : (accordian, banner, blog, button, cta, icon-box, portfolio, category, product, tab, testimonial, title, typography, video, icon);
+
+.elements {
+    > div {
+        margin-bottom: 2rem;
+        > a {
+            display: block;
+        }
+        @for $i from 1 through 15 {
+            .element-#{ nth( $elements, $i ) } {
+                .element-img {
+                    background-position: calc(-180px * ( #{$i} - 1 )) 0;
+                }
+        
+                .element-hover-img { 
+                    background-position: calc(-180px * #{$i} + 90px) 0;
+                }
+            }
+        }
+    }
+}
+// Element
+.element {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 0 2.4rem;
+    border: 2px solid #e4eaec;
+    
+    .element-img {
+        width: 90px;
+        height: 70px;
+        background-image: url(../images/elements.png);
+        background-repeat: no-repeat;
+        transition: opacity .3s, visibility .3s;
+    }
+
+    .element-hover-img {
+        position: absolute;
+        width: 90px;
+        height: 70px;
+        left: 50%;
+        top: 1.2rem;
+        background-image: url(../images/elements.png);
+        transform: translateX(-50%);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .3s, visibility .3s;
+    }
+
+    p {
+        margin: 0;
+        text-align: center;
+        color: #222;
+        font: {
+            size: 1.4rem;
+            weight: 600;
+        }
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    &:hover,
+    &.active {
+        .element-img {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .element-hover-img {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+

@@ -1,0 +1,21 @@
+/* -------------------------------------------
+    About Page
+---------------------------------------------- */
+
+@include mq(xl) {
+    .pl-xl-6 {
+        padding-left: 3rem;
+    }
+    .pr-xl-8 {
+        padding-right: 4rem;
+    }
+}
+.reviews-section {
+    .testimonial-title {
+        font-family: $font-family;
+        font-size: 1.6rem;
+    }
+    .testimonial {
+        box-shadow: 5px 5px 2rem rgba(0,0,0,.05);
+    }
+}

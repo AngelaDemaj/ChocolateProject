@@ -1,0 +1,50 @@
+﻿@model ChocolateProject.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Log in</h1>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-4">
+                        <form asp-action="Login">
+                            <div class="form-group-row">
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label" asp-for="UserName">UserName*</label>
+                                    <div class="col-md-12">
+                                        <input asp-for="UserName" class="form-control">
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group-row">
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label" asp-for="Password">Password*</label>
+                                    <div class="col-md-12">
+                                        <input asp-for="Password" class="form-control">
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group-row">
+                                <div class="checkbox">
+                                    <input asp-for="RememberMe" type="checkbox">
+                                    <label for="RememberMe">Remember Me</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-success waves-effect width-md waves-light">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

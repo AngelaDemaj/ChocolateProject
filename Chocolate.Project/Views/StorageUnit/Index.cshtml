@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Storage Units";
+}
+
+@section Styles{
+    <link href="~/css/site.min.css" rel="stylesheet" />
+}
+
+<h1>Storage Units</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New+</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <h2 class="sub-header">
+                A list of all the Storage Units
+            </h2>
+            <table id="storageunit-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Warehouse</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/site.min.js"></script>
+    <script>
+        jQuery(function () {
+            $('#storageunit-datatable').DataTable({
+                "serverSide": true,
+                dom: 'Bfrtlip',
+                buttons: [{
+                    extend: "pdf",
+                    className: "btn btn-sm  btn-primary",
+                    orientation: "portrait",
+                    pageSize: "A4"
+                }],
+                "ajax": {
+                    url: "/api/storageunits/query",
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: function (data) {
+                        return JSON.stringify(data);
+                    },
+                },
+                order: [[0, 'desc']],
+                "columns": [
+                    { "data": "name" },
+                    {
+                        "data": "warehouseId",
+                        "render": function (a, b, data, d) {
+                            return data.warehouse.name;
+                        },
+                    },
+                    {
+                        "data": "id",
+                        "render": function (a, b, data, d) {
+                            return `<a class="btn btn-outline-primary btn-xs mr-1" href="/storageunit/edit/${data.id}"><i class="fas fa-edit mr-1"></i>Edit</a> ` +
+                                `<a class="btn btn-outline-info btn-xs mr-1" href="/storageunit/details/${data.id}"><i class="fas fa-eye mr-1"></i>Details</a> ` +
+                                `<a class="btn btn-outline-danger btn-xs" href="/storageunit/delete/${data.id}"><i class="fas fa-trash mr-1"></i>Delete</a>`;
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+        })
+    </script>
+}

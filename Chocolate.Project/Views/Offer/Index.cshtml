@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Offers";
+}
+
+@section Styles{
+    <link href="~/css/site.min.css" rel="stylesheet" />
+}
+
+<h1>Offers</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New+</a>
+</p>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box table-responsive">
+                <h2 class="sub-header">
+                    A list of all the Offers
+                </h2>
+                <table id="offers-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>DateCreated</th>
+                            <th>ReviewDeadline</th>
+                            <th>DateReviewed</th>
+                            <th>Employee</th>
+                            <th>Discount Percentage</th>
+                            <th>Supplier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+@section Scripts{
+    <script src="~/js/site.min.js"></script>
+    <script>
+        jQuery(function () {
+            var dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric'};
+
+            $('#offers-datatable').DataTable({
+                "serverSide": true,
+                dom: 'Bfrtlip',
+                buttons: [{
+                    extend: "pdf",
+                    className: "btn btn-sm  btn-primary",
+                    orientation: "portrait",
+                    pageSize: "A4"
+                }],
+                "ajax": {
+                    url: "/api/offers/query",
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: function (data) {
+                        return JSON.stringify(data);
+                    },
+                },
+                order: [[0, 'desc']],
+                "columns": [
+                    {
+                        "data": "name"
+                    },
+                    {
+                        "data": "dateCreated", "render": function (a, b, data, d) {
+                            if (data.dateCreated !== null) {
+                                let date = new Date(data.dateCreated);
+                                return date.toLocaleDateString('en-GB', dateOptions);
+                            }
+                            return null;
+                        }
+                    },
+                    {
+                        "data": "reviewDeadline", "render": function (a, b, data, d) {
+                            if (data.reviewDeadline !== null) {
+                                let date = new Date(data.reviewDeadline);
+                                return date.toLocaleDateString('en-GB', dateOptions);
+                            }
+                            return null;
+                        }
+                    },
+                    {
+                        "data": "dateReviewed", "render": function (a, b, data, d) {
+                            if (data.dateReviewed !== null) {
+                                let date = new Date(data.dateReviewed);
+                                return date.toLocaleDateString('en-GB', dateOptions);
+                            }
+                            return "Not Reviewed";
+                        }
+                    },
+                    {
+                        "data": "employeeId",
+                        "render": function (a, b, data, d) {
+                            return data.employee.fullName;
+                        }
+
+                    },
+                    {
+                        "data": "discountLevelId",
+                        "render": function (a, b, data, d) {
+                            return (data.discountLevel.discountPercentage * 100).toFixed(2) + '%';
+                        }
+
+                    },
+                    {
+                        "data": "supplierId",
+                        "render": function (a, b, data, d) {
+                            return data.supplier.name;
+                        }
+
+                    },
+                    {
+                        "data": "id",
+                        "render": function (a, b, data, d) {
+                            return `<a class="btn btn-outline-primary btn-xs mr-1" href="/offer/edit/${data.id}"><i class="fas fa-edit mr-1"></i>Edit</a> ` +
+                                `<a class="btn btn-outline-info btn-xs mr-1" href="/offer/details/${data.id}"><i class="fas fa-eye mr-1"></i>Details</a> ` +
+                                `<a class="btn btn-outline-danger btn-xs" href="/offer/delete/${data.id}"><i class="fas fa-trash mr-1"></i>Delete</a>`;
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+        })
+    </script>
+}

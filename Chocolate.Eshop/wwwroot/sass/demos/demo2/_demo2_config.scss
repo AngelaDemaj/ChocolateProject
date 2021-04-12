@@ -1,0 +1,48 @@
+/* 
+Demo 2
+*/
+@include set(
+    (
+        base: (
+            title: (
+                color: #444
+            )
+        ),
+        header: (
+            top: (
+                color: #777,
+                background: #eee
+            ),
+            middle: (
+                logo: (
+                    margin-right: 4.9rem
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 1.4rem 0
+            )
+        ),
+        product: (
+            margin-bottom: 20px,
+        ),
+        footer: (
+            letter-spacing: -.025em,
+            color: #999,
+
+            middle: (
+                padding: 5rem 0 0,
+
+                widget: (
+                    title: (
+                        letter-spacing: 0
+                    )
+                )
+            ),
+            copyright: (
+                letter-spacing: 0
+            )
+        )
+    )
+);

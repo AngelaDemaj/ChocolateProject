@@ -1,0 +1,108 @@
+/*
+Demo 12 Variables
+*/
+
+@include set(
+    (
+        base: (
+            title: (
+                text-transform: capitalize,
+                color: #444
+            )
+        ),
+        header: (
+            top: (
+                background: #2c2c2e,
+                color: #e1e1e1
+            ),
+            middle: (
+                padding-top: 3rem,
+                padding-bottom: 3rem,
+                border-bottom: 1px solid #e1e1e1,
+            ),
+            bottom: (
+                border-bottom: 1px solid #e1e1e1,
+                font-size: 1.4rem,
+                font-family: $font-family,
+                color: #444
+            ),
+            login: (
+                label: (
+                    _gap: 0,
+                    margin-top: .8rem   
+                ),
+                icon: (
+                    font-size: 1.2rem
+                )
+            ),
+            wishlist: (
+                label: (
+                    margin-top: .8rem
+                )
+            ),
+            search: (
+                toggle: (
+                    padding: 1.6rem 0
+                )
+            ),
+            cart: (
+                icon: (
+                    color: false
+                )
+            ),
+            mmenu-toggle: (
+                color: #444
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 2rem 0,
+                font-weight: 600,
+                font-size: 1.4rem
+            )
+        ),
+        product: (
+            rating: (
+                _star-color: #fec348
+            ),
+            label: (
+                new: (
+                    background: $secondary-color
+                ),
+                sale: (
+                    background: $primary-color
+                )
+            )
+        ),
+        post: (
+            body: (
+                padding: 1.9rem 0 1.5rem
+            ),
+            info: (
+                margin-bottom: .7rem
+            ),
+            title: (
+                margin-bottom: 1.5rem,
+                font-family: $second-font-family,
+                font-size: 1.4rem,
+                letter-spacing: 0
+            ),
+            btn: (
+                _icon-gap: .7rem
+            )
+        ),
+        footer: (
+            middle: (
+                padding-top: 4.3rem,
+                letter-spacing: -.015em,
+                widget: (
+                    margin-bottom: 2.6rem
+                )
+            ),
+            social-link: (
+                line-height: 28px,
+                border: 1px solid #999,
+            )
+        )
+    )
+)

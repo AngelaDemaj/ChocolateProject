@@ -1,0 +1,33 @@
+﻿@model Chocolate.DataAccess.ViewModels.RoleViewModel
+
+@{
+    ViewData["Title"] = "Edit Role";
+}
+
+<h1>Edit Role</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-2">
+                    <form asp-action="EditRole">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" asp-for="Name">Role Name</label>
+                            <div class="col-md-12">
+                                <input asp-for="Name" class="form-control">
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Submit</button>
+                        <a asp-action="RoleIndex" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

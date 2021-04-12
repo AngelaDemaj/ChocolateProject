@@ -1,0 +1,81 @@
+@charset 'UTF-8';
+
+/*
+1. config
+2. mixins
+3. plugins
+4. base
+5. components
+6. header
+7. footer
+8. pages
+9. demo
+*/
+
+
+/* 1. config */
+@import '../../config/variables';
+
+//Color
+$primary-color: #d26e4b;
+$secondary-color: #333;
+$second-font-family: Jost, $alt-font-family;
+$font-family: Jost, $alt-font-family;
+
+/* 2. mixins */
+@import '../../mixins/breakpoints';
+@import '../../mixins/core';
+@import '../../mixins/buttons';
+
+// Demo Variables
+@import 'demo6_config';
+
+/* 3. plugins */
+@import '../../components/slider';
+
+/* 4. base */
+@import '../../base/base';
+@import '../../base/helper';
+@import '../../base/type';
+@import '../../base/layout';
+@import '../../base/grid';
+@import '../../base/spacing';
+
+/* 5, components */
+@import '../../components/animation';
+@import '../../components/alerts';
+@import '../../components/banners';
+@import '../../components/buttons';
+@import '../../components/comments';
+@import '../../components/font-icons';
+@import '../../components/forms';
+@import '../../components/icons';
+@import '../../components/icon-boxes';
+@import '../../components/minipopup';
+@import '../../components/overlay';
+@import '../../components/page-header';
+@import '../../components/pagination';
+@import '../../components/popups';
+@import '../../components/products';
+@import '../../components/product-single';
+@import '../../components/sidebar';
+@import '../../components/sidebar-shop';
+@import '../../components/social-icons';
+@import '../../components/tabs';
+@import '../../components/titles';
+@import '../../components/tooltip';
+@import '../../components/widgets';
+
+/* 6. header */
+@import '../../base/header/header';
+@import '../../base/header/dropdown';
+@import '../../base/header/menu';
+
+/* 7. footer */
+@import '../../base/footer/footer';
+
+/* 8. Pages */
+@import '../../pages/product-single';
+
+/* 8. Demos */
+@import 'demo6_custom';

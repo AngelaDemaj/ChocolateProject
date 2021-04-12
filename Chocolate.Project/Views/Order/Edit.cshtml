@@ -1,0 +1,189 @@
+﻿@using Chocolate.DataAccess.Models.Enums
+@model Chocolate.DataAccess.ViewModels.OrderViewModel
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h2>Edit Order</h2>
+<hr />
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-box">
+            <div class="p-2">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <form asp-action="Edit">
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label" asp-for="PaymentType">Type of Payment</label>
+                        <div class="col-md-10">
+                            <select asp-for="PaymentType" class="form-control" asp-items="Html.GetEnumSelectList<PaymentType>()"></select>
+                        </div>
+                        <span asp-validation-for="PaymentType" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label" asp-for="OrderPlaced">Order Placed</label>
+                        <div class="col-md-10">
+                            <input asp-for="OrderPlaced" class="form-control">
+                        </div>
+                        <span asp-validation-for="OrderPlaced" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label" asp-for="OrderFulfilled">Order Fulfilled</label>
+                        <div class="col-md-10">
+                            <input asp-for="OrderFulfilled" class="form-control">
+                        </div>
+                        <span asp-validation-for="OrderFulfilled" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label" asp-for="CustomerId">Customer</label>
+                        <div class="col-md-10">
+                            <select asp-for="CustomerId" class="form-control" asp-items="@(new SelectList(Model.Customers,"Id","LastName"))"></select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-bordered-primary waves-effect  width-md waves-light">Save</button>
+                    <!-- Button trigger to view the products modal -->
+                    <button type="button" class="btn btn-bordered-primary waves-effect  width-md waves-light" data-toggle="modal" data-target="#viewProducts" data-animation="blur">
+                        View Products
+                    </button>
+                    <a asp-action="Index" class="btn btn-lighten-primary waves-effect waves-primary width-md">Back to List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Products Modal -->
+<div class="modal fade bs-example-modal-xl" id="viewProducts" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myExtraLargeModalLabel">Products</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <table id="shelf-datatable" class="table table-bordered table-bordered dt-responsive nowrap">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderProducts)
+                        {
+
+                            <tr>
+                                <td>@item.Product.Name</td>
+                                <td>@item.Quantity</td>
+                                <td>
+                                    <input id="btnDeleteProduct" productId="@item.ProductId" type="submit" value="Delete" class="btn btn-bordered-danger waves-effect  width-md waves-light">
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+                <!-- Button to trigger add product modal -->
+                <button type="button" class="align-content-center btn btn-success" data-toggle="modal" data-dismiss="modal" data-target="#addProduct">
+                    Add Product
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal fade" id="addProduct" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add a product to the order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card-box">
+                                <div class="p-2">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <form asp-action="Edit">
+
+                                        <div class="form-group row">
+                                            <label asp-for="Quantity" class="col-md-2 col-form-label">Quantity</label>
+                                            <div class="col-md-10">
+                                                <input type="number" asp-for="Quantity" class="form-control" />
+                                            </div>
+                                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label" asp-for="ProductId">Product</label>
+                                            <div class="col-md-10">
+                                                <select asp-for="ProductId" class="form-control" asp-items="@(new SelectList(Model.AllProducts,"Id","Name"))"></select>
+                                            </div>
+                                            <span asp-validation-for="ProductId" class="text-danger"></span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProducts" data-dismiss="modal">Close</button>
+                <button type="button" id="btnSave" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        $('#btnSave').click(function() {
+            var orderId = @Model.Id;
+            var quantity = $('#Quantity').val();
+            var selectedProduct = $('#ProductId').val();
+
+            $.ajax({
+                type: "POST",
+                url: "/api/orders",
+                data: JSON.stringify({ 'productId': selectedProduct, 'orderId': orderId, 'quantity': quantity }),
+                dataType: "json",
+                contentType: "application/json"
+            });
+
+        });
+        $('[id=btnDeleteProduct]').click(function() {
+            var orderId = @Model.Id;
+            var quantity = $('#Quantity').val();
+            var selectedProduct = this.getAttribute("productId");
+
+            $.ajax({
+                type: "Delete",
+                url: "/api/orders",
+                data: JSON.stringify({ 'productId': selectedProduct, 'orderId': orderId, 'quantity': quantity }),
+                dataType: "json",
+                contentType: "application/json"
+            });
+
+        });
+        $(document).ajaxStop(function(){
+            window.location.reload();
+        });
+    </script>
+
+}

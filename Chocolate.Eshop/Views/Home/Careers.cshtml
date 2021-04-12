@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Careers";
+}
+
+@section Styles{
+
+}
+<style>
+    .image{
+        min-height:420px;
+    }
+    .position{
+        color:white;
+    }
+    .position:hover{
+        color:grey
+    }
+</style>
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Join The Lozan Family</h1>
+        </div>
+        <div class="page-content mt-10 pt-7">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="title mb-lg-9">Family Business</h2>
+                    <div class="row mb-10">
+                        <div class="col-md-6">
+                            <img class="w-100 mb-4 appear-animate"
+                                 data-animation-options="{'name':'fadeInLeftShorter'}"
+                                 src="~/images/Chocolatephotos/Careers/Handshake.jpg" alt="Lozan Business" width="587" height="517"
+                                 style="position: sticky; top: 3rem; margin-top: 75px; ">
+                        </div>
+                        <div class="col-md-6 order-md-first pt-md-5">
+                            <p class="text-grey mb-0">Why work for us?</p>
+                            <h5 class="lh-1 ls-m">
+                                Join the Lozan team today. An ever-growing family of chocolate enthusiasts.
+                            </h5>
+                            <p class="font-primary font-weight-semi-bold">
+                                The entire Lozan chocolate production is handled by a single granny that is being held captive against her will in one of our classified basements.
+                                We still need your help with managing the final products, expanding our already beautiful E-Shop or, if you are good with numbers, help us do our taxes.
+                            </p>
+                            <p class="font-primary font-weight-semi-bold">
+                                What we offer you in return is a very friendly work environment, competitive salary and the chance to grow inside the company. Did we mention
+                                that we also provide our employees with free* chocolate?
+                            </p>
+                            <p style="font-size:8px; position:absolute; bottom:20px">
+                                *The first bar of chocolate during lunch is on the house, the rest are subtracted from your paycheck.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End About Section-->
+
+            <section class="team-section pt-10 pb-9">
+                <div class="container">
+                    <h2 class="title mt-2">Career Options</h2>
+                    <div class="row cols-sm-2 cols-md-4">
+                        <div class="member appear-animate" data-animation-options="{'name': 'fadeInLeftShorter'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/Careers/Sales.jpg" class="image" alt="team member" width="280" height="280">
+                            </figure>
+                            <h4 class="member-name">Sales</h4>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.3s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/Careers/Eshop.jpg" class="image" alt="team member" width="280" height="280">
+                            </figure>
+                            <h4 class="member-name">E-Shop</h4>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.4s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/Careers/HR.jpg" class="image" alt="team member" width="280" height="280">
+                            </figure>
+                            <h4 class="member-name">Human Resources</h4>
+                        </div>
+                        <div class="member appear-animate"
+                             data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
+                            <figure>
+                                <img src="~/images/Chocolatephotos/Careers/Warehouse.jpg" class="image" alt="team member" width="280" height="280">
+                            </figure>
+                            <h4 class="member-name">Procurement</h4>
+                        </div>
+                    </div>
+                    <h2 class="title mt-2"><a asp-controller="Position" asp-action="Index">Click Here to Browse</a></h2>
+                </div>
+            </section>
+            <!-- End Team Section -->
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+    }
+</body>

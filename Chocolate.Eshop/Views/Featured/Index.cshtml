@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Chocolate.DataAccess.ViewModels.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Featured";
+}
+
+@section Styles{
+
+}
+<body>
+    <main class="main">
+        <div class="page-header" style="background-image: url('/images/Chocolatephotos/Header-backdrop.jfif'); backdrop-filter: blur(50px);">
+            <h1 class="page-title text-white">Lozan Spring Catalog 2021</h1>
+        </div>
+        <div class="page-content mb-10">
+            <div class="container-fluid">
+                <section class="container mt-10 pt-3 appear-animate">
+                    <h2 class="title title-simple">Featured Collection</h2>
+                    <div class="owl-carousel owl-theme row cols-lg-4 cols-md-3 cols-2" data-owl-options="{
+                        'items': 4,
+                        'nav': false,
+                        'dots': true,
+                        'margin': 20,
+                        'loop': false,
+                        'responsive': {
+                            '0': {
+                                'items': 2
+                            },
+                            '768': {
+                                'items': 3
+                            },
+                            '992': {
+                                'items': 4
+                            }
+                        }
+                    }">
+                        @foreach (var product in Model)
+                        {
+                            <div class="product product-classic appear-animate" data-animation-options="{
+                            'name': 'fadeInRightShorter',
+                            'delay': '.5s'
+                        }">
+                                <figure class="product-media">
+                                    <a href="@Url.Action("View","Product", new { id=product.Id})">
+                                        <img src="@product.ImageString" alt="product" width="280"
+                                             height="315">
+                                    </a>
+                                    <div class="product-label-group">
+                                        <label class="product-label label-new">new</label>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+
+                                    <h3 class="product-name">
+                                        <a href="@Url.Action("View", "Product", new { id = product.Id})">@product.Name</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">@product.Price.ToString("0.00") &euro;</span>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" id="@product.Id" class="btn-product btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    @section Scripts{
+        <!-- Plugins JS File -->
+        <script src="vendor/jquery.count-to/jquery.count-to.min.js"></script>
+    }
+</body>

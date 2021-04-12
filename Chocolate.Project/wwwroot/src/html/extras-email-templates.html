@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @@include("partials/title-meta.html", {"title": "Email Templates"})
+
+        @@include("partials/head-css.html")
+
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            @@include('./partials/topbar.html', {"pagetitle": "Email Templates"})
+
+            @@include('./partials/left-sidebar.html')
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h4 class="mb-3 header-title">Basic action email</h4>
+                                            <a href="email-templates-action.html" target="_blank"> <img src="assets/images/email/1.png" class="img-fluid" alt=""> </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h4 class="mb-3 header-title">Email alert</h4>
+                                            <a href="email-templates-alert.html" target="_blank"> <img src="assets/images/email/2.png" class="img-fluid" alt=""> </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h4 class="mb-3 header-title">Billing email</h4>
+                                            <a href="email-templates-billing.html" target="_blank"> <img src="assets/images/email/3.png" class="img-fluid" alt=""> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        
+                    </div> <!-- container-fluid -->
+
+                </div> <!-- content -->
+
+                @@include('./partials/footer.html')
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+        </div>
+        <!-- END wrapper -->
+
+        @@include('./partials/right-sidebar.html')
+
+        <!-- Vendor js -->
+        <script src="assets/js/vendor.min.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.min.js"></script>
+        
+    </body>
+</html>

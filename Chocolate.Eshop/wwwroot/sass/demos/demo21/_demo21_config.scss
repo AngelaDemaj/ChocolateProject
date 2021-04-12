@@ -1,0 +1,85 @@
+/* 
+Demo 21 Variables
+*/
+@include set(
+	(
+		base: (
+			title: (
+				font-size: 2rem,
+				letter-spacing: 0
+			),
+			page-wrapper: (
+				margin-left: 60px
+			)
+		),
+		product: (
+			body: (
+				padding-top: 1.8rem,
+				padding-bottom: 0
+			)
+		),
+		post: (
+			body: (
+				padding: 1.9rem 0 1.5rem,
+			),
+			info: (
+				margin-bottom: .7rem
+			),
+			title: (
+				text-transform: none,
+				margin-bottom: 1.5rem,
+				padding-left: 2px,
+				font-family: $second-font-family,
+				font-size: 1.4rem,
+				letter-spacing: 0,
+			)
+		),
+		footer: (
+			middle: (
+				padding: 4.6rem 0 0,
+				letter-spacing: -.016em,
+				widget: (
+					margin-bottom: 3.3rem,
+					title: (
+						margin-bottom: 1.7rem,
+						letter-spacing: 0
+					),
+					body: (
+						padding: 1px 0 0
+					)
+				)
+			)
+		),
+		category-menu: (
+            background: transparent,
+            _item-active-color: $secondary-color,
+            ancestor: (
+				padding: 2.5rem 0,
+                text-transform: none,
+                color: #fff,
+				font-size: 1.4rem,
+				font-weight: 400,
+                font-family: $font-family,
+				border-bottom: 1px solid #2e2e2e,
+				_split-line: 1px solid rgba(255,255,255,.05),
+			),
+			icon: (
+				margin-right: 1.5rem,
+				font-size: 2.4rem,
+				color: inherit
+			),
+            submenu: (
+                padding: .5rem 0,
+                color: #fff
+            )
+		),
+		minipopup: (
+			area: (
+				left: 90px,
+			)
+		),
+		sidebar: (
+			_page-move: 170px
+		)
+	)
+)

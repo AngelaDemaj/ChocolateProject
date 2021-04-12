@@ -1,0 +1,82 @@
+/*
+Demo 13 Variables
+*/
+@include set(
+    (
+        base: (
+            title: (
+                font-size: 1.6rem,
+                font-weight: 700,
+                letter-spacing: -.025em,
+                line-height: 1.75,
+                color: #444
+            )
+        ),
+        header: (
+            middle: (
+                color: #fff,
+                font-size: 1.3rem,
+                font-weight: 600,
+                background: transparent,
+                logo: (
+                    margin-right: 3.6rem
+                )
+            ),
+            wishlist: (
+                label: (
+                    text-transform: uppercase,
+                    _gap: .8rem,
+                ),
+                icon: (
+                    margin-top: -2px,
+                    font-size: 2.1rem,
+                )
+            ),
+            login: (
+                icon: (
+                    font-size: 1.9rem
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                font-weight: 600
+            )
+        ),
+        product: (
+            label: (
+                new: (
+                    background: $secondary-color
+                ),
+                sale: (
+                    background: $primary-color
+                )
+            ),
+            price: (
+                color: $primary-color
+            ),
+            body: (
+                padding-bottom: 0
+            )
+        ),
+        post: (
+            title: (
+                margin-bottom: 1.3rem,
+                font-family: $second-font-family,
+                font-weight: 400,
+                letter-spacing: 0,
+                text-transform: none,
+                line-height: 1.5,
+                font-size: 1.6rem,
+                color: #444
+            ),
+            content: (
+                margin-bottom: 2.1rem,
+                _row-count: 3
+            ),
+            btn: (
+                _icon-gap: .6rem
+            )
+        )
+    )
+)
